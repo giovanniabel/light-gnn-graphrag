@@ -37,10 +37,19 @@ def pool_size_for(cfg, dataset: str) -> int:
     and uses 14 to clear the Section 3.1 recall gate. Falls back to the legacy
     single `pool_size` when `pool_sizes` is absent.
     """
-    sizes = cfg["data"].get("pool_sizes")
-    if sizes and dataset in sizes:
+    sizes = cfg["data"].get("pool_sizes") or {}
+    if dataset in sizes:
         return int(sizes[dataset])
-    return int(cfg["data"]["pool_size"])
+    legacy = cfg["data"].get("pool_size")
+    if legacy is not None:
+        return int(legacy)
+    # Neither a per-dataset size nor the legacy key. Fail with the dataset name
+    # rather than a bare KeyError on an internal config key: the usual cause is a
+    # mistyped or empty dataset argument, and the old message pointed at the config.
+    raise KeyError(
+        f"no pool size configured for dataset {dataset!r}; "
+        f"graph.data.pool_sizes has {sorted(sizes)}"
+    )
 
 
 # ---------------------------------------------------------------- gold blinding

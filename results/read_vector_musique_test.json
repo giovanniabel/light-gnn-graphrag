@@ -1,0 +1,17 @@
+{
+  "method": "vector",
+  "dataset": "musique",
+  "mode": "test",
+  "n": 10,
+  "n_validation_total": 150,
+  "median_s": 0.6789354584998364,
+  "mean_s": 0.6849168499997177,
+  "p95_s": 0.9567866659999709,
+  "tokens_per_question_mean": 577.0,
+  "em": 0.6,
+  "f1": 0.6333333333333333,
+  "peak_tree_rss_mb": 1542.71875,
+  "delta_rss_mb": 164.640625,
+  "swap_growth_mb": 0.0,
+  "invalidated_by_swap": false
+}

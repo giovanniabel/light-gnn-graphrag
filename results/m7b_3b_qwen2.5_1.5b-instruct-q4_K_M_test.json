@@ -1,0 +1,28 @@
+{
+  "tag": "qwen2.5:1.5b-instruct-q4_K_M",
+  "mode": "test",
+  "datasets": {
+    "musique": {
+      "n": 10,
+      "median_s": 1.4575557080006547,
+      "tokens_per_question_mean": 1016.5,
+      "sp_recall4": 0.7583333333333333,
+      "allgold4": 0.5,
+      "peak_tree_rss_mb": 1882.953125,
+      "swap_growth_mb": 0.0,
+      "invalidated_by_swap": false,
+      "n_subset_total": 30
+    },
+    "hotpotqa": {
+      "n": 10,
+      "median_s": 1.7296710419996089,
+      "tokens_per_question_mean": 1192.9,
+      "sp_recall4": 0.5,
+      "allgold4": 0.2,
+      "peak_tree_rss_mb": 1818.09375,
+      "swap_growth_mb": 0.0,
+      "invalidated_by_swap": false,
+      "n_subset_total": 30
+    }
+  }
+}

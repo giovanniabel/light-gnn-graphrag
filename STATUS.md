@@ -264,8 +264,8 @@ Low Power Mode off, `ollama ps` empty (`results/m7_env.json`).
 | GNN (graph-only) | 0.5500 | 0.240 | 0.252 | 0.6053 | 0.0600 |
 | GNN+Vector (RRF) | 0.6239 | 0.273 | 0.261 | 0.6053 | 0.0600 |
 | PPR+Vector (RRF) | 0.6167 | 0.267 | 0.252 | 0.4933 | 0.0400 |
-| GNN+hybrid-tail | 0.5500 | 0.240 | 0.252 | 0.6053 | 0.0600 |
-| PPR+hybrid-tail | 0.5506 | 0.240 | 0.234 | 0.4933 | 0.0400 |
+| GNN+hybrid-tail *(≡ GNN by construction)* | 0.5500 | 0.240 | 0.252 | 0.6053 | 0.0600 |
+| PPR+hybrid-tail *(≡ PPR by construction)* | 0.5506 | 0.240 | 0.234 | 0.4933 | 0.0400 |
 | Stacked (D19) | 0.6533 | 0.293 | 0.279 | 0.6053 | 0.0600 |
 | LLM-Trace (1.5B) | 0.6433 | 0.300 | — | — | — |
 | **ceiling (graph methods)** | — | **0.380** | — | — | **0.293** |
@@ -280,8 +280,8 @@ Low Power Mode off, `ollama ps` empty (`results/m7_env.json`).
 | GNN (graph-only) | 0.7500 | 0.567 | 0.567 | 0.7487 | 0.1533 |
 | GNN+Vector (RRF) | 0.8433 | 0.713 | 0.713 | 0.7487 | 0.1533 |
 | PPR+Vector (RRF) | 0.8367 | 0.693 | 0.693 | 0.5493 | 0.1400 |
-| GNN+hybrid-tail | 0.7500 | 0.567 | 0.567 | 0.7487 | 0.1533 |
-| PPR+hybrid-tail | 0.7067 | 0.533 | 0.533 | 0.5493 | 0.1400 |
+| GNN+hybrid-tail *(≡ GNN by construction)* | 0.7500 | 0.567 | 0.567 | 0.7487 | 0.1533 |
+| PPR+hybrid-tail *(≡ PPR by construction)* | 0.7067 | 0.533 | 0.533 | 0.5493 | 0.1400 |
 | Stacked (D19) | 0.8900 | 0.793 | 0.793 | 0.7487 | 0.1533 |
 | LLM-Trace (1.5B) | 0.6200 | 0.367 | — | — | — |
 | **ceiling (graph methods)** | — | **0.993** | — | — | **0.500** |
@@ -298,8 +298,8 @@ Low Power Mode off, `ollama ps` empty (`results/m7_env.json`).
 | GNN (graph-only) | 43.8 | 83.3 | 38.9 | 4.34 | 852 | +599 | 0 |
 | GNN+Vector (RRF) | 44.0 | 88.2 | 37.8 | 4.91 | 872 | +618 | 0 |
 | PPR+Vector (RRF) | 38.7 | 70.9 | 35.8 | 1.60 | 822 | +569 | 0 |
-| GNN+hybrid-tail | 44.5 | 89.7 | 38.7 | 4.89 | 875 | +622 | 0 |
-| PPR+hybrid-tail | 40.1 | 122.7 | 36.3 | 1.78 | 818 | +564 | 0 |
+| GNN+hybrid-tail *(≡ GNN by construction)* | 44.5 | 89.7 | 38.7 | 4.89 | 875 | +622 | 0 |
+| PPR+hybrid-tail *(≡ PPR by construction)* | 40.1 | 122.7 | 36.3 | 1.78 | 818 | +564 | 0 |
 | Stacked (D19) | 48.0 | 87.5 | 39.7 | 6.50 | 882 | +629 | 0 |
 | LLM-Trace (1.5B) | 1573 | 2051 | — | — | 3234 | +1411 | 1101 |
 
@@ -313,8 +313,8 @@ Low Power Mode off, `ollama ps` empty (`results/m7_env.json`).
 | GNN (graph-only) | 35.6 | 105.6 | 30.9 | 4.28 | 850 | +598 | 0 |
 | GNN+Vector (RRF) | 38.2 | 101.6 | 30.5 | 5.73 | 865 | +613 | 0 |
 | PPR+Vector (RRF) | 29.0 | 75.4 | 26.6 | 1.70 | 810 | +558 | 0 |
-| GNN+hybrid-tail | 37.1 | 94.6 | 30.7 | 5.39 | 869 | +617 | 0 |
-| PPR+hybrid-tail | 29.1 | 76.6 | 26.7 | 1.64 | 813 | +561 | 0 |
+| GNN+hybrid-tail *(≡ GNN by construction)* | 37.1 | 94.6 | 30.7 | 5.39 | 869 | +617 | 0 |
+| PPR+hybrid-tail *(≡ PPR by construction)* | 29.1 | 76.6 | 26.7 | 1.64 | 813 | +561 | 0 |
 | Stacked (D19) | 38.3 | 95.2 | 30.4 | 6.68 | 871 | +619 | 0 |
 | LLM-Trace (1.5B) | 1764 | 2143 | — | — | 2472 | +660 | 1232 |
 
@@ -323,17 +323,52 @@ All nine LLM-free methods recorded **+0 MB swap growth** — no stage invalidate
 after being redone one dataset per process; see D21). Its latency is reported as
 indicative: three independent runs agree within 13–23% (1.57–1.77 s MuSiQue,
 1.76–2.16 s HotpotQA), and the smoke run with **zero** swap growth sits inside that
-range, so the ~35–50× C3 margin is not an artefact. Edge-Sim's 583/674 ms is
-dominated by ~400 sharded-cache lookups per question, an artefact of the cache
-layout rather than the method.
+range, so the ~35–50× C3 margin is not an artefact. Edge-Sim's latency was **re-measured** after preloading
+its edge-text embeddings before the timed stage: **583.5 → 10.6 ms** (MuSiQue) and
+**674.3 → 6.2 ms** (HotpotQA). The original figure was ~98% sharded-cache I/O, not
+the method. Its metrics are byte-identical across the two runs, as a deterministic
+method must be; only the timing changed. The tables below carry the corrected
+latency.
+
+
+### Follow-up CIs computed from the saved per-question files (no model re-run)
+
+**GNN vs LLM-Trace.** The GNN is significantly *worse* on SP-Recall@4 on MuSiQue
+(−0.093 [−0.143, −0.046] uncond; −0.071 [−0.123, −0.017] cond) and significantly
+*better* on HotpotQA (+0.130 [+0.067, +0.190]). On AllGold@4 the MuSiQue difference
+includes zero and straddles C3's margin; HotpotQA is +0.200 [+0.107, +0.293].
+
+**GNN vs the graph baselines on Edge-Precision@10 — four CIs, all excluding zero:**
+
+| | MuSiQue | HotpotQA |
+| :-- | :-- | :-- |
+| GNN − PPR | **+0.112 [+0.059, +0.168]** | **+0.199 [+0.146, +0.254]** |
+| GNN − Edge-Sim | **+0.129 [+0.068, +0.190]** | **+0.063 [+0.010, +0.113]** |
+| GNN − PPR (Path-Recall) | +0.020 [−0.007, +0.053] | +0.013 [−0.033, +0.060] |
+| GNN − Edge-Sim (Path-Recall) | −0.013 [−0.047, +0.020] | −0.033 [−0.087, +0.013] |
+
+**How this changes C2.** The pre-registered verdict **does not change — it stays
+INCONCLUSIVE** — because §1.1 pins C2 to AllGold@4, where GNN − PPR includes zero
+on both datasets. But the claim's *substance* ("graph structure and learning both
+matter") now has direct validation support at the edge level: the GNN beats the
+non-learned graph scorer **and** the no-graph edge scorer on Edge-Precision@10 on
+both datasets, with all four CIs excluding zero, alongside the CV `L=0` result
+(−0.071/−0.098 edge AP). The honest summary is that **C2 was registered on the
+wrong metric for what it asserts**: the effect is real and measurable one level
+below where the claim looks for it. Path-Recall shows no difference between any
+graph method.
+
+**Edge AP is not reported on validation**: per-edge scores and labels were not
+saved, and the GNN's would need a model forward, so it is not recoverable from the
+saved files. The CV edge-AP figures stand as the train-side evidence.
 
 ### C1–C4 verdicts (pre-registered §1.1; C1 has D15's two rows, tested on D4-conditional)
 
 | claim | verdict | evidence |
 | :-- | :-- | :-- |
 | **C1** | **NOT SUPPORTED** | (a) graph-only vs Vector RAG, conditional: MuSiQue **+0.000** [−0.090, +0.090] (a dead tie, n=111); HotpotQA **−0.227** [−0.320, −0.127], significantly worse. (b) matched pair GNN+Vec − PPR+Vec: +0.009 [−0.018, +0.045] and +0.020 [−0.040, +0.080] — no gain whose CI excludes zero. |
-| **C2** | **INCONCLUSIVE** | GNN − PPR on AllGold@4 includes zero on both (MuSiQue +0.018 [−0.036, +0.072] cond; HotpotQA +0.033 [−0.040, +0.107]). But Edge-Precision@10 is 0.605 vs 0.493 and 0.749 vs 0.549, and CV edge-AP CIs excluded zero, with `L=0` costing −0.071/−0.098. Learning clearly helps **edge scoring**; it does not reach the AllGold@4 metric C2 was registered on. |
-| **C3** | **SUPPORTED on HotpotQA, NOT SUPPORTED on MuSiQue** | Half 1 (cost): **35.9×** and **49.6×** cheaper than LLM-Trace, and **0** query-time LLM tokens by construction — passes on both. Half 2 (quality): MuSiQue GNN is **6.0 points below** LLM-Trace (outside the 3-point tolerance, CI −0.060 [−0.133, +0.007]); HotpotQA GNN is **20.0 points above** (CI +0.200 [+0.107, +0.293]). |
+| **C2** | **INCONCLUSIVE as registered** (see below) | GNN − PPR on AllGold@4 includes zero on both (MuSiQue +0.018 [−0.036, +0.072] cond; HotpotQA +0.033 [−0.040, +0.107]). But Edge-Precision@10 is 0.605 vs 0.493 and 0.749 vs 0.549, and CV edge-AP CIs excluded zero, with `L=0` costing −0.071/−0.098. Learning clearly helps **edge scoring**; it does not reach the AllGold@4 metric C2 was registered on. |
+| **C3** | **SUPPORTED on HotpotQA, INCONCLUSIVE on MuSiQue** (corrected, D23) | Half 1 (cost): **35.9×** and **49.6×** cheaper than LLM-Trace, **0** query-time LLM tokens by construction — passes on both. Half 2 (quality), testing the CI against the −3-point margin rather than the point estimate: MuSiQue **−0.060 [−0.133, +0.007]** unconditional and **−0.045 [−0.126, +0.036]** conditional (n=111) both **straddle** −0.03 → **INCONCLUSIVE**; HotpotQA **+0.200 [+0.107, +0.293]** lies entirely above the margin → **SUPPORTED**. |
 | **C4** | **SUPPORTED** | Peak process-tree RSS incl. Ollama **3,234 MB (3.16 GB)** < 6 GB, worst case being LLM-Trace. Covers indexing and routing only — the reader (M8) has not run. |
 
 **A 1.5B tracer is a weak LLM-Trace baseline** (§13), and the M7b 3B check that
@@ -341,11 +376,20 @@ would bound how much is the tracer versus the method was **not run**. C3's MuSiQ
 failure should be read with that in mind: the comparison it loses is against a
 baseline the spec itself flags as handicapped.
 
-**The stacker caveat:** D19's combiner was **fit on out-of-fold GNN scores** during
-CV but is **applied here to final-model GNN scores**, which are in-sample for the
-training questions the final models saw. This is the standard stacking mismatch; it
-can only flatter the stacked row, and that row ties Vector RAG (0.793) on HotpotQA
-and leads it by +0.027 on MuSiQue — neither CI excluding zero.
+**The stacker's OOF-vs-final mismatch, stated precisely.** The final GNN models
+never saw any validation question, so **their validation scores are out-of-sample
+and the stacked row is a legitimate out-of-sample result.** The mismatch is
+narrower than that: the D19 combiner's `gnn_score` feature was *fit* on
+out-of-fold scores from models trained on **~108 of 135** training questions (4/5
+folds minus the inner 10% early-stopping holdout), but at validation time that
+feature is produced by the **final** models, trained on **131 of 135**. So the
+feature the combiner sees at test time comes from slightly better-trained models
+than the ones it was calibrated against, and may be better calibrated or sharper.
+**The direction of that effect is not determined** — a weight fitted to noisier
+OOF scores could under- or over-weight sharper final-model scores — so no claim is
+made about which way it biases the stacked row. Two things bound it: the features
+are min-max normalized per question, which absorbs scale shifts, and the gap is
+108 vs 131 training questions, not OOF vs in-sample.
 
 **Two variants are inert by construction:** `GNN+hybrid-tail` is identical to `GNN`
 on every metric (likewise PPR), because the hybrid tail only reorders paragraphs
@@ -372,8 +416,8 @@ empty and the guard refuses the read without `--allow-validation`.
 | 4 | **GNN Router (graph-only)** | ours | C1 primary (a), shown next to its ceiling |
 | 5 | **GNN+Vector (RRF, k=60)** | matched hybrid | C1 primary (b) |
 | 6 | **PPR+Vector (RRF, k=60)** | matched control | C1 primary (b) |
-| 7 | **GNN+hybrid-tail** | secondary variant | labelled, never primary |
-| 8 | **PPR+hybrid-tail** | secondary variant | labelled, never primary |
+| 7 | **GNN+hybrid-tail** | secondary variant | **identical to GNN by construction** — inert at K=4 |
+| 8 | **PPR+hybrid-tail** | secondary variant | **identical to PPR by construction** — inert at K=4 |
 | 9 | **Stacked hybrid (D19)** | learned combiner | reported though it lost on CV |
 | 10 | **LLM-Trace (1.5B)** | needs Ollama | **DONE** (efficiency stage §7.3-invalid, D21) |
 | 11 | **LLM-Trace (3B)** | needs Ollama | **not run** — M7b optional, 60 questions |

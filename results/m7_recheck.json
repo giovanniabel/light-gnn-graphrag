@@ -1,0 +1,126 @@
+{
+  "musique": {
+    "allgold4_uncond": {
+      "point": -0.06,
+      "lo": -0.13333333333333333,
+      "hi": 0.00666666666666671,
+      "n_resamples": 10000,
+      "excludes_zero": false,
+      "gnn": 0.24,
+      "trace": 0.3,
+      "n": 150
+    },
+    "allgold4_cond": {
+      "point": -0.045045045045045085,
+      "lo": -0.12612612612612614,
+      "hi": 0.03603603603603606,
+      "n_resamples": 10000,
+      "excludes_zero": false,
+      "gnn": 0.25225225225225223,
+      "trace": 0.2972972972972973,
+      "n": 111
+    },
+    "sp_recall4_uncond": {
+      "point": -0.09333333333333327,
+      "lo": -0.1433333333333333,
+      "hi": -0.04555555555555568,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.55,
+      "trace": 0.6433333333333333,
+      "n": 150
+    },
+    "sp_recall4_cond": {
+      "point": -0.07057057057057048,
+      "lo": -0.12312312312312312,
+      "hi": -0.01726726726726724,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.5720720720720721,
+      "trace": 0.6426426426426426,
+      "n": 111
+    },
+    "c3_quality_uncond": "INCONCLUSIVE (CI straddles the margin)",
+    "c3_quality_cond": "INCONCLUSIVE (CI straddles the margin)",
+    "edgep10_vs_PPR": {
+      "point": 0.11199999999999993,
+      "lo": 0.05933333333333324,
+      "hi": 0.16799999999999998,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.6053333333333333,
+      "other": 0.49333333333333335
+    },
+    "edgep10_vs_Edge-Sim": {
+      "point": 0.1286666666666666,
+      "lo": 0.06799999999999995,
+      "hi": 0.19,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.6053333333333333,
+      "other": 0.4766666666666667
+    }
+  },
+  "hotpotqa": {
+    "allgold4_uncond": {
+      "point": 0.2,
+      "lo": 0.10666666666666663,
+      "hi": 0.29333333333333333,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.5666666666666667,
+      "trace": 0.36666666666666664,
+      "n": 150
+    },
+    "allgold4_cond": {
+      "point": 0.2,
+      "lo": 0.10666666666666663,
+      "hi": 0.29333333333333333,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.5666666666666667,
+      "trace": 0.36666666666666664,
+      "n": 150
+    },
+    "sp_recall4_uncond": {
+      "point": 0.13,
+      "lo": 0.06666666666666676,
+      "hi": 0.18999999999999995,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.75,
+      "trace": 0.62,
+      "n": 150
+    },
+    "sp_recall4_cond": {
+      "point": 0.13,
+      "lo": 0.06666666666666676,
+      "hi": 0.18999999999999995,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.75,
+      "trace": 0.62,
+      "n": 150
+    },
+    "c3_quality_uncond": "SUPPORTED (whole CI above the margin)",
+    "c3_quality_cond": "SUPPORTED (whole CI above the margin)",
+    "edgep10_vs_PPR": {
+      "point": 0.19933333333333336,
+      "lo": 0.1459999999999999,
+      "hi": 0.254,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.7486666666666667,
+      "other": 0.5493333333333333
+    },
+    "edgep10_vs_Edge-Sim": {
+      "point": 0.06266666666666665,
+      "lo": 0.010000000000000009,
+      "hi": 0.1133333333333334,
+      "n_resamples": 10000,
+      "excludes_zero": true,
+      "gnn": 0.7486666666666667,
+      "other": 0.686
+    }
+  }
+}

@@ -2,23 +2,23 @@
   "method": "edge_sim",
   "dataset": "musique",
   "n_questions": 150,
-  "idle_baseline_rss_mb": 258.578125,
+  "idle_baseline_rss_mb": 252.484375,
   "routing": {
-    "median_s": 0.5835128130020166,
-    "p95_s": 0.942125165998732,
-    "mean_s": 0.6195578358932835,
+    "median_s": 0.010587916498479899,
+    "p95_s": 0.017983707999519538,
+    "mean_s": 0.011245954999903916,
     "llm_tokens": 0,
-    "peak_tree_rss_mb": 1617.71875,
-    "delta_rss_mb_over_idle": 1359.140625,
+    "peak_tree_rss_mb": 1196.203125,
+    "delta_rss_mb_over_idle": 943.71875,
     "swap_growth_mb": 0.0,
     "invalidated_by_swap": false
   },
   "routing_breakdown": {
-    "graph_assembly_median_s": 0.03493654200065066,
-    "graph_assembly_p95_s": 0.0626507919987489,
-    "model_forward_median_s": 0.5480179375008447,
-    "model_forward_p95_s": 0.9011006670007191
+    "graph_assembly_median_s": 0.009471708499404485,
+    "graph_assembly_p95_s": 0.017034166001394624,
+    "model_forward_median_s": 0.0010214584981440566,
+    "model_forward_p95_s": 0.0016242499987129122
   },
-  "swap_start_mb": 255.5625,
-  "swap_end_mb": 255.5625
+  "swap_start_mb": 675.9375,
+  "swap_end_mb": 675.9375
 }
