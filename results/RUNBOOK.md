@@ -6,7 +6,7 @@ resolves the repo from its own location, uses `.venv/bin/python` directly, loads
 `.env` itself, and starts the Ollama server if it is not already running.
 
 ```bash
-cd /Users/giovanniabelchristian/program/personal_project/light-gnn-graphrag
+cd <project-root>
 ```
 
 Verified by running all three with a **completely emptied environment**

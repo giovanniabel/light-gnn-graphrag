@@ -1,0 +1,24 @@
+{
+  "musique": {
+    "n_train_subset": 135,
+    "pool_size": 14,
+    "paragraph_slots": 2100,
+    "slots_with_usable_triple": 2096,
+    "usable_triple_rate": 0.9980952380952381,
+    "no_usable_triple_rate": 0.0019047619047618536,
+    "hard_coverage_ceiling": 0.9980952380952381,
+    "ego_coverage_evidence_only": 0.8476190476190476,
+    "ego_coverage_any_edge": 0.8825396825396825
+  },
+  "hotpotqa": {
+    "n_train_subset": 135,
+    "pool_size": 10,
+    "paragraph_slots": 1500,
+    "slots_with_usable_triple": 1498,
+    "usable_triple_rate": 0.9986666666666667,
+    "no_usable_triple_rate": 0.0013333333333332975,
+    "hard_coverage_ceiling": 0.9986666666666667,
+    "ego_coverage_evidence_only": 0.994074074074074,
+    "ego_coverage_any_edge": 0.9948148148148149
+  }
+}

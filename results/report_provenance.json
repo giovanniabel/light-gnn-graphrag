@@ -1,0 +1,103 @@
+{
+  "T_comparisons": [
+    "m7a_report.json",
+    "m7_recheck.json",
+    "m8_emf1.json",
+    "m6_ablations.json",
+    "m6_compare.json",
+    "m6_stack.json"
+  ],
+  "T_retrieval_musique": [
+    "m7a_report.json",
+    "val_llm_trace_musique.jsonl"
+  ],
+  "T_retrieval_hotpotqa": [
+    "m7a_report.json",
+    "val_llm_trace_hotpotqa.jsonl"
+  ],
+  "T_buckets_musique": [
+    "m7a_report.json"
+  ],
+  "T_buckets_hotpotqa": [
+    "m7a_report.json"
+  ],
+  "T_reader": [
+    "m8_emf1.json"
+  ],
+  "T_reader_cis": [
+    "m8_emf1.json"
+  ],
+  "T_ablations": [
+    "m6_ablations.json"
+  ],
+  "T_grid": [
+    "m6_grid.json"
+  ],
+  "T_curve": [
+    "m6_curve.json"
+  ],
+  "T_connectivity": [
+    "m5_before_after_train.json"
+  ],
+  "T_stacker": [
+    "m6_stack.json",
+    "m6_stack_final.json"
+  ],
+  "T_efficiency": [
+    "m7_indexing_cost.json",
+    "val_vector_musique_stats.json",
+    "val_ppr_musique_stats.json",
+    "val_edge_sim_musique_stats.json",
+    "val_gnn_musique_stats.json",
+    "val_gnn_rrf_musique_stats.json",
+    "val_ppr_rrf_musique_stats.json",
+    "val_gnn_hybrid_tail_musique_stats.json",
+    "val_ppr_hybrid_tail_musique_stats.json",
+    "val_stacked_musique_stats.json",
+    "val_vector_hotpotqa_stats.json",
+    "val_ppr_hotpotqa_stats.json",
+    "val_edge_sim_hotpotqa_stats.json",
+    "val_gnn_hotpotqa_stats.json",
+    "val_gnn_rrf_hotpotqa_stats.json",
+    "val_ppr_rrf_hotpotqa_stats.json",
+    "val_gnn_hybrid_tail_hotpotqa_stats.json",
+    "val_ppr_hybrid_tail_hotpotqa_stats.json",
+    "val_stacked_hotpotqa_stats.json",
+    "m7c_llm_trace_musique_full.json",
+    "m7c_llm_trace_hotpotqa_full.json",
+    "read_vector_musique.json",
+    "read_ppr_musique.json",
+    "read_llm_trace_musique.json",
+    "read_gnn_musique.json",
+    "read_gnn_rrf_musique.json",
+    "read_stacked_musique.json",
+    "read_oracle_musique.json",
+    "read_vector_hotpotqa.json",
+    "read_ppr_hotpotqa.json",
+    "read_llm_trace_hotpotqa.json",
+    "read_gnn_hotpotqa.json",
+    "read_gnn_rrf_hotpotqa.json",
+    "read_stacked_hotpotqa.json",
+    "read_oracle_hotpotqa.json"
+  ],
+  "T_routing_scope": [
+    "m8_analysis.json"
+  ],
+  "T_llm_trace": [
+    "m7b_smoke.json",
+    "m7b_full_musique.json",
+    "m7b_full_hotpotqa.json",
+    "m7c_llm_trace_musique_full.json",
+    "m7c_llm_trace_hotpotqa_full.json",
+    "m8_analysis.json"
+  ],
+  "T_deviations": [
+    "../agent.md \u00a714"
+  ],
+  "T_validity": [
+    "m8_analysis.json"
+  ],
+  "T_three_b": [
+    "m8_emf1.json"
+  ]
+}
