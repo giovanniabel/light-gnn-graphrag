@@ -233,6 +233,65 @@ included), 3 seeds per dataset, 6 checkpoints in `results/checkpoints_final/`.
 MuSiQue 131 train + 15 stop-holdout; HotpotQA 135 + 15. **Validation was not
 evaluated — that is M7.**
 
+## Methods that will be scored on validation (M7)
+
+This is the complete list. Every variant that was evaluated appears here,
+including the ones that lost on development data (the rule in §4.1.1 / D19).
+Nothing below has touched validation yet — `results/validation_access.log` is
+empty and the guard refuses the read without `--allow-validation`.
+
+| # | method | kind | status |
+| :-- | :-- | :-- | :-- |
+| 1 | **Vector RAG** | baseline, no LLM | primary baseline |
+| 2 | **PPR** | non-learned graph | §5 |
+| 3 | **Edge-Sim** | no-graph edge ranker | §5 |
+| 4 | **GNN Router (graph-only)** | ours | C1 primary (a), shown next to its ceiling |
+| 5 | **GNN+Vector (RRF, k=60)** | matched hybrid | C1 primary (b) |
+| 6 | **PPR+Vector (RRF, k=60)** | matched control | C1 primary (b) |
+| 7 | **GNN+hybrid-tail** | secondary variant | labelled, never primary |
+| 8 | **PPR+hybrid-tail** | secondary variant | labelled, never primary |
+| 9 | **Stacked hybrid (D19)** | learned combiner | reported though it lost on CV |
+| 10 | **LLM-Trace (1.5B)** | needs Ollama | M7, Ollama phase |
+| 11 | **LLM-Trace (3B)** | needs Ollama | M7b, optional, 60 questions |
+| 12 | **Gold-paragraph oracle** | reader ceiling | M8 |
+
+**Not implemented, deliberately:** D20 (paragraph-aware GNN) — its gate closed.
+
+Checkpoints ready: 6 GNN models in `results/checkpoints_final/`
+(3 seeds × 2 datasets) and 2 stacker combiners (`stacker_musique.pkl`,
+`stacker_hotpotqa.pkl`).
+
+## D19 stacked hybrid — evaluated on train CV, does not beat Vector RAG
+
+Logistic regression over paragraph rows, features min-max normalized per
+question, fit under a second CV over the same fixed folds so the combiner never
+scores a question it was fit on; the GNN feature is already out-of-fold.
+
+| | MuSiQue | HotpotQA |
+| :-- | --: | --: |
+| SP-Recall@4 | 0.6883 | 0.8767 |
+| AllGold@4 (uncond) | 0.213 | 0.760 |
+| AllGold@4 (D4 cond) | 0.314 (102/150) | 0.760 (150/150) |
+| coefficient: **vector cosine** | **+3.08** | **+4.72** |
+| coefficient: GNN score | +0.75 | +1.94 |
+| coefficient: PPR score | +0.27 | −0.29 |
+
+| paired bootstrap | MuSiQue | HotpotQA |
+| :-- | :-- | :-- |
+| vs Vector RAG (AllGold@4) | -0.0133 [-0.0533, +0.0200] — includes 0 | +0.0267 [-0.0200, +0.0733] — includes 0 |
+| vs RRF pair (AllGold@4) | +0.0133 [-0.0467, +0.0733] — includes 0 | +0.1000 [+0.0333, +0.1667] — **excludes 0** |
+| vs RRF pair (SP-Recall@4) | +0.0494 [+0.0139, +0.0861] — **excludes 0** | +0.0533 [+0.0200, +0.0867] — **excludes 0** |
+
+Two things follow. **A learned combiner beats fixed-weight RRF** — significantly
+on SP-Recall@4 on both datasets — so D15's untuned `k=60` does leave value on the
+table. And **the graph score carries real signal**: the combiner gives it a weight
+of +0.75 / +1.94, not zero. But vector cosine outweighs it 4.1× and 2.4×, and the
+stack still does not beat vector similarity alone. That is the answer to the
+question D19 was built to ask.
+
+**D20 was therefore skipped**, which is what its gate specified: no CI excluded
+zero and the point estimates were not positive on both datasets.
+
 ## Open issues
 
 ### 1. C1 on MuSiQue is still not a fair fight on the unconditional metric

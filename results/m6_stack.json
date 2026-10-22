@@ -1,0 +1,1319 @@
+{
+  "features": [
+    "vector_cos",
+    "gnn_score",
+    "ppr_score"
+  ],
+  "config": {
+    "label": "lr0.001_dr0.3_wd0.1",
+    "lr": 0.001,
+    "dropout": 0.3,
+    "weight_decay": 0.1,
+    "score": 0.6367860896063162
+  },
+  "datasets": {
+    "musique": {
+      "sp_recall4": 0.6883333333333334,
+      "allgold4_uncond": 0.21333333333333335,
+      "allgold4_cond": 0.3137254901960784,
+      "n_cond": 102,
+      "n_all": 150,
+      "coef_mean": {
+        "vector_cos": 3.083366182580018,
+        "gnn_score": 0.747524619538521,
+        "ppr_score": 0.26513298717680733
+      },
+      "coef_sd": {
+        "vector_cos": 0.10280569857467958,
+        "gnn_score": 0.20973942704321455,
+        "ppr_score": 0.10584401542651543
+      },
+      "paired_bootstrap": {
+        "allgold4|stacked-vs-vector_rag": {
+          "point": -0.013333333333333364,
+          "lo": -0.053333333333333344,
+          "hi": 0.020000000000000018,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|stacked-vs-vector_rag": {
+          "point": -0.0038888888888888307,
+          "lo": -0.026666666666666616,
+          "hi": 0.018888888888888844,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|stacked-vs-ppr_plus_vector": {
+          "point": 0.013333333333333308,
+          "lo": -0.04666666666666669,
+          "hi": 0.07333333333333336,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|stacked-vs-ppr_plus_vector": {
+          "point": 0.04944444444444451,
+          "lo": 0.01388888888888895,
+          "hi": 0.08611111111111114,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      },
+      "per_question": {
+        "2hop__754806_7606": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__771620_317689_1286_19192": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__89126_11140": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__530421_126070": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__125161_146982_4653": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__375649_55607": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__618356_715233_91861_124556": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__447053_301282_65293_48285": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "4hop3__312602_629330_70123_63115": {
+          "sp_recall4": 0.25,
+          "allgold4": 0.0
+        },
+        "2hop__328329_42292": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__610368_20644": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__81865_106790_466282_70752": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__38130_8966_31714_69808": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__493923_300471_517772_62462": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "4hop2__144457_57411_1952_78767": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop1__107107_387516_145746": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__287488_499795_305851": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__83469_71250_135051": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "2hop__830271_686699": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__273568_47348": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop2__106350_56933_831253": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "4hop1__65021_74386_444296_179769": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop2__89818_221039_4107": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__709382_146811_24607": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__603090_818753_783943_21625": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "2hop__107516_80674": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop1__11290_74386_516763": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "3hop1__161789_66733_33264": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__22236_22239_462036": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__14045_93667_80004": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__387199_217649": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__4264_92106_6713": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__396846_400874": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__164419_608613_54405_4107": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__132470_449977": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__147165_548045_64745": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__296958_70763": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__71269_7756": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__30726_419844_38208_47237": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "2hop__61258_91789": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__576856_213066_8723": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__360025_745783_71511": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__159886_1286_19331": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__659125_39490_21987_831253": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__2675_5348": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__756618_691163_306302_65370": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__510694_89167": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__1706_56750_1891": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__522518_132413_16098": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__828190_475952_41885_856982": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop2__339729_20606_51791_75635": {
+          "sp_recall4": 0.25,
+          "allgold4": 0.0
+        },
+        "2hop__85036_26548": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__216722_57623": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__298484_100414_35260_54090": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__500925_715233_91861_124556": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__524030_829000_51791_52221": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__89787_28719_74386_516763": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__155787_497059_158847_37147": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop1__366739_106790_392305": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__166346_9522_41885_233357": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "2hop__27732_27737": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__579907_415728_50519_27157": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop3__145289_362455_28338_160498": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__780240_126055": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__38130_8966_31714_86138": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop1__353980_671680_35371": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop2__27358_63595_53125": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__156536_4697": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__376266_37939": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__778278_796114_30802_242202": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__101879_10079_503957_720028": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop1__105044_42691_217606": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__709382_146811_64190": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "3hop1__131452_548096_527472": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__400988_49441": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__49391_75897_8509_19700": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__66717_49700": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__71056_10984": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__488855_88978": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__60060_13787": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop1__75339_677201_90941": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop2__21987_103826_831253": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "3hop1__288125_233976_821513": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__370522_208194": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__16401_4520_65397_49736": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop1__457260_544161_33297": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "4hop1__524030_829000_51791_63911": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "2hop__70321_37771": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__69760_26424_581618": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__778278_796114_13235_242202": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop2__101276_81195_91861_124556": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "3hop2__280480_131592_606586": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__548614_104557_86736": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__443202_461200_68869_261712": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__143950_258760": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__55846_78573_48989": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__5752_362455_28338_160498": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "2hop__27723_27669": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop2__70826_18911_89217": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "2hop__820642_53116": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__9664_38788_25582_21116": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "3hop1__10001_48661_15069": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop3__838995_608613_5529_4107": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop1__676557_809999_533791": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__109402_598257": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__858308_102146_90553": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "4hop3__566317_578030_177838_41384": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "4hop1__14045_93667_695397_82365": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__51024_92033": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__107208_123863": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__205911_280480_160165_606586": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop2__107261_162189_73761": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__408876_252578_41113": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__107379_43178": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__84141_832457": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__11230_11179": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "3hop1__248914_740624_45358": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop3__106705_38788_25582_21116": {
+          "sp_recall4": 0.25,
+          "allgold4": 0.0
+        },
+        "3hop1__74698_99741_85374": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "4hop1__61078_374524_375457_49140": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__239092_488956_88978": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__791841_83854": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__197577_608613_83398_4107": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__479193_22384": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop3__323263_38788_25582_21116": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__771620_317689_1286_19161": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop2__14750_46089_86234": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__14045_93667_695397_20634": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__296445_632690_39733": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "2hop__236320_88978": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "3hop1__722031_291186_4303": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__276355_652332_84045": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__613350_185893": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__102699_10079_503957_720028": {
+          "sp_recall4": 0.75,
+          "allgold4": 0.0
+        },
+        "3hop1__144455_6975_6832": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__136299_159891_78184": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__45304_18221": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__2747_2913": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__26407_74218": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__828190_475952_375457_49140": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "2hop__578552_60047": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "2hop__200704_75671": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__45528_390458": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__38130_8966_31714_11672": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "2hop__102225_58946": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "4hop1__395248_534205_81195_43805": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__70145_229859_5303": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "4hop1__709382_146811_31223_24534": {
+          "sp_recall4": 0.3333333333333333,
+          "allgold4": 0.0
+        },
+        "3hop1__136299_159891_86976": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        },
+        "3hop1__386188_43572_372338": {
+          "sp_recall4": 0.6666666666666666,
+          "allgold4": 0.0
+        }
+      }
+    },
+    "hotpotqa": {
+      "sp_recall4": 0.8766666666666667,
+      "allgold4_uncond": 0.76,
+      "allgold4_cond": 0.76,
+      "n_cond": 150,
+      "n_all": 150,
+      "coef_mean": {
+        "vector_cos": 4.71876081433665,
+        "gnn_score": 1.941387604414367,
+        "ppr_score": -0.29029789834201064
+      },
+      "coef_sd": {
+        "vector_cos": 0.16963824560308052,
+        "gnn_score": 0.1634574370948001,
+        "ppr_score": 0.22663926408123145
+      },
+      "paired_bootstrap": {
+        "allgold4|stacked-vs-vector_rag": {
+          "point": 0.026666666666666727,
+          "lo": -0.020000000000000018,
+          "hi": 0.07333333333333336,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|stacked-vs-vector_rag": {
+          "point": 0.01333333333333342,
+          "lo": -0.010000000000000009,
+          "hi": 0.036666666666666736,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|stacked-vs-ppr_plus_vector": {
+          "point": 0.09999999999999998,
+          "lo": 0.033333333333333326,
+          "hi": 0.16666666666666674,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "sp_recall4|stacked-vs-ppr_plus_vector": {
+          "point": 0.053333333333333344,
+          "lo": 0.019999999999999907,
+          "hi": 0.08666666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      },
+      "per_question": {
+        "5a790e7855429970f5fffe3d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae0bd8b5542993d6555ec2e": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8c7a68554299585d9e36bd": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab63a6c5542995eadeeff82": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a906ee95542990a98493653": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a81e20e55429926c1cdadae": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae1332a55429920d5234309": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab9515755429970cfb8ea51": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adf514b5542993a75d264bb": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5aba8618554299232ef4a322": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a761df255429976ec32bd18": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae69eef55429908198fa669": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae011cc55429906c02daabe": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7e23c155429965cec5ea95": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7a050c5542996c55b2dcd9": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a81eb8a55429926c1cdadc2": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ac519ea5542994611c8b38d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a84504855429933447460d1": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ab5d09d554299494045f06e": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a87820e5542993e715abf92": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5abd987355429924427fd065": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8abbeb5542996c9b8d5f64": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a802ee95542992bc0c4a6cc": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a7460d955429929fddd8400": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac2c1095542990b17b1547d": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae2efd1554299495565db3c": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adff09e55429925eb1afb51": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae52f9155429908b6326557": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adf35f85542993344016c3b": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a88cfec5542993b751ca85d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a834ec755429954d2e2ec8d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae6799b55429908198fa5e5": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8c5107554299653c1aa03a": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5add8f385542995b365fab4f": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a7b792b55429927d897bfd8": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8c5c7c554299240d9c213a": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8a6ef05542996c9b8d5ee1": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ade06dc5542997545bbbe29": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae0e72b5542993d6555ec8f": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ab9945755429970cfb8eb4e": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae14102554299422ee99642": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a727ad05542994cef4bc2cd": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a7528fa55429916b016427b": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8f6c155542992414482abf": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac16a5755429964131be1e0": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac2e312554299657fa290b8": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac31700554299741d48a1c6": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab5cae8554299637185c614": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a75da685542994ccc91863c": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae4068e55429970de88d86b": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5abe47ae5542991f66106117": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac2b63655429921a00ab042": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a73287355429901807daf97": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab4035a55429969a97a821f": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a7f103a55429934daa2fcbb": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8b9c325542995d1e6f1420": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a850df85542994c784ddaea": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a893749554299669944a50e": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7626b45542992d0ec0602c": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab4269b5542991751b4d6a1": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac1b2fd55429963665198f2": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac29f58554299218029dac9": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a902f1655429933b8a2048f": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab62f97554299637185c675": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a807eea554299485f598627": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7410dd5542993e948e87b5": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7db9b95542990b8f503a45": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae69d9a55429908198fa662": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae139a955429901ffe4ae0d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a72c9355542991f29ee2cd9": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a89ad24554299669944a56b": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a85474c5542997b5ce3ffe0": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8bd23c554299240d9c20a1": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae34faa5542994393b9e674": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a84f0c65542994c784dda93": {
+          "sp_recall4": 0.0,
+          "allgold4": 0.0
+        },
+        "5a83a3f65542990548d0b206": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ab2e96c55429929539468ad": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8d7b9c55429941ae14dfc9": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a875003554299211dda2bdd": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a81b2f655429926c1cdad62": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a83afcb5542990548d0b21e": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8f40c55542992414482a11": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7cbdc255429909bec767ed": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a82186455429926c1cdae3f": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7acc1255429927d897bf16": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7f60775542994857a7670e": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adeeabe5542992d7e9f9265": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a73bfb755429908901be329": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ac35b4b554299741d48a258": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae699265542991bbc97614d": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8648bd5542991e771815f8": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a77b0bc5542992a6e59df8a": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5abba5e75542992ccd8e7f64": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab3adc2554299233954ff80": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ab9c5e2554299131ca423ff": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8bb6bf5542996e8ac889f8": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adbf5e35542996e68525286": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae340c45542992f92d82273": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8e1513554299068b959e51": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac0057a5542996f0d89cb07": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac1d24c5542994d76dcceee": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8352565542990548d0b1cf": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac4ec9f55429919431739fc": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a84e5785542997b5ce3ff84": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae7f8775542994a481bbe54": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7e4854554299495941997b": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a79ccb6554299148911fa56": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae1c9ea5542997f29b3c103": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a73701155429901807db062": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae7c2be5542997ec27276e0": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a84a67e5542997b5ce3fefc": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab9e65d554299232ef4a263": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5adffeca55429906c02daa9f": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a89f1b65542992e4fca84a5": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae2895a554299495565da9c": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8f54805542992414482a57": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5abdb02255429965af743dc0": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac3c0435542993915413941": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab457c85542996a3a969f70": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab3b44b554299753aec59bc": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae0147555429942ec259c13": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ade24d65542990dbb2f7f5c": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab24a7955429970612095d7": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a72a2875542991f29ee2cd0": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5abe1f585542991f661060dd": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7533c555429916b0164292": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7d30d4554299452d57bb4d": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae2ff7655429928c423959a": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a738ee75542992d56e7e368": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adc5b1e55429944faac24d1": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae3e66f5542994393b9e7a5": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ae679755542996d980e7b73": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5ac120a25542992a796dedfb": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ac300de55429921a00ab0cf": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5abc345b55429959677d6a46": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8f034f5542995b44241f28": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a9016385542990a98493583": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7392e155429978a71e902f": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab78ef155429928e1fe387f": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7350f55542992359bc32fb": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab2df38554299295394688a": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8441095542990548d0b269": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ab4e9ca55429942dd415f9e": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae74746554299572ea547aa": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5ae11af855429901ffe4ad90": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a8346bb55429966c78a6b69": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a8860e8554299206df2b249": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5adcd1915542990d50227d3a": {
+          "sp_recall4": 0.5,
+          "allgold4": 0.0
+        },
+        "5a756aec5542992db947365b": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        },
+        "5a7deb475542995f4f402306": {
+          "sp_recall4": 1.0,
+          "allgold4": 1.0
+        }
+      }
+    }
+  },
+  "d20_gate": {
+    "any_significant_gain": false,
+    "both_positive": false,
+    "opened": false
+  }
+}

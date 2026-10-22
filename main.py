@@ -89,7 +89,16 @@ def main(argv=None) -> int:
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--dataset", default=None, help="restrict to one dataset")
     ap.add_argument("-n", type=int, default=None, help="override sample size (debug only)")
+    ap.add_argument("--allow-validation", metavar="REASON", default=None,
+                    help="unlock reads of the validation split; the reason is appended "
+                         "to results/validation_access.log (agent.md §12, D12)")
     args = ap.parse_args(argv)
+
+    if args.allow_validation:
+        from src.validation_guard import allow
+
+        allow(args.allow_validation)
+        print(f"!! validation access UNLOCKED: {args.allow_validation}")
 
     cfg = load_config(args.config)
     seed = set_seeds(args.seed if args.seed is not None else cfg.get("seed"))

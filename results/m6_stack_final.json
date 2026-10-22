@@ -1,0 +1,31 @@
+{
+  "features": [
+    "vector_cos",
+    "gnn_score",
+    "ppr_score"
+  ],
+  "datasets": {
+    "musique": {
+      "checkpoint": "results/checkpoints_final/stacker_musique.pkl",
+      "n_rows": 2100,
+      "n_questions": 150,
+      "coef": {
+        "vector_cos": 3.101253217447881,
+        "gnn_score": 0.7547069836541492,
+        "ppr_score": 0.25487160918579477
+      },
+      "intercept": -1.871386069576849
+    },
+    "hotpotqa": {
+      "checkpoint": "results/checkpoints_final/stacker_hotpotqa.pkl",
+      "n_rows": 1500,
+      "n_questions": 150,
+      "coef": {
+        "vector_cos": 4.798349278358175,
+        "gnn_score": 1.9624534144732022,
+        "ppr_score": -0.32663879388878286
+      },
+      "intercept": -3.559379236900286
+    }
+  }
+}

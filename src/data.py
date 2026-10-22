@@ -252,6 +252,10 @@ def load_examples(dataset: str, split: str, n: int, seed: int, cfg=None) -> list
         raise ValueError(f"unknown dataset {dataset!r}; expected one of {DATASETS}")
     if split not in ("train", "validation"):
         raise ValueError(f"split must be 'train' or 'validation', got {split!r}")
+    if split == "validation":
+        from .validation_guard import require
+
+        require(f"load_examples({dataset!r}, 'validation')")
     if cfg is None:
         from .config import load_config
 

@@ -50,6 +50,10 @@ def save_pools(examples: list[Example], dataset: str, split: str, pool_size: int
 
 
 def load_pools(dataset: str, split: str, pool_size: int) -> list[Example] | None:
+    if split == "validation":
+        from src.validation_guard import require
+
+        require(f"load_pools({dataset!r}, 'validation')")
     p = pool_path(dataset, split, pool_size)
     if not p.exists():
         return None
