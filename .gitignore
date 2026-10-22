@@ -1,0 +1,15 @@
+# Environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Raw datasets and derived caches: large, reproducible, and backed up separately
+data/raw/
+data/cache/
+
+# Model checkpoints: binary and large. The JSON records of every run ARE tracked.
+*.pt
+results/checkpoints/
+results/checkpoints_final/
+results/cv_checkpoints/

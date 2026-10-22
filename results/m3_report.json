@@ -1,0 +1,84 @@
+{
+  "n": 150,
+  "pool_sizes": {
+    "musique": 14,
+    "hotpotqa": 10
+  },
+  "seed": 1234,
+  "datasets": {
+    "musique": {
+      "pool_size": 14,
+      "splits": {
+        "train": {
+          "n": 150,
+          "paragraphs": 2100,
+          "pools": "cache hit",
+          "seconds": 2.5426866249999875,
+          "pool_file": "data/cache/pools/musique_train_p14.json"
+        },
+        "validation": {
+          "n": 150,
+          "paragraphs": 2100,
+          "pools": "cache hit",
+          "seconds": 1.602046750000227,
+          "pool_file": "data/cache/pools/musique_validation_p14.json"
+        }
+      },
+      "dev_split": {
+        "n_train": 135,
+        "n_dev": 15
+      }
+    },
+    "hotpotqa": {
+      "pool_size": 10,
+      "splits": {
+        "train": {
+          "n": 150,
+          "paragraphs": 1500,
+          "pools": "cache hit",
+          "seconds": 2.515169084000263,
+          "pool_file": "data/cache/pools/hotpotqa_train_p10.json"
+        },
+        "validation": {
+          "n": 150,
+          "paragraphs": 1500,
+          "pools": "cache hit",
+          "seconds": 1.5375615419998212,
+          "pool_file": "data/cache/pools/hotpotqa_validation_p10.json"
+        }
+      },
+      "dev_split": {
+        "n_train": 135,
+        "n_dev": 15
+      }
+    }
+  },
+  "embedding_shards_written": 0,
+  "embedder_encoded": 0,
+  "embedder_cache_hits": 7800,
+  "rss_mb": {
+    "tree_start": 250.671875,
+    "tree_before_free": 673.265625,
+    "tree_after_free": 669.234375,
+    "python_before_free": 651.25,
+    "python_after_free": 647.15625,
+    "python_freed": 4.09375,
+    "model_released": true,
+    "model_was_loaded_this_run": false
+  },
+  "seconds_total": 8.81458454199992,
+  "embedding_cache_counts": {
+    "questions": 600,
+    "entities": 0,
+    "relations": 0,
+    "paragraphs": 7889,
+    "misc": 0
+  },
+  "acceptance": {
+    "pools exist for every dataset/split": true,
+    "question + paragraph embeddings cached": true,
+    "bge freed from memory": true,
+    "ollama not holding a model": true
+  },
+  "all_passed": true
+}

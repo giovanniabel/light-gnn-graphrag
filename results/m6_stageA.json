@@ -1,0 +1,167 @@
+{
+  "stage": "A",
+  "device": "cpu",
+  "seeds": [
+    1234,
+    1235,
+    1236
+  ],
+  "datasets": {
+    "musique": {
+      "n_train": 132,
+      "n_dropped": 3,
+      "dropped_qids": [
+        "4hop3__778278_796114_13235_242202",
+        "4hop1__771620_317689_1286_19161",
+        "3hop1__136299_159891_86976"
+      ],
+      "n_dev": 15,
+      "pos_weight_evidence": 4.446964643095397,
+      "pos_weight_all": 17.662441627751836,
+      "runs": [
+        {
+          "seed": 1234,
+          "checkpoint": "results/checkpoints/router_musique_L2_seed1234.pt",
+          "wall_s": 2.924133000000438,
+          "epochs_run": 8,
+          "best_epoch": 3,
+          "best_dev_ap": 0.5646605586766922,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.446964643095397,
+          "dev_allgold4": {
+            "conditional": 0.2727272727272727,
+            "n_conditional": 11,
+            "n_all": 15,
+            "conditioning_rate": 0.7333333333333333,
+            "unconditional": 0.2,
+            "k": 4
+          }
+        },
+        {
+          "seed": 1235,
+          "checkpoint": "results/checkpoints/router_musique_L2_seed1235.pt",
+          "wall_s": 2.518559207997896,
+          "epochs_run": 7,
+          "best_epoch": 2,
+          "best_dev_ap": 0.5407243447592892,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.446964643095397,
+          "dev_allgold4": {
+            "conditional": 0.2727272727272727,
+            "n_conditional": 11,
+            "n_all": 15,
+            "conditioning_rate": 0.7333333333333333,
+            "unconditional": 0.2,
+            "k": 4
+          }
+        },
+        {
+          "seed": 1236,
+          "checkpoint": "results/checkpoints/router_musique_L2_seed1236.pt",
+          "wall_s": 2.3479627080014325,
+          "epochs_run": 6,
+          "best_epoch": 1,
+          "best_dev_ap": 0.558901389242142,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.446964643095397,
+          "dev_allgold4": {
+            "conditional": 0.2727272727272727,
+            "n_conditional": 11,
+            "n_all": 15,
+            "conditioning_rate": 0.7333333333333333,
+            "unconditional": 0.2,
+            "k": 4
+          }
+        }
+      ]
+    },
+    "hotpotqa": {
+      "n_train": 135,
+      "n_dropped": 0,
+      "dropped_qids": [],
+      "n_dev": 15,
+      "pos_weight_evidence": 4.080872011251758,
+      "pos_weight_all": 16.938818565400844,
+      "runs": [
+        {
+          "seed": 1234,
+          "checkpoint": "results/checkpoints/router_hotpotqa_L2_seed1234.pt",
+          "wall_s": 2.317835791996913,
+          "epochs_run": 7,
+          "best_epoch": 2,
+          "best_dev_ap": 0.5213045537744789,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.080872011251758,
+          "dev_allgold4": {
+            "conditional": 0.3333333333333333,
+            "n_conditional": 15,
+            "n_all": 15,
+            "conditioning_rate": 1.0,
+            "unconditional": 0.3333333333333333,
+            "k": 4
+          }
+        },
+        {
+          "seed": 1235,
+          "checkpoint": "results/checkpoints/router_hotpotqa_L2_seed1235.pt",
+          "wall_s": 6.945922833998338,
+          "epochs_run": 21,
+          "best_epoch": 16,
+          "best_dev_ap": 0.5757142138795761,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.080872011251758,
+          "dev_allgold4": {
+            "conditional": 0.5333333333333333,
+            "n_conditional": 15,
+            "n_all": 15,
+            "conditioning_rate": 1.0,
+            "unconditional": 0.5333333333333333,
+            "k": 4
+          }
+        },
+        {
+          "seed": 1236,
+          "checkpoint": "results/checkpoints/router_hotpotqa_L2_seed1236.pt",
+          "wall_s": 9.097794583001814,
+          "epochs_run": 27,
+          "best_epoch": 22,
+          "best_dev_ap": 0.6202954607736583,
+          "stopped_early": true,
+          "n_params": 431745,
+          "pos_weight": 4.080872011251758,
+          "dev_allgold4": {
+            "conditional": 0.4,
+            "n_conditional": 15,
+            "n_all": 15,
+            "conditioning_rate": 1.0,
+            "unconditional": 0.4,
+            "k": 4
+          }
+        }
+      ]
+    }
+  },
+  "overfit_test": {
+    "first_loss": 0.7979825735092163,
+    "final_loss": 3.4945117022289196e-06,
+    "edge_accuracy": 1.0,
+    "near_zero": true,
+    "n_graphs": 8,
+    "steps": 300,
+    "n_evidence_edges": 978
+  },
+  "acceptance": {
+    "overfit test reaches near-zero loss": true,
+    "every run produced a checkpoint": true,
+    "each run <= 5 min": true,
+    "3 seeds per dataset": true,
+    "model under 1M parameters": true,
+    "pos_weight from evidence edges (~4.4-4.5)": true
+  },
+  "all_passed": true
+}

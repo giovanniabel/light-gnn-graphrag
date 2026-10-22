@@ -1,0 +1,87 @@
+{
+  "config": {
+    "label": "lr0.001_dr0.3_wd0.1",
+    "lr": 0.001,
+    "dropout": 0.3,
+    "weight_decay": 0.1,
+    "score": 0.6367860896063162
+  },
+  "datasets": {
+    "musique": {
+      "n_questions": 150,
+      "runs": [
+        {
+          "seed": 1234,
+          "checkpoint": "results/checkpoints_final/router_musique_final_L2_seed1234.pt",
+          "n_train": 131,
+          "n_holdout": 15,
+          "epochs": 21,
+          "best_epoch": 16,
+          "holdout_ap": 0.5413758245156903,
+          "wall_s": 6.916190457999619,
+          "pos_weight": 4.361056105610561
+        },
+        {
+          "seed": 1235,
+          "checkpoint": "results/checkpoints_final/router_musique_final_L2_seed1235.pt",
+          "n_train": 131,
+          "n_holdout": 15,
+          "epochs": 16,
+          "best_epoch": 11,
+          "holdout_ap": 0.6336817308660457,
+          "wall_s": 5.191271457999392,
+          "pos_weight": 4.396921017402945
+        },
+        {
+          "seed": 1236,
+          "checkpoint": "results/checkpoints_final/router_musique_final_L2_seed1236.pt",
+          "n_train": 131,
+          "n_holdout": 15,
+          "epochs": 17,
+          "best_epoch": 12,
+          "holdout_ap": 0.5071434080152127,
+          "wall_s": 5.522520832997543,
+          "pos_weight": 4.386348575215375
+        }
+      ]
+    },
+    "hotpotqa": {
+      "n_questions": 150,
+      "runs": [
+        {
+          "seed": 1234,
+          "checkpoint": "results/checkpoints_final/router_hotpotqa_final_L2_seed1234.pt",
+          "n_train": 135,
+          "n_holdout": 15,
+          "epochs": 11,
+          "best_epoch": 6,
+          "holdout_ap": 0.6793765488325026,
+          "wall_s": 3.2986610000007204,
+          "pos_weight": 4.132906894100924
+        },
+        {
+          "seed": 1235,
+          "checkpoint": "results/checkpoints_final/router_hotpotqa_final_L2_seed1235.pt",
+          "n_train": 135,
+          "n_holdout": 15,
+          "epochs": 12,
+          "best_epoch": 7,
+          "holdout_ap": 0.5525869330072244,
+          "wall_s": 3.5930909579983563,
+          "pos_weight": 4.125
+        },
+        {
+          "seed": 1236,
+          "checkpoint": "results/checkpoints_final/router_hotpotqa_final_L2_seed1236.pt",
+          "n_train": 135,
+          "n_holdout": 15,
+          "epochs": 6,
+          "best_epoch": 1,
+          "holdout_ap": 0.6777778422501354,
+          "wall_s": 1.8031017499997688,
+          "pos_weight": 4.1196883852691215
+        }
+      ]
+    }
+  }
+}

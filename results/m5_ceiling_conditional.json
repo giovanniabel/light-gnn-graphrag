@@ -1,0 +1,86 @@
+{
+  "musique/train/2hop": {
+    "n": 50,
+    "n_conditional": 44,
+    "unconditional": 0.78,
+    "all_gold_in_pool": 0.88,
+    "conditional_on_all_gold_in_pool": 0.8863636363636364
+  },
+  "musique/train/3hop": {
+    "n": 50,
+    "n_conditional": 33,
+    "unconditional": 0.48,
+    "all_gold_in_pool": 0.66,
+    "conditional_on_all_gold_in_pool": 0.7272727272727272
+  },
+  "musique/train/4hop": {
+    "n": 50,
+    "n_conditional": 25,
+    "unconditional": 0.2,
+    "all_gold_in_pool": 0.5,
+    "conditional_on_all_gold_in_pool": 0.4
+  },
+  "musique/train/ALL": {
+    "n": 150,
+    "n_conditional": 102,
+    "unconditional": 0.4866666666666667,
+    "all_gold_in_pool": 0.68,
+    "conditional_on_all_gold_in_pool": 0.7156862745098039
+  },
+  "musique/validation/2hop": {
+    "n": 50,
+    "n_conditional": 44,
+    "unconditional": 0.72,
+    "all_gold_in_pool": 0.88,
+    "conditional_on_all_gold_in_pool": 0.8181818181818181
+  },
+  "musique/validation/3hop": {
+    "n": 50,
+    "n_conditional": 40,
+    "unconditional": 0.2,
+    "all_gold_in_pool": 0.8,
+    "conditional_on_all_gold_in_pool": 0.25
+  },
+  "musique/validation/4hop": {
+    "n": 50,
+    "n_conditional": 27,
+    "unconditional": 0.22,
+    "all_gold_in_pool": 0.54,
+    "conditional_on_all_gold_in_pool": 0.4074074074074074
+  },
+  "musique/validation/ALL": {
+    "n": 150,
+    "n_conditional": 111,
+    "unconditional": 0.38,
+    "all_gold_in_pool": 0.74,
+    "conditional_on_all_gold_in_pool": 0.5135135135135135
+  },
+  "hotpotqa/train/2hop": {
+    "n": 150,
+    "n_conditional": 150,
+    "unconditional": 0.9933333333333333,
+    "all_gold_in_pool": 1.0,
+    "conditional_on_all_gold_in_pool": 0.9933333333333333
+  },
+  "hotpotqa/train/ALL": {
+    "n": 150,
+    "n_conditional": 150,
+    "unconditional": 0.9933333333333333,
+    "all_gold_in_pool": 1.0,
+    "conditional_on_all_gold_in_pool": 0.9933333333333333
+  },
+  "hotpotqa/validation/2hop": {
+    "n": 150,
+    "n_conditional": 150,
+    "unconditional": 0.9933333333333333,
+    "all_gold_in_pool": 1.0,
+    "conditional_on_all_gold_in_pool": 0.9933333333333333
+  },
+  "hotpotqa/validation/ALL": {
+    "n": 150,
+    "n_conditional": 150,
+    "unconditional": 0.9933333333333333,
+    "all_gold_in_pool": 1.0,
+    "conditional_on_all_gold_in_pool": 0.9933333333333333
+  }
+}

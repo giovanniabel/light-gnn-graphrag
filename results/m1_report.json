@@ -1,0 +1,121 @@
+{
+  "pool_size": 10,
+  "n_per_split": 150,
+  "seed": 1234,
+  "datasets": {
+    "musique": {
+      "train": {
+        "n_requested": 150,
+        "n_loaded": 150,
+        "paragraphs_per_question": [
+          10
+        ],
+        "hop_distribution": {
+          "2": 50,
+          "3": 50,
+          "4": 50
+        },
+        "pool_file": "data/cache/pools/musique_train_p10.json",
+        "n_questions": 150,
+        "gold_paragraphs_total": 450,
+        "gold_paragraphs_in_pool": 350,
+        "pool_recall": 0.7777777777777778,
+        "questions_with_all_gold_in_pool": 76,
+        "all_gold_rate": 0.5066666666666667
+      },
+      "validation": {
+        "n_requested": 150,
+        "n_loaded": 150,
+        "paragraphs_per_question": [
+          10
+        ],
+        "hop_distribution": {
+          "2": 50,
+          "3": 50,
+          "4": 50
+        },
+        "pool_file": "data/cache/pools/musique_validation_p10.json",
+        "n_questions": 150,
+        "gold_paragraphs_total": 450,
+        "gold_paragraphs_in_pool": 356,
+        "pool_recall": 0.7911111111111111,
+        "questions_with_all_gold_in_pool": 75,
+        "all_gold_rate": 0.5
+      },
+      "qid_overlap_train_eval": 0,
+      "dev_split": {
+        "n_train": 135,
+        "n_dev": 15,
+        "overlap": 0
+      }
+    },
+    "hotpotqa": {
+      "train": {
+        "n_requested": 150,
+        "n_loaded": 150,
+        "paragraphs_per_question": [
+          10
+        ],
+        "hop_distribution": {
+          "2": 150
+        },
+        "pool_file": "data/cache/pools/hotpotqa_train_p10.json",
+        "n_questions": 150,
+        "gold_paragraphs_total": 300,
+        "gold_paragraphs_in_pool": 300,
+        "pool_recall": 1.0,
+        "questions_with_all_gold_in_pool": 150,
+        "all_gold_rate": 1.0,
+        "type_distribution": {
+          "bridge": 120,
+          "comparison": 30
+        },
+        "level_distribution": {
+          "easy": 27,
+          "hard": 34,
+          "medium": 89
+        }
+      },
+      "validation": {
+        "n_requested": 150,
+        "n_loaded": 150,
+        "paragraphs_per_question": [
+          10
+        ],
+        "hop_distribution": {
+          "2": 150
+        },
+        "pool_file": "data/cache/pools/hotpotqa_validation_p10.json",
+        "n_questions": 150,
+        "gold_paragraphs_total": 300,
+        "gold_paragraphs_in_pool": 300,
+        "pool_recall": 1.0,
+        "questions_with_all_gold_in_pool": 150,
+        "all_gold_rate": 1.0,
+        "type_distribution": {
+          "bridge": 122,
+          "comparison": 28
+        },
+        "level_distribution": {
+          "hard": 150
+        }
+      },
+      "qid_overlap_train_eval": 0,
+      "dev_split": {
+        "n_train": 135,
+        "n_dev": 15,
+        "overlap": 0
+      }
+    }
+  },
+  "musique_pool_recall_min": 0.7777777777777778,
+  "pool_size_action": "raise POOL_SIZE to 12 (Section 3.1)",
+  "acceptance": {
+    "train/eval qid sets disjoint": true,
+    "dev split disjoint from train and eval": true,
+    "pool recall ceiling printed per dataset": true,
+    "every question has exactly POOL_SIZE paragraphs": true,
+    "MuSiQue pool recall >= 85% (Section 3.1 gate)": false
+  },
+  "all_passed": false
+}

@@ -1,0 +1,38 @@
+{
+  "musique/train": {
+    "pool_covered": 0.3019047619047619,
+    "sp_recall_ceiling": 0.5844444444444444,
+    "allgold_ceiling": 0.32666666666666666,
+    "by_hop": {
+      "2": 0.6,
+      "4": 0.06,
+      "3": 0.32
+    }
+  },
+  "musique/validation": {
+    "pool_covered": 0.29523809523809524,
+    "sp_recall_ceiling": 0.475,
+    "allgold_ceiling": 0.22666666666666666,
+    "by_hop": {
+      "2": 0.5,
+      "3": 0.08,
+      "4": 0.1
+    }
+  },
+  "hotpotqa/train": {
+    "pool_covered": 0.46399999999999997,
+    "sp_recall_ceiling": 0.7933333333333333,
+    "allgold_ceiling": 0.6333333333333333,
+    "by_hop": {
+      "2": 0.6333333333333333
+    }
+  },
+  "hotpotqa/validation": {
+    "pool_covered": 0.48600000000000004,
+    "sp_recall_ceiling": 0.8333333333333334,
+    "allgold_ceiling": 0.7,
+    "by_hop": {
+      "2": 0.7
+    }
+  }
+}

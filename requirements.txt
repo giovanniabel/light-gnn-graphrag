@@ -1,0 +1,23 @@
+# Pinned to the versions verified working by the M0 acceptance check on
+# macOS 27.0 / Apple M3 / Python 3.12.11 (agent.md Section 2: "all packages
+# version-pinned"). Pins were added only after M0 passed, not before.
+#
+#   uv venv --python 3.12 && uv pip install -r requirements.txt
+
+torch==2.14.1
+torch-geometric==2.8.1
+networkx==3.7
+sentence-transformers==6.2.0
+transformers==5.20.2
+datasets==5.1.0
+psutil==7.2.2
+numpy==2.5.4
+scipy==1.18.1
+scikit-learn==1.9.1
+PyYAML==6.0.3
+python-dotenv==1.2.4
+pyarrow==26.0.0
+requests==2.34.2
+tqdm==4.70.1
+matplotlib==3.11.2
+pytest==9.1.1

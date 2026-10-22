@@ -1,0 +1,28 @@
+{
+  "cpu": {
+    "device": "cpu",
+    "epoch_s": 0.14407862499865587,
+    "epoch_s_all": [
+      0.16805266700066568,
+      0.14407862499865587
+    ],
+    "n_graphs": 96,
+    "batch_graphs": 32,
+    "n_params": 431745,
+    "params_under_1m": true
+  },
+  "mps": {
+    "device": "mps",
+    "epoch_s": 0.15357024999866553,
+    "epoch_s_all": [
+      0.15357024999866553,
+      0.15881370900024194
+    ],
+    "n_graphs": 96,
+    "batch_graphs": 32,
+    "n_params": 431745,
+    "params_under_1m": true
+  },
+  "chosen": "cpu",
+  "mps_speedup_over_cpu": 0.9381935954386208
+}

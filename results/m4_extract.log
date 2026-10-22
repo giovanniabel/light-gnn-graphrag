@@ -1,0 +1,423 @@
+[run_phase] ollama phase: NUM_PARALLEL=1 MAX_LOADED=1 KEEP_ALIVE=30m
+[run_phase] caffeinate -i /Users/giovanniabelchristian/program/personal_project/light-gnn-graphrag/.venv/bin/python main.py m4 --resume --max-hours 5
+=== phase m4 | seed 1234 | device cpu ===
+--- M4: full extraction ---
+  model          : qwen2.5:1.5b-instruct-q4_K_M  prompt_version=v2-mt6  max_triples=6
+  questions      : 600  across 4 (dataset, split) pools
+      musique/train        150 questions,  2100 paragraphs
+      musique/validation   150 questions,  2100 paragraphs
+      hotpotqa/train        150 questions,  1500 paragraphs
+      hotpotqa/validation   150 questions,  1500 paragraphs
+  paragraphs     : 7200 nominal (before dedupe)
+  cache          : data/cache/triples.jsonl
+  max_hours      : 5.0   resume=True
+  guards (D10)   : own-tree RSS growth, rolling t_p degradation, sustained critical memory pressure
+                   system-wide swap is LOGGED, not an abort (it stays a hard rule for the M7/M8 efficiency runs)
+  already cached : 250 paragraphs
+  swap at start  : 0 MB
+  vm at start    : {'vm_total_mb': 8192.0, 'vm_available_mb': 2465.265625, 'vm_percent': 69.9, 'swap_used_mb': 0.0}
+
+   elapsed         done     t_p    fail   ownRSS      swap  prs  projected
+      0.8m   275/6489     1.88s   0.0%     190M       +0M    1      3.26h
+      [sys   0.8m] swap 0 MB (+0 MB), RAM available 1726 MB, pressure 1
+      1.4m   300/6489     1.71s   0.0%     191M       +0M    1      2.97h
+      2.1m   325/6489     1.71s   0.0%     191M       +0M    1      2.97h
+      [sys   2.1m] swap 0 MB (+0 MB), RAM available 1596 MB, pressure 1
+      2.9m   350/6489     1.63s   0.0%     191M       +0M    1      2.83h
+      3.6m   375/6489     1.73s   0.0%      76M       +0M    1      3.00h
+      [sys   3.6m] swap 0 MB (+0 MB), RAM available 1415 MB, pressure 1
+      4.4m   400/6489     1.77s   0.0%      76M       +0M    2      3.06h
+      5.1m   425/6489     1.78s   0.0%      29M      +13M    2      3.09h
+      [sys   5.1m] swap 13 MB (+13 MB), RAM available 1142 MB, pressure 2
+      5.8m   450/6489     1.74s   0.0%      29M      +56M    2      3.01h
+      6.5m   475/6489     1.67s   0.0%      30M     +189M    2      2.90h
+      [sys   6.5m] swap 189 MB (+189 MB), RAM available 1102 MB, pressure 2
+      7.1m   500/6489     1.71s   0.0%      30M     +320M    2      2.96h
+      8.0m   525/6489     1.66s   0.0%      30M     +488M    2      2.89h
+      [sys   8.0m] swap 488 MB (+488 MB), RAM available 1242 MB, pressure 2
+      8.8m   550/6489     1.81s   0.0%      29M    +1034M    2      3.13h
+      9.5m   575/6489     1.95s   0.0%      29M    +1170M    2      3.37h
+      [sys   9.5m] swap 1170 MB (+1170 MB), RAM available 1056 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     10.3m   600/6489     1.83s   0.0%      27M    +1729M    2      3.16h
+     11.0m   625/6489     1.88s   0.0%      27M    +1797M    2      3.25h
+      [sys  11.0m] swap 1797 MB (+1797 MB), RAM available 1073 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     11.8m   650/6489     1.81s   0.0%      27M    +2006M    2      3.14h
+     12.5m   675/6489     1.71s   0.0%      27M    +2110M    2      2.97h
+      [sys  12.5m] swap 2110 MB (+2110 MB), RAM available 1002 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     13.2m   700/6489     1.73s   0.0%      25M    +2325M    2      3.01h
+     14.0m   725/6489     1.76s   0.0%      26M    +2443M    2      3.05h
+      [sys  14.0m] swap 2443 MB (+2443 MB), RAM available 1029 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     14.8m   750/6489     1.77s   0.0%      26M    +2485M    2      3.08h
+     15.6m   775/6489     1.89s   0.0%      26M    +2572M    2      3.26h
+      [sys  15.6m] swap 2572 MB (+2572 MB), RAM available 1040 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     16.3m   800/6489     2.01s   0.0%      26M    +2912M    2      3.45h
+     17.0m   825/6489     1.83s   0.0%      29M    +2912M    2      3.15h
+      [sys  17.0m] swap 2912 MB (+2912 MB), RAM available 1586 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     17.7m   850/6489     1.58s   0.0%      27M    +2880M    2      2.77h
+     18.5m   875/6489     1.64s   0.0%      27M    +2848M    2      2.87h
+      [sys  18.5m] swap 2848 MB (+2848 MB), RAM available 1187 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     19.2m   900/6489     1.82s   0.0%      27M    +2931M    2      3.15h
+     19.9m   925/6489     1.78s   0.0%      30M    +2931M    2      3.09h
+      [sys  19.9m] swap 2931 MB (+2931 MB), RAM available 1195 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     20.5m   950/6489     1.69s   0.0%      27M    +3187M    2      2.95h
+     21.1m   975/6489     1.58s   0.0%      27M    +3389M    2      2.77h
+      [sys  21.1m] swap 3389 MB (+3389 MB), RAM available 1282 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     21.8m  1000/6489     1.49s   0.0%      27M    +3869M    2      2.64h
+     22.6m  1025/6489     1.57s   0.0%      28M    +3845M    2      2.76h
+      [sys  22.6m] swap 3845 MB (+3845 MB), RAM available 1353 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     23.3m  1050/6489     1.72s   0.0%      28M    +3821M    2      2.99h
+     23.9m  1075/6489     1.71s   0.0%      28M    +3828M    2      2.98h
+      [sys  23.9m] swap 3828 MB (+3828 MB), RAM available 1143 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     24.6m  1100/6489     1.60s   0.0%      30M    +4131M    2      2.80h
+     25.4m  1125/6489     1.61s   0.0%      30M    +4248M    2      2.82h
+      [sys  25.4m] swap 4248 MB (+4248 MB), RAM available 1216 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     26.1m  1150/6489     1.76s   0.0%      27M    +4463M    2      3.05h
+     26.9m  1175/6489     1.83s   0.0%      27M    +4638M    2      3.14h
+      [sys  26.9m] swap 4638 MB (+4638 MB), RAM available 1269 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     27.6m  1200/6489     1.79s   0.0%      27M    +4786M    2      3.08h
+     28.4m  1225/6489     1.81s   0.0%      26M    +5229M    2      3.11h
+      [sys  28.4m] swap 5229 MB (+5229 MB), RAM available 1091 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     29.1m  1250/6489     1.79s   0.0%      27M    +5453M    2      3.09h
+     29.9m  1275/6489     1.78s   0.0%      27M    +5482M    2      3.07h
+      [sys  29.9m] swap 5482 MB (+5482 MB), RAM available 1044 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     30.7m  1300/6489     1.88s   0.0%      27M    +5634M    2      3.22h
+     31.5m  1325/6489     1.88s   0.0%      27M    +5829M    2      3.22h
+      [sys  31.5m] swap 5829 MB (+5829 MB), RAM available 1153 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     32.3m  1350/6489     1.86s   0.0%      26M    +6344M    2      3.19h
+     33.1m  1375/6489     1.98s   0.0%      27M    +6338M    2      3.36h
+      [sys  33.1m] swap 6338 MB (+6338 MB), RAM available 992 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     34.0m  1400/6489     1.94s   0.0%      27M    +6431M    2      3.30h
+     34.9m  1425/6489     2.00s   0.0%      27M    +6560M    2      3.39h
+      [sys  34.9m] swap 6560 MB (+6560 MB), RAM available 975 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     35.6m  1450/6489     2.13s   0.0%      26M    +6703M    2      3.57h
+     36.4m  1475/6489     1.96s   0.0%      27M    +6787M    2      3.34h
+      [sys  36.4m] swap 6787 MB (+6787 MB), RAM available 974 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     37.2m  1500/6489     1.84s   0.0%      27M    +6915M    2      3.17h
+     38.0m  1525/6489     1.84s   0.0%      23M    +7442M    2      3.17h
+      [sys  38.0m] swap 7442 MB (+7442 MB), RAM available 973 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     38.9m  1550/6489     1.96s   0.0%      96M    +7430M    2      3.34h
+     39.9m  1575/6489     2.12s   0.0%      29M    +7422M    2      3.55h
+      [sys  39.9m] swap 7422 MB (+7422 MB), RAM available 1005 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     40.7m  1600/6489     2.16s   0.0%      27M    +7560M    2      3.61h
+     41.6m  1625/6489     2.07s   0.0%      27M    +7588M    2      3.49h
+      [sys  41.6m] swap 7588 MB (+7588 MB), RAM available 980 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     42.4m  1650/6489     2.07s   0.0%      27M    +7456M    2      3.49h
+     43.1m  1675/6489     2.11s   0.0%      28M    +7368M    2      3.55h
+      [sys  43.1m] swap 7368 MB (+7368 MB), RAM available 1173 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     43.8m  1700/6489     1.87s   0.0%      29M    +7383M    2      3.22h
+     44.5m  1725/6489     1.65s   0.0%      29M    +7284M    2      2.92h
+      [sys  44.5m] swap 7284 MB (+7284 MB), RAM available 1142 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     45.3m  1750/6489     1.64s   0.0%      28M    +7371M    2      2.92h
+     46.0m  1775/6489     1.74s   0.0%      28M    +7336M    2      3.05h
+      [sys  46.0m] swap 7336 MB (+7336 MB), RAM available 1217 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     46.7m  1800/6489     1.77s   0.0%      28M    +7377M    2      3.09h
+     47.5m  1825/6489     1.71s   0.0%      28M    +7321M    2      3.01h
+      [sys  47.5m] swap 7321 MB (+7321 MB), RAM available 1127 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     48.3m  1850/6489     1.82s   0.0%      28M    +7342M    2      3.15h
+     49.1m  1875/6489     1.91s   0.0%      28M    +7367M    2      3.26h
+      [sys  49.1m] swap 7367 MB (+7367 MB), RAM available 1206 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     49.8m  1900/6489     1.91s   0.0%      28M    +7375M    2      3.26h
+     50.5m  1925/6489     1.87s   0.0%      29M    +7292M    2      3.22h
+      [sys  50.5m] swap 7292 MB (+7292 MB), RAM available 1147 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     51.3m  1950/6489     1.73s   0.0%      29M    +7353M    2      3.04h
+     52.1m  1975/6489     1.77s   0.0%      28M    +7424M    2      3.09h
+      [sys  52.1m] swap 7424 MB (+7424 MB), RAM available 1130 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     52.9m  2000/6489     1.84s   0.0%      28M    +7579M    2      3.18h
+     53.6m  2025/6489     1.87s   0.0%      27M    +7532M    2      3.21h
+      [sys  53.6m] swap 7532 MB (+7532 MB), RAM available 1111 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     54.4m  2050/6489     1.88s   0.0%      28M    +7457M    2      3.22h
+     55.2m  2075/6489     1.84s   0.0%      28M    +7523M    2      3.17h
+      [sys  55.2m] swap 7523 MB (+7523 MB), RAM available 1098 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     55.9m  2100/6489     1.81s   0.0%      28M    +7681M    2      3.13h
+     56.6m  2125/6489     1.76s   0.0%      28M    +7616M    2      3.07h
+      [sys  56.6m] swap 7616 MB (+7616 MB), RAM available 1083 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     57.6m  2150/6489     1.80s   0.0%      29M    +7636M    2      3.13h
+     58.3m  2175/6489     2.03s   0.0%      29M    +7797M    2      3.41h
+      [sys  58.3m] swap 7797 MB (+7797 MB), RAM available 1084 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     59.2m  2200/6489     1.97s   0.1%      27M    +8220M    2      3.33h
+     60.0m  2225/6489     2.00s   0.1%      32M    +8012M    2      3.37h
+      [sys  60.0m] swap 8012 MB (+8012 MB), RAM available 1472 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     60.6m  2250/6489     1.99s   0.1%      32M    +7908M    2      3.36h
+     61.4m  2275/6489     1.64s   0.0%      32M    +7740M    2      2.94h
+      [sys  61.4m] swap 7740 MB (+7740 MB), RAM available 1233 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     62.1m  2300/6489     1.68s   0.0%      29M    +7764M    2      2.99h
+     62.8m  2325/6489     1.75s   0.0%      29M    +7628M    2      3.07h
+      [sys  62.8m] swap 7628 MB (+7628 MB), RAM available 1142 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     63.6m  2350/6489     1.77s   0.0%      32M    +7633M    2      3.09h
+     64.2m  2375/6489     1.78s   0.0%      31M    +7664M    2      3.11h
+      [sys  64.2m] swap 7664 MB (+7664 MB), RAM available 1254 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     64.9m  2400/6489     1.66s   0.0%      28M    +7588M    2      2.96h
+     65.6m  2425/6489     1.64s   0.0%      29M    +7678M    2      2.95h
+      [sys  65.6m] swap 7678 MB (+7678 MB), RAM available 1194 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     66.5m  2450/6489     1.68s   0.0%      28M    +8091M    2      3.00h
+     67.4m  2475/6489     1.84s   0.0%      29M    +8228M    2      3.18h
+      [sys  67.4m] swap 8228 MB (+8228 MB), RAM available 1160 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     68.3m  2500/6489     2.08s   0.0%      29M    +8110M    2      3.44h
+     69.2m  2525/6489     2.16s   0.0%      27M    +8764M    2      3.54h
+      [sys  69.2m] swap 8764 MB (+8764 MB), RAM available 1147 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     70.0m  2550/6489     2.23s   0.0%      29M    +8548M    2      3.61h
+     70.9m  2575/6489     2.11s   0.0%      29M    +8424M    2      3.48h
+      [sys  70.9m] swap 8424 MB (+8424 MB), RAM available 1051 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     71.8m  2600/6489     2.04s   0.0%      28M    +8424M    2      3.40h
+     72.7m  2625/6489     2.14s   0.0%      29M    +8477M    2      3.50h
+      [sys  72.7m] swap 8477 MB (+8477 MB), RAM available 987 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     73.5m  2650/6489     2.10s   0.0%      29M    +8383M    2      3.47h
+     74.5m  2675/6489     2.02s   0.0%      28M    +8461M    2      3.38h
+      [sys  74.5m] swap 8461 MB (+8461 MB), RAM available 975 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     75.5m  2700/6489     2.22s   0.0%      29M    +8412M    2      3.60h
+     76.3m  2725/6489     2.37s   0.0%      28M    +8443M    2      3.75h
+      [sys  76.3m] swap 8443 MB (+8443 MB), RAM available 976 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     77.3m  2750/6489     2.17s   0.0%      29M    +8492M    2      3.54h
+     78.2m  2775/6489     2.22s   0.0%      29M    +8483M    2      3.59h
+      [sys  78.2m] swap 8483 MB (+8483 MB), RAM available 977 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     79.2m  2800/6489     2.25s   0.0%      28M    +8660M    2      3.63h
+      [sys  79.2m] swap 8660 MB (+8660 MB), RAM available 1171 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     80.1m  2825/6489     2.28s   0.0%      27M    +8560M    2      3.66h
+     80.8m  2850/6489     2.21s   0.0%      28M    +8603M    2      3.58h
+      [sys  80.8m] swap 8603 MB (+8603 MB), RAM available 1115 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     81.4m  2875/6489     1.85s   0.0%      28M    +8529M    2      3.21h
+     82.2m  2900/6489     1.66s   0.0%      29M    +8423M    2      3.03h
+      [sys  82.2m] swap 8423 MB (+8423 MB), RAM available 1093 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     83.0m  2925/6489     1.74s   0.0%      28M    +8474M    2      3.11h
+     83.8m  2950/6489     1.92s   0.0%      29M    +8544M    2      3.29h
+      [sys  83.8m] swap 8544 MB (+8544 MB), RAM available 1135 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     84.6m  2975/6489     1.86s   0.0%      29M    +8470M    2      3.22h
+     85.5m  3000/6489     1.86s   0.0%      29M    +8414M    2      3.23h
+      [sys  85.5m] swap 8414 MB (+8414 MB), RAM available 1099 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     86.3m  3025/6489     2.06s   0.0%      29M    +8378M    2      3.42h
+     87.2m  3050/6489     2.07s   0.0%      30M    +8444M    2      3.43h
+      [sys  87.2m] swap 8444 MB (+8444 MB), RAM available 1110 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     88.0m  3075/6489     2.03s   0.0%      30M    +8646M    2      3.39h
+     88.7m  3100/6489     1.99s   0.0%      29M    +8723M    2      3.35h
+      [sys  88.7m] swap 8723 MB (+8723 MB), RAM available 1162 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     89.5m  3125/6489     1.85s   0.0%      30M    +8637M    2      3.22h
+     90.3m  3150/6489     1.81s   0.0%      29M    +8804M    2      3.18h
+      [sys  90.3m] swap 8804 MB (+8804 MB), RAM available 1103 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     91.0m  3175/6489     1.86s   0.0%      30M    +8767M    2      3.23h
+     91.8m  3200/6489     1.85s   0.0%      24M    +9074M    2      3.23h
+      [sys  91.8m] swap 9074 MB (+9074 MB), RAM available 1071 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     92.6m  3225/6489     1.89s   0.0%      30M    +8850M    2      3.26h
+     93.4m  3250/6489     1.89s   0.0%      28M    +8626M    2      3.26h
+      [sys  93.4m] swap 8626 MB (+8626 MB), RAM available 1174 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     94.1m  3275/6489     1.86s   0.0%      30M    +6927M    2      3.23h
+     94.9m  3300/6489     1.80s   0.0%      31M    +6834M    2      3.17h
+      [sys  94.9m] swap 6834 MB (+6834 MB), RAM available 1079 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     95.6m  3325/6489     1.76s   0.0%      32M    +6774M    2      3.14h
+     96.3m  3350/6489     1.78s   0.0%      32M    +6781M    2      3.16h
+      [sys  96.3m] swap 6781 MB (+6781 MB), RAM available 1114 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     97.0m  3375/6489     1.69s   0.0%      32M    +6876M    2      3.08h
+     97.8m  3400/6489     1.68s   0.0%      29M    +7333M    2      3.07h
+      [sys  97.8m] swap 7333 MB (+7333 MB), RAM available 986 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+     98.6m  3425/6489     1.86s   0.0%      30M    +7322M    2      3.22h
+     99.5m  3450/6489     1.95s   0.0%      31M    +7304M    2      3.31h
+      [sys  99.5m] swap 7304 MB (+7304 MB), RAM available 1076 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    100.3m  3475/6489     1.95s   0.0%      30M    +7347M    2      3.30h
+    101.1m  3500/6489     1.98s   0.0%      30M    +7384M    2      3.33h
+      [sys 101.1m] swap 7384 MB (+7384 MB), RAM available 1089 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    102.0m  3525/6489     1.92s   0.0%      29M    +7345M    2      3.28h
+    102.8m  3550/6489     2.01s   0.0%      29M    +7914M    2      3.36h
+      [sys 102.8m] swap 7914 MB (+7914 MB), RAM available 1242 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    103.5m  3575/6489     2.10s   0.0%      30M    +7738M    2      3.42h
+    104.4m  3600/6489     1.89s   0.0%      30M    +7530M    2      3.25h
+      [sys 104.4m] swap 7530 MB (+7530 MB), RAM available 1054 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    105.3m  3625/6489     1.91s   0.0%      30M    +7472M    2      3.28h
+    106.3m  3650/6489     2.14s   0.0%      30M    +7535M    2      3.46h
+      [sys 106.3m] swap 7535 MB (+7535 MB), RAM available 969 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    107.2m  3675/6489     2.29s   0.0%      30M    +7612M    2      3.58h
+    108.1m  3700/6489     2.28s   0.0%      29M    +7557M    2      3.57h
+      [sys 108.1m] swap 7557 MB (+7557 MB), RAM available 975 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    109.0m  3725/6489     2.19s   0.0%      30M    +7491M    2      3.50h
+    109.9m  3750/6489     2.15s   0.0%      31M    +7656M    2      3.47h
+      [sys 109.9m] swap 7656 MB (+7656 MB), RAM available 1065 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    110.9m  3775/6489     2.09s   0.0%      30M    +7662M    2      3.42h
+    111.8m  3800/6489     2.25s   0.0%      29M    +7741M    2      3.54h
+      [sys 111.8m] swap 7741 MB (+7741 MB), RAM available 982 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    112.6m  3825/6489     2.26s   0.0%      28M    +7771M    2      3.55h
+    113.4m  3850/6489     2.00s   0.0%      30M    +7530M    2      3.36h
+      [sys 113.4m] swap 7530 MB (+7530 MB), RAM available 1220 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    114.1m  3875/6489     1.93s   0.0%      30M    +7274M    2      3.30h
+    114.8m  3900/6489     1.80s   0.0%      30M    +7282M    2      3.21h
+      [sys 114.8m] swap 7282 MB (+7282 MB), RAM available 1254 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    115.6m  3925/6489     1.75s   0.0%      30M    +7111M    2      3.17h
+    116.4m  3950/6489     1.89s   0.0%      30M    +7446M    2      3.27h
+      [sys 116.4m] swap 7446 MB (+7446 MB), RAM available 1310 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    117.1m  3975/6489     1.83s   0.0%      35M    +7206M    2      3.23h
+    117.9m  4000/6489     1.77s   0.0%      34M    +7578M    2      3.19h
+      [sys 117.9m] swap 7578 MB (+7578 MB), RAM available 1104 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    118.8m  4025/6489     1.88s   0.0%      30M    +7692M    2      3.27h
+    119.7m  4050/6489     2.04s   0.0%      30M    +7794M    2      3.38h
+      [sys 119.7m] swap 7794 MB (+7794 MB), RAM available 1101 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    120.6m  4075/6489     2.10s   0.0%      31M    +7753M    2      3.42h
+    121.6m  4100/6489     2.11s   0.0%      31M    +7701M    2      3.43h
+      [sys 121.6m] swap 7701 MB (+7701 MB), RAM available 1084 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    122.4m  4125/6489     2.23s   0.0%      30M    +7777M    2      3.51h
+    123.3m  4150/6489     2.19s   0.0%      29M    +7777M    2      3.48h
+      [sys 123.3m] swap 7777 MB (+7777 MB), RAM available 1071 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    124.1m  4175/6489     2.07s   0.0%      30M    +7747M    2      3.40h
+    124.8m  4200/6489     2.01s   0.0%      30M    +7787M    2      3.36h
+      [sys 124.8m] swap 7787 MB (+7787 MB), RAM available 1174 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    125.6m  4225/6489     1.83s   0.0%      31M    +7718M    2      3.25h
+    126.4m  4250/6489     1.88s   0.0%      31M    +7766M    2      3.28h
+      [sys 126.4m] swap 7766 MB (+7766 MB), RAM available 1073 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    127.4m  4275/6489     1.96s   0.0%      30M    +7893M    2      3.33h
+    128.2m  4300/6489     2.08s   0.0%      30M    +7886M    2      3.40h
+      [sys 128.2m] swap 7886 MB (+7886 MB), RAM available 1071 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    129.1m  4325/6489     2.13s   0.0%      30M    +7826M    2      3.43h
+    129.9m  4350/6489     2.10s   0.0%      34M    +7809M    2      3.41h
+      [sys 129.9m] swap 7809 MB (+7809 MB), RAM available 1103 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    130.8m  4375/6489     2.06s   0.0%      31M    +7851M    2      3.39h
+    131.6m  4400/6489     2.02s   0.0%      31M    +7784M    2      3.36h
+      [sys 131.6m] swap 7784 MB (+7784 MB), RAM available 1080 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    132.5m  4425/6489     2.03s   0.0%      31M    +7815M    2      3.37h
+    133.4m  4450/6489     2.03s   0.0%      31M    +7839M    2      3.37h
+      [sys 133.4m] swap 7839 MB (+7839 MB), RAM available 1062 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    134.2m  4475/6489     2.08s   0.0%      31M    +7991M    2      3.40h
+    135.0m  4500/6489     2.08s   0.0%      30M    +7844M    2      3.40h
+      [sys 135.0m] swap 7844 MB (+7844 MB), RAM available 1126 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    135.8m  4525/6489     1.99s   0.0%      31M    +7904M    2      3.35h
+    136.5m  4550/6489     1.90s   0.0%      31M    +7808M    2      3.30h
+      [sys 136.5m] swap 7808 MB (+7808 MB), RAM available 1088 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    137.4m  4575/6489     1.78s   0.0%      31M    +7756M    2      3.24h
+    138.4m  4600/6489     1.87s   0.0%      30M    +7938M    2      3.29h
+      [sys 138.4m] swap 7938 MB (+7938 MB), RAM available 1067 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    139.1m  4625/6489     2.19s   0.0%      31M    +7954M    2      3.45h
+    139.9m  4650/6489     2.06s   0.0%      31M    +7937M    2      3.38h
+      [sys 139.9m] swap 7937 MB (+7937 MB), RAM available 1093 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    140.7m  4675/6489     1.81s   0.0%      30M    +8166M    2      3.26h
+    141.5m  4700/6489     1.86s   0.0%      31M    +8002M    2      3.28h
+      [sys 141.5m] swap 8002 MB (+8002 MB), RAM available 1072 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    142.3m  4725/6489     1.93s   0.0%      31M    +8017M    2      3.32h
+    143.1m  4750/6489     1.99s   0.0%      31M    +7911M    2      3.35h
+      [sys 143.1m] swap 7911 MB (+7911 MB), RAM available 1335 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    144.0m  4775/6489     1.99s   0.0%      31M    +7887M    2      3.35h
+    144.8m  4800/6489     1.98s   0.0%      30M    +8120M    2      3.34h
+      [sys 144.8m] swap 8120 MB (+8120 MB), RAM available 1141 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    145.7m  4825/6489     1.99s   0.0%      31M    +8079M    2      3.35h
+    146.5m  4850/6489     2.07s   0.0%      31M    +8172M    2      3.38h
+      [sys 146.5m] swap 8172 MB (+8172 MB), RAM available 1066 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    147.4m  4875/6489     2.06s   0.0%      31M    +8061M    2      3.38h
+    148.3m  4900/6489     2.07s   0.0%      31M    +8016M    2      3.38h
+      [sys 148.3m] swap 8016 MB (+8016 MB), RAM available 1069 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    149.2m  4925/6489     2.15s   0.0%      31M    +8198M    2      3.42h
+    150.1m  4950/6489     2.18s   0.0%      31M    +8326M    2      3.44h
+      [sys 150.1m] swap 8326 MB (+8326 MB), RAM available 1070 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    151.0m  4975/6489     2.18s   0.0%      32M    +8311M    2      3.43h
+    151.9m  5000/6489     2.09s   0.0%      30M    +8682M    2      3.40h
+      [sys 151.9m] swap 8682 MB (+8682 MB), RAM available 1357 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    152.7m  5025/6489     2.12s   0.0%      31M    +7429M    2      3.40h
+    153.4m  5050/6489     2.02s   0.0%      30M    +7221M    2      3.36h
+      [sys 153.4m] swap 7221 MB (+7221 MB), RAM available 1265 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    154.2m  5075/6489     1.86s   0.0%      31M    +7218M    2      3.30h
+    154.9m  5100/6489     1.85s   0.0%      37M    +7026M    2      3.29h
+      [sys 154.9m] swap 7026 MB (+7026 MB), RAM available 1256 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    155.6m  5125/6489     1.77s   0.0%      37M    +7090M    2      3.26h
+    156.3m  5150/6489     1.64s   0.0%      36M    +7190M    2      3.21h
+      [sys 156.3m] swap 7190 MB (+7190 MB), RAM available 1245 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    157.0m  5175/6489     1.61s   0.0%      35M    +7293M    2      3.21h
+    157.9m  5200/6489     1.73s   0.0%      31M    +7360M    2      3.25h
+      [sys 157.9m] swap 7360 MB (+7360 MB), RAM available 1102 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    158.9m  5225/6489     2.02s   0.0%      31M    +7467M    2      3.36h
+    159.8m  5250/6489     2.22s   0.0%      31M    +7447M    2      3.43h
+      [sys 159.8m] swap 7447 MB (+7447 MB), RAM available 1113 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    160.7m  5275/6489     2.17s   0.0%      31M    +7460M    2      3.41h
+    161.5m  5300/6489     2.18s   0.0%      31M    +7733M    2      3.41h
+      [sys 161.5m] swap 7733 MB (+7733 MB), RAM available 997 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    162.5m  5325/6489     2.10s   0.0%      31M    +8026M    2      3.39h
+    163.2m  5350/6489     2.13s   0.0%      37M    +7826M    2      3.39h
+      [sys 163.2m] swap 7826 MB (+7826 MB), RAM available 1553 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    163.9m  5375/6489     2.01s   0.0%      38M    +7578M    2      3.36h
+    164.7m  5400/6489     1.78s   0.0%      37M    +7180M    2      3.28h
+      [sys 164.7m] swap 7180 MB (+7180 MB), RAM available 1306 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    165.4m  5425/6489     1.82s   0.0%      36M    +7011M    2      3.29h
+    166.1m  5450/6489     1.75s   0.0%      37M    +7044M    2      3.27h
+      [sys 166.1m] swap 7044 MB (+7044 MB), RAM available 1245 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    167.0m  5475/6489     1.72s   0.0%      31M    +7464M    2      3.27h
+    167.6m  5500/6489     1.88s   0.0%      37M    +7312M    2      3.31h
+      [sys 167.6m] swap 7312 MB (+7312 MB), RAM available 1366 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    168.3m  5525/6489     1.76s   0.0%      37M    +7101M    2      3.28h
+    169.1m  5550/6489     1.64s   0.0%      37M    +7169M    2      3.25h
+      [sys 169.1m] swap 7169 MB (+7169 MB), RAM available 1358 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    169.9m  5575/6489     1.84s   0.0%      38M    +6945M    2      3.30h
+    170.6m  5600/6489     1.91s   0.0%      38M    +7050M    2      3.32h
+      [sys 170.6m] swap 7050 MB (+7050 MB), RAM available 1259 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    171.4m  5625/6489     1.77s   0.0%      37M    +7322M    2      3.28h
+    172.2m  5650/6489     1.73s   0.0%      31M    +7383M    2      3.27h
+      [sys 172.2m] swap 7383 MB (+7383 MB), RAM available 1072 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    172.9m  5675/6489     1.85s   0.0%      31M    +7389M    2      3.30h
+    173.5m  5700/6489     1.83s   0.0%      30M    +7542M    2      3.29h
+      [sys 173.5m] swap 7542 MB (+7542 MB), RAM available 1102 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    174.4m  5725/6489     1.66s   0.0%      31M    +7407M    2      3.26h
+    175.1m  5750/6489     1.76s   0.0%      32M    +7423M    2      3.28h
+      [sys 175.1m] swap 7423 MB (+7423 MB), RAM available 1124 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    175.8m  5775/6489     1.85s   0.0%      32M    +7354M    2      3.30h
+    176.6m  5800/6489     1.74s   0.0%      33M    +7254M    2      3.28h
+      [sys 176.6m] swap 7254 MB (+7254 MB), RAM available 1156 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    177.3m  5825/6489     1.80s   0.0%      32M    +7380M    2      3.29h
+    178.0m  5850/6489     1.82s   0.0%      32M    +7171M    2      3.29h
+      [sys 178.0m] swap 7171 MB (+7171 MB), RAM available 1180 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    178.8m  5875/6489     1.73s   0.0%      32M    +7409M    2      3.28h
+    179.5m  5900/6489     1.76s   0.0%      32M    +7325M    2      3.28h
+      [sys 179.5m] swap 7325 MB (+7325 MB), RAM available 1152 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    180.3m  5925/6489     1.76s   0.0%      33M    +7254M    2      3.28h
+    181.0m  5950/6489     1.76s   0.0%      33M    +7183M    2      3.28h
+      [sys 181.0m] swap 7183 MB (+7183 MB), RAM available 1136 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    181.7m  5975/6489     1.79s   0.0%      32M    +7176M    2      3.28h
+    182.5m  6000/6489     1.72s   0.0%      31M    +7537M    2      3.27h
+      [sys 182.5m] swap 7537 MB (+7537 MB), RAM available 1105 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    183.3m  6025/6489     1.81s   0.0%      32M    +7499M    2      3.29h
+    184.1m  6050/6489     1.87s   0.0%      31M    +7552M    2      3.30h
+      [sys 184.1m] swap 7552 MB (+7552 MB), RAM available 1282 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    184.9m  6075/6489     1.90s   0.0%      32M    +7296M    2      3.30h
+    185.6m  6100/6489     1.91s   0.0%      32M    +7238M    2      3.30h
+      [sys 185.6m] swap 7238 MB (+7238 MB), RAM available 1205 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    186.3m  6125/6489     1.77s   0.0%      32M    +7182M    2      3.28h
+    187.1m  6150/6489     1.65s   0.0%      31M    +7943M    2      3.27h
+      [sys 187.1m] swap 7943 MB (+7943 MB), RAM available 1385 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    187.9m  6175/6489     1.88s   0.0%      32M    +7703M    2      3.30h
+    188.8m  6200/6489     1.99s   0.0%      32M    +7551M    2      3.31h
+      [sys 188.8m] swap 7551 MB (+7551 MB), RAM available 1205 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    189.4m  6225/6489     1.98s   0.0%      32M    +6985M    2      3.30h
+    190.1m  6250/6489     1.80s   0.0%      33M    +6929M    2      3.29h
+      [sys 190.1m] swap 6929 MB (+6929 MB), RAM available 1118 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    190.9m  6275/6489     1.59s   0.0%      33M    +7092M    2      3.28h
+    191.7m  6300/6489     1.77s   0.0%      32M    +7037M    2      3.29h
+      [sys 191.7m] swap 7037 MB (+7037 MB), RAM available 1138 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    192.4m  6325/6489     1.87s   0.0%      32M    +6986M    2      3.29h
+    193.2m  6350/6489     1.79s   0.0%      33M    +6909M    2      3.29h
+      [sys 193.2m] swap 6909 MB (+6909 MB), RAM available 1122 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    194.0m  6375/6489     1.81s   0.0%      32M    +7512M    2      3.29h
+    194.8m  6400/6489     1.91s   0.0%      32M    +7406M    2      3.29h
+      [sys 194.8m] swap 7406 MB (+7406 MB), RAM available 1040 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    195.7m  6425/6489     1.97s   0.0%      31M    +7466M    2      3.30h
+    196.7m  6450/6489     2.08s   0.0%      31M    +8239M    2      3.30h
+      [sys 196.7m] swap 8239 MB (+8239 MB), RAM available 1123 MB, pressure 2  <-- WARNING: exceeds the M7/M8 efficiency-run swap rule; logged, not aborting (D10)
+    197.6m  6475/6489     2.19s   0.0%      33M    +7895M    2      3.30h
+
+--- M4 result ---
+  wall                 : 3.30 h (198.1 min)
+  paragraphs extracted : 6239 (cached/skipped 250, nominal 7200)
+  unique cache keys    : 6489   cache lines: 6489
+  t_p                  : 1.90 s
+  JSON failure rate    : 0.02%
+  triples total        : 34587
+  swap growth (total)  : +1225 MB
+
+--- per dataset ---
+  musique
+    gold-paragraph extraction coverage : 99.87% (796/797)
+    questions with no gold edges       : 0/300 (0.0%) -- dropped from TRAINING only
+    answer-in-graph rate               : 39.00%
+  hotpotqa
+    gold-paragraph extraction coverage : 100.00% (600/600)
+    questions with no gold edges       : 0/300 (0.0%) -- dropped from TRAINING only
+    answer-in-graph rate               : 52.67%
+
+=== M4 ACCEPTANCE ===
+  [PASS] completed without hitting the hour cap
+  [PASS] cache lines match paragraphs processed
+  [PASS] every pool paragraph has a cache entry
+  [PASS] gold-paragraph coverage reported per dataset
+  [PASS] within 5 h
+
+report -> results/m4_report.json
+M4: PASS

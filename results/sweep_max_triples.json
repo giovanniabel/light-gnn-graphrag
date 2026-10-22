@@ -1,0 +1,655 @@
+{
+  "generated_at": "2026-10-22T07:48:56",
+  "model_tag": "qwen2.5:1.5b-instruct-q4_K_M",
+  "baseline": {
+    "vm_total_mb": 8192.0,
+    "vm_available_mb": 1663.5625,
+    "vm_percent": 79.7,
+    "swap_used_mb": 0.0
+  },
+  "quality_question_ids": [
+    "2hop__102225_58946",
+    "2hop__107208_123863",
+    "2hop__107379_43178",
+    "2hop__107516_80674",
+    "2hop__109402_598257",
+    "2hop__11230_11179",
+    "2hop__132470_449977",
+    "2hop__143950_258760",
+    "2hop__156536_4697",
+    "2hop__200704_75671",
+    "2hop__216722_57623",
+    "2hop__236320_88978",
+    "2hop__26407_74218",
+    "2hop__2675_5348",
+    "2hop__273568_47348",
+    "2hop__2747_2913",
+    "2hop__27723_27669",
+    "2hop__27732_27737",
+    "2hop__296958_70763",
+    "2hop__328329_42292"
+  ],
+  "runs": {
+    "6": {
+      "max_triples": 6,
+      "prompt_version": "v2-mt6",
+      "cache_file": "data/cache/triples_sweep_mt6.jsonl",
+      "pilot": {
+        "n_paragraphs": 50,
+        "t_p_mean_s": 1.9439594316400053,
+        "t_p_median_s": 1.7463319159999742,
+        "t_p_p95_s": 3.666476792000026,
+        "gen_tok_s": 69.69984994296848,
+        "eval_tokens_mean": 120.42,
+        "llm_tokens_total": 22117,
+        "json_failures": 0,
+        "json_failure_rate": 0.0,
+        "truncated": 5,
+        "truncation_rate": 0.1,
+        "salvaged": 5,
+        "json_failure_rate_strict": 0.1,
+        "triples_per_paragraph_mean": 5.7,
+        "zero_triple_paragraphs": 0,
+        "swap_before_mb": 0.0,
+        "swap_after_mb": 629.4375,
+        "swap_growth_mb": 629.4375,
+        "peak_rss_mb": 1330.046875,
+        "baseline_rss_mb": 270.1875,
+        "run_invalidated_by_swap": true,
+        "wall_s": 97.20683433299996
+      },
+      "quality": {
+        "n_questions": 20,
+        "n_paragraphs": 200,
+        "triples_per_paragraph_mean": 5.24,
+        "triples_per_question_mean": 52.4,
+        "nodes_per_question_mean": 55.9,
+        "answer_in_graph_rate": 0.55,
+        "answer_or_alias_in_graph_rate": 0.55,
+        "answer_in_graph_by_hop": {
+          "2": {
+            "rate": 0.55,
+            "n": 20
+          }
+        },
+        "json_failure_rate": 0.0,
+        "per_question": [
+          {
+            "qid": "2hop__102225_58946",
+            "n_hops": 2,
+            "n_triples": 57,
+            "n_nodes": 71,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__107208_123863",
+            "n_hops": 2,
+            "n_triples": 51,
+            "n_nodes": 59,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107379_43178",
+            "n_hops": 2,
+            "n_triples": 51,
+            "n_nodes": 56,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107516_80674",
+            "n_hops": 2,
+            "n_triples": 53,
+            "n_nodes": 52,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__109402_598257",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 53,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__11230_11179",
+            "n_hops": 2,
+            "n_triples": 56,
+            "n_nodes": 55,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__132470_449977",
+            "n_hops": 2,
+            "n_triples": 56,
+            "n_nodes": 54,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__143950_258760",
+            "n_hops": 2,
+            "n_triples": 53,
+            "n_nodes": 58,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__156536_4697",
+            "n_hops": 2,
+            "n_triples": 50,
+            "n_nodes": 57,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__200704_75671",
+            "n_hops": 2,
+            "n_triples": 51,
+            "n_nodes": 51,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__216722_57623",
+            "n_hops": 2,
+            "n_triples": 51,
+            "n_nodes": 52,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__236320_88978",
+            "n_hops": 2,
+            "n_triples": 50,
+            "n_nodes": 53,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__26407_74218",
+            "n_hops": 2,
+            "n_triples": 56,
+            "n_nodes": 58,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__2675_5348",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 49,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__273568_47348",
+            "n_hops": 2,
+            "n_triples": 50,
+            "n_nodes": 58,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__2747_2913",
+            "n_hops": 2,
+            "n_triples": 54,
+            "n_nodes": 59,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27723_27669",
+            "n_hops": 2,
+            "n_triples": 54,
+            "n_nodes": 50,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27732_27737",
+            "n_hops": 2,
+            "n_triples": 53,
+            "n_nodes": 57,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__296958_70763",
+            "n_hops": 2,
+            "n_triples": 58,
+            "n_nodes": 56,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__328329_42292",
+            "n_hops": 2,
+            "n_triples": 50,
+            "n_nodes": 60,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          }
+        ]
+      }
+    },
+    "5": {
+      "max_triples": 5,
+      "prompt_version": "v2-mt5",
+      "cache_file": "data/cache/triples_sweep_mt5.jsonl",
+      "pilot": {
+        "n_paragraphs": 50,
+        "t_p_mean_s": 1.477356468300013,
+        "t_p_median_s": 1.3589927290000787,
+        "t_p_p95_s": 2.7292245419998835,
+        "gen_tok_s": 73.48235275461097,
+        "eval_tokens_mean": 103.24,
+        "llm_tokens_total": 21258,
+        "json_failures": 0,
+        "json_failure_rate": 0.0,
+        "truncated": 4,
+        "truncation_rate": 0.08,
+        "salvaged": 4,
+        "json_failure_rate_strict": 0.08,
+        "triples_per_paragraph_mean": 4.84,
+        "zero_triple_paragraphs": 0,
+        "swap_before_mb": 1123.25,
+        "swap_after_mb": 1187.875,
+        "swap_growth_mb": 18.8125,
+        "peak_rss_mb": 1655.71875,
+        "baseline_rss_mb": 1172.734375,
+        "run_invalidated_by_swap": false,
+        "wall_s": 73.86965370799999
+      },
+      "quality": {
+        "n_questions": 20,
+        "n_paragraphs": 200,
+        "triples_per_paragraph_mean": 4.63,
+        "triples_per_question_mean": 46.3,
+        "nodes_per_question_mean": 50.65,
+        "answer_in_graph_rate": 0.55,
+        "answer_or_alias_in_graph_rate": 0.55,
+        "answer_in_graph_by_hop": {
+          "2": {
+            "rate": 0.55,
+            "n": 20
+          }
+        },
+        "json_failure_rate": 0.0,
+        "per_question": [
+          {
+            "qid": "2hop__102225_58946",
+            "n_hops": 2,
+            "n_triples": 48,
+            "n_nodes": 61,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__107208_123863",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 54,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107379_43178",
+            "n_hops": 2,
+            "n_triples": 46,
+            "n_nodes": 54,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107516_80674",
+            "n_hops": 2,
+            "n_triples": 46,
+            "n_nodes": 45,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__109402_598257",
+            "n_hops": 2,
+            "n_triples": 44,
+            "n_nodes": 51,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__11230_11179",
+            "n_hops": 2,
+            "n_triples": 48,
+            "n_nodes": 48,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__132470_449977",
+            "n_hops": 2,
+            "n_triples": 48,
+            "n_nodes": 47,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__143950_258760",
+            "n_hops": 2,
+            "n_triples": 46,
+            "n_nodes": 52,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__156536_4697",
+            "n_hops": 2,
+            "n_triples": 45,
+            "n_nodes": 52,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__200704_75671",
+            "n_hops": 2,
+            "n_triples": 44,
+            "n_nodes": 46,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__216722_57623",
+            "n_hops": 2,
+            "n_triples": 45,
+            "n_nodes": 50,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__236320_88978",
+            "n_hops": 2,
+            "n_triples": 46,
+            "n_nodes": 50,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__26407_74218",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 52,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__2675_5348",
+            "n_hops": 2,
+            "n_triples": 45,
+            "n_nodes": 47,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__273568_47348",
+            "n_hops": 2,
+            "n_triples": 45,
+            "n_nodes": 52,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__2747_2913",
+            "n_hops": 2,
+            "n_triples": 48,
+            "n_nodes": 53,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27723_27669",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 44,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27732_27737",
+            "n_hops": 2,
+            "n_triples": 47,
+            "n_nodes": 51,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__296958_70763",
+            "n_hops": 2,
+            "n_triples": 49,
+            "n_nodes": 49,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__328329_42292",
+            "n_hops": 2,
+            "n_triples": 45,
+            "n_nodes": 55,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          }
+        ]
+      }
+    },
+    "4": {
+      "max_triples": 4,
+      "prompt_version": "v2-mt4",
+      "cache_file": "data/cache/triples_sweep_mt4.jsonl",
+      "pilot": {
+        "n_paragraphs": 50,
+        "t_p_mean_s": 1.3313756500199951,
+        "t_p_median_s": 1.147096437499954,
+        "t_p_p95_s": 2.6953772500000923,
+        "gen_tok_s": 72.78764194612144,
+        "eval_tokens_mean": 91.96,
+        "llm_tokens_total": 20694,
+        "json_failures": 0,
+        "json_failure_rate": 0.0,
+        "truncated": 5,
+        "truncation_rate": 0.1,
+        "salvaged": 5,
+        "json_failure_rate_strict": 0.1,
+        "triples_per_paragraph_mean": 3.88,
+        "zero_triple_paragraphs": 0,
+        "swap_before_mb": 1555.25,
+        "swap_after_mb": 1604.5625,
+        "swap_growth_mb": 49.3125,
+        "peak_rss_mb": 1520.734375,
+        "baseline_rss_mb": 1501.078125,
+        "run_invalidated_by_swap": false,
+        "wall_s": 66.57098983299989
+      },
+      "quality": {
+        "n_questions": 20,
+        "n_paragraphs": 200,
+        "triples_per_paragraph_mean": 3.86,
+        "triples_per_question_mean": 38.6,
+        "nodes_per_question_mean": 44.2,
+        "answer_in_graph_rate": 0.55,
+        "answer_or_alias_in_graph_rate": 0.55,
+        "answer_in_graph_by_hop": {
+          "2": {
+            "rate": 0.55,
+            "n": 20
+          }
+        },
+        "json_failure_rate": 0.0,
+        "per_question": [
+          {
+            "qid": "2hop__102225_58946",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 53,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__107208_123863",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 47,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107379_43178",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 46,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__107516_80674",
+            "n_hops": 2,
+            "n_triples": 38,
+            "n_nodes": 38,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__109402_598257",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 47,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__11230_11179",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 42,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__132470_449977",
+            "n_hops": 2,
+            "n_triples": 38,
+            "n_nodes": 40,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__143950_258760",
+            "n_hops": 2,
+            "n_triples": 38,
+            "n_nodes": 45,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__156536_4697",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 46,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__200704_75671",
+            "n_hops": 2,
+            "n_triples": 38,
+            "n_nodes": 41,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__216722_57623",
+            "n_hops": 2,
+            "n_triples": 36,
+            "n_nodes": 42,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__236320_88978",
+            "n_hops": 2,
+            "n_triples": 37,
+            "n_nodes": 41,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__26407_74218",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 46,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__2675_5348",
+            "n_hops": 2,
+            "n_triples": 37,
+            "n_nodes": 42,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__273568_47348",
+            "n_hops": 2,
+            "n_triples": 36,
+            "n_nodes": 42,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__2747_2913",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 45,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27723_27669",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 39,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__27732_27737",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 46,
+            "answer_in_graph": false,
+            "answer_or_alias_in_graph": false
+          },
+          {
+            "qid": "2hop__296958_70763",
+            "n_hops": 2,
+            "n_triples": 40,
+            "n_nodes": 45,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          },
+          {
+            "qid": "2hop__328329_42292",
+            "n_hops": 2,
+            "n_triples": 39,
+            "n_nodes": 51,
+            "answer_in_graph": true,
+            "answer_or_alias_in_graph": true
+          }
+        ]
+      }
+    }
+  }
+}

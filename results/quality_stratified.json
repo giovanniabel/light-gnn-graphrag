@@ -1,0 +1,533 @@
+{
+  "generated_at": "2026-10-22T08:08:34",
+  "question_ids": [
+    "2hop__236320_88978",
+    "2hop__26407_74218",
+    "2hop__370522_208194",
+    "2hop__45304_18221",
+    "2hop__45528_390458",
+    "2hop__510694_89167",
+    "2hop__71056_10984",
+    "3hop1__107107_387516_145746",
+    "3hop1__159886_1286_19331",
+    "3hop1__239092_488956_88978",
+    "3hop1__287488_499795_305851",
+    "3hop1__296445_632690_39733",
+    "3hop1__548614_104557_86736",
+    "3hop1__709382_146811_64190",
+    "4hop1__38130_8966_31714_69808",
+    "4hop1__500925_715233_91861_124556",
+    "4hop1__709382_146811_31223_24534",
+    "4hop2__339729_20606_51791_75635",
+    "4hop3__145289_362455_28338_160498",
+    "4hop3__312602_629330_70123_63115"
+  ],
+  "hop_counts": {
+    "2": 7,
+    "3": 7,
+    "4": 6
+  },
+  "runs": {
+    "6": {
+      "max_triples": 6,
+      "answer_in_graph_rate": 0.35,
+      "by_hop": {
+        "2": {
+          "rate": 0.42857142857142855,
+          "hit": 3,
+          "n": 7
+        },
+        "3": {
+          "rate": 0.14285714285714285,
+          "hit": 1,
+          "n": 7
+        },
+        "4": {
+          "rate": 0.5,
+          "hit": 3,
+          "n": 6
+        }
+      },
+      "triples_per_paragraph_mean": 5.5,
+      "triples_per_question_mean": 55.0,
+      "nodes_per_question_mean": 58.25,
+      "new_paragraphs_extracted": 177,
+      "per_question": [
+        {
+          "qid": "2hop__236320_88978",
+          "n_hops": 2,
+          "n_triples": 50,
+          "n_nodes": 53,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__26407_74218",
+          "n_hops": 2,
+          "n_triples": 56,
+          "n_nodes": 58,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__370522_208194",
+          "n_hops": 2,
+          "n_triples": 56,
+          "n_nodes": 57,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__45304_18221",
+          "n_hops": 2,
+          "n_triples": 55,
+          "n_nodes": 54,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "2hop__45528_390458",
+          "n_hops": 2,
+          "n_triples": 52,
+          "n_nodes": 53,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__510694_89167",
+          "n_hops": 2,
+          "n_triples": 58,
+          "n_nodes": 32,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "2hop__71056_10984",
+          "n_hops": 2,
+          "n_triples": 58,
+          "n_nodes": 60,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "3hop1__107107_387516_145746",
+          "n_hops": 3,
+          "n_triples": 46,
+          "n_nodes": 55,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__159886_1286_19331",
+          "n_hops": 3,
+          "n_triples": 57,
+          "n_nodes": 55,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__239092_488956_88978",
+          "n_hops": 3,
+          "n_triples": 57,
+          "n_nodes": 60,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__287488_499795_305851",
+          "n_hops": 3,
+          "n_triples": 56,
+          "n_nodes": 62,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "3hop1__296445_632690_39733",
+          "n_hops": 3,
+          "n_triples": 58,
+          "n_nodes": 63,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__548614_104557_86736",
+          "n_hops": 3,
+          "n_triples": 58,
+          "n_nodes": 62,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__709382_146811_64190",
+          "n_hops": 3,
+          "n_triples": 56,
+          "n_nodes": 62,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__38130_8966_31714_69808",
+          "n_hops": 4,
+          "n_triples": 49,
+          "n_nodes": 63,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__500925_715233_91861_124556",
+          "n_hops": 4,
+          "n_triples": 51,
+          "n_nodes": 59,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__709382_146811_31223_24534",
+          "n_hops": 4,
+          "n_triples": 57,
+          "n_nodes": 67,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop2__339729_20606_51791_75635",
+          "n_hops": 4,
+          "n_triples": 53,
+          "n_nodes": 67,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__145289_362455_28338_160498",
+          "n_hops": 4,
+          "n_triples": 60,
+          "n_nodes": 61,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__312602_629330_70123_63115",
+          "n_hops": 4,
+          "n_triples": 57,
+          "n_nodes": 62,
+          "answer_in_graph": true
+        }
+      ]
+    },
+    "5": {
+      "max_triples": 5,
+      "answer_in_graph_rate": 0.25,
+      "by_hop": {
+        "2": {
+          "rate": 0.14285714285714285,
+          "hit": 1,
+          "n": 7
+        },
+        "3": {
+          "rate": 0.14285714285714285,
+          "hit": 1,
+          "n": 7
+        },
+        "4": {
+          "rate": 0.5,
+          "hit": 3,
+          "n": 6
+        }
+      },
+      "triples_per_paragraph_mean": 4.715,
+      "triples_per_question_mean": 47.15,
+      "nodes_per_question_mean": 51.65,
+      "new_paragraphs_extracted": 177,
+      "per_question": [
+        {
+          "qid": "2hop__236320_88978",
+          "n_hops": 2,
+          "n_triples": 46,
+          "n_nodes": 50,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__26407_74218",
+          "n_hops": 2,
+          "n_triples": 47,
+          "n_nodes": 52,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__370522_208194",
+          "n_hops": 2,
+          "n_triples": 49,
+          "n_nodes": 52,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__45304_18221",
+          "n_hops": 2,
+          "n_triples": 47,
+          "n_nodes": 49,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "2hop__45528_390458",
+          "n_hops": 2,
+          "n_triples": 46,
+          "n_nodes": 45,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__510694_89167",
+          "n_hops": 2,
+          "n_triples": 50,
+          "n_nodes": 28,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__71056_10984",
+          "n_hops": 2,
+          "n_triples": 48,
+          "n_nodes": 53,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__107107_387516_145746",
+          "n_hops": 3,
+          "n_triples": 42,
+          "n_nodes": 51,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__159886_1286_19331",
+          "n_hops": 3,
+          "n_triples": 49,
+          "n_nodes": 49,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__239092_488956_88978",
+          "n_hops": 3,
+          "n_triples": 47,
+          "n_nodes": 52,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__287488_499795_305851",
+          "n_hops": 3,
+          "n_triples": 48,
+          "n_nodes": 55,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "3hop1__296445_632690_39733",
+          "n_hops": 3,
+          "n_triples": 47,
+          "n_nodes": 52,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__548614_104557_86736",
+          "n_hops": 3,
+          "n_triples": 50,
+          "n_nodes": 54,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__709382_146811_64190",
+          "n_hops": 3,
+          "n_triples": 47,
+          "n_nodes": 54,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__38130_8966_31714_69808",
+          "n_hops": 4,
+          "n_triples": 43,
+          "n_nodes": 58,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__500925_715233_91861_124556",
+          "n_hops": 4,
+          "n_triples": 43,
+          "n_nodes": 53,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__709382_146811_31223_24534",
+          "n_hops": 4,
+          "n_triples": 49,
+          "n_nodes": 59,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop2__339729_20606_51791_75635",
+          "n_hops": 4,
+          "n_triples": 48,
+          "n_nodes": 61,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__145289_362455_28338_160498",
+          "n_hops": 4,
+          "n_triples": 50,
+          "n_nodes": 51,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__312602_629330_70123_63115",
+          "n_hops": 4,
+          "n_triples": 47,
+          "n_nodes": 55,
+          "answer_in_graph": true
+        }
+      ]
+    },
+    "4": {
+      "max_triples": 4,
+      "answer_in_graph_rate": 0.25,
+      "by_hop": {
+        "2": {
+          "rate": 0.14285714285714285,
+          "hit": 1,
+          "n": 7
+        },
+        "3": {
+          "rate": 0.14285714285714285,
+          "hit": 1,
+          "n": 7
+        },
+        "4": {
+          "rate": 0.5,
+          "hit": 3,
+          "n": 6
+        }
+      },
+      "triples_per_paragraph_mean": 3.805,
+      "triples_per_question_mean": 38.05,
+      "nodes_per_question_mean": 43.95,
+      "new_paragraphs_extracted": 177,
+      "per_question": [
+        {
+          "qid": "2hop__236320_88978",
+          "n_hops": 2,
+          "n_triples": 37,
+          "n_nodes": 41,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__26407_74218",
+          "n_hops": 2,
+          "n_triples": 39,
+          "n_nodes": 46,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__370522_208194",
+          "n_hops": 2,
+          "n_triples": 40,
+          "n_nodes": 45,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__45304_18221",
+          "n_hops": 2,
+          "n_triples": 39,
+          "n_nodes": 44,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "2hop__45528_390458",
+          "n_hops": 2,
+          "n_triples": 38,
+          "n_nodes": 40,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__510694_89167",
+          "n_hops": 2,
+          "n_triples": 38,
+          "n_nodes": 20,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "2hop__71056_10984",
+          "n_hops": 2,
+          "n_triples": 40,
+          "n_nodes": 47,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__107107_387516_145746",
+          "n_hops": 3,
+          "n_triples": 36,
+          "n_nodes": 45,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__159886_1286_19331",
+          "n_hops": 3,
+          "n_triples": 39,
+          "n_nodes": 41,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__239092_488956_88978",
+          "n_hops": 3,
+          "n_triples": 39,
+          "n_nodes": 45,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__287488_499795_305851",
+          "n_hops": 3,
+          "n_triples": 40,
+          "n_nodes": 51,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "3hop1__296445_632690_39733",
+          "n_hops": 3,
+          "n_triples": 38,
+          "n_nodes": 46,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__548614_104557_86736",
+          "n_hops": 3,
+          "n_triples": 38,
+          "n_nodes": 43,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "3hop1__709382_146811_64190",
+          "n_hops": 3,
+          "n_triples": 38,
+          "n_nodes": 47,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__38130_8966_31714_69808",
+          "n_hops": 4,
+          "n_triples": 34,
+          "n_nodes": 48,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__500925_715233_91861_124556",
+          "n_hops": 4,
+          "n_triples": 34,
+          "n_nodes": 44,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop1__709382_146811_31223_24534",
+          "n_hops": 4,
+          "n_triples": 38,
+          "n_nodes": 46,
+          "answer_in_graph": false
+        },
+        {
+          "qid": "4hop2__339729_20606_51791_75635",
+          "n_hops": 4,
+          "n_triples": 37,
+          "n_nodes": 49,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__145289_362455_28338_160498",
+          "n_hops": 4,
+          "n_triples": 39,
+          "n_nodes": 41,
+          "answer_in_graph": true
+        },
+        {
+          "qid": "4hop3__312602_629330_70123_63115",
+          "n_hops": 4,
+          "n_triples": 40,
+          "n_nodes": 50,
+          "answer_in_graph": true
+        }
+      ]
+    }
+  }
+}

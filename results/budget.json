@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-10-22T08:28:24",
+  "model_tag": "qwen2.5:1.5b-instruct-q4_K_M",
+  "prompt_version": "v2-mt6",
+  "max_triples": 6,
+  "pilot": {
+    "n_paragraphs": 50,
+    "by_dataset": {
+      "musique": 32,
+      "hotpotqa": 18
+    },
+    "t_p_mean_s": 1.905469016679981,
+    "t_p_median_s": 1.7857448130000648,
+    "t_p_p95_s": 2.8721340840002085,
+    "json_failures": 0,
+    "json_failure_rate": 0.0,
+    "truncated_at_num_predict": 2,
+    "truncation_rate": 0.04,
+    "salvaged_from_truncation": 2,
+    "json_failures_strict": 2,
+    "json_failure_rate_strict": 0.04,
+    "triples_per_paragraph_mean": 5.66,
+    "triples_per_paragraph_median": 6.0,
+    "zero_triple_paragraphs": 0,
+    "llm_tokens_total": 21654,
+    "llm_tokens_per_paragraph": 433.08,
+    "words_per_paragraph_median": 81.0,
+    "cache_lines": 50,
+    "stage_stats": {
+      "stage": "indexing_pilot",
+      "latency_s": 95.2752909169999,
+      "llm_tokens": 0,
+      "peak_rss_mb": 1758.453125,
+      "delta_rss_mb": 1498.03125,
+      "baseline_rss_mb": 260.421875,
+      "swap_delta_mb": -16.0
+    },
+    "run_invalidated_by_swap": false
+  },
+  "num_parallel_2_test": {
+    "n_paragraphs": 6,
+    "sequential_wall_s": 11.590951042000142,
+    "sequential_t_p": 1.9318251736666905,
+    "parallel2_wall_s": 11.478383333000238,
+    "parallel2_t_p": 1.913063888833373,
+    "speedup": 1.0098069306220392,
+    "parallel2_faster": false,
+    "note": "server-side OLLAMA_NUM_PARALLEL was not changed; this measures the concurrency actually available from the running server"
+  },
+  "gates": {
+    "estimated_hours_le_cap": true,
+    "estimated_hours": 3.988781808250094,
+    "max_estimated_hours": 5.0,
+    "t_p_le_6s_reference_only": true,
+    "t_p_measured_s": 1.905469016679981,
+    "t_p_threshold_s": 6.0,
+    "json_failure_le_5pct": true,
+    "json_failure_le_5pct_strict": true,
+    "all_passed": true,
+    "all_passed_strict": true
+  },
+  "governor": {
+    "extract_budget_s": 14400.0,
+    "formula": "N = clamp(floor(EXTRACT_BUDGET_S / (2 * sum_d(pool_size_d) * t_p)), 60, 300)  [D1/D3]",
+    "n_min": 60,
+    "n_max": 300,
+    "scenarios": {
+      "chosen": {
+        "pool_sizes": {
+          "musique": 14,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 24,
+        "n_raw": 157,
+        "n": 157,
+        "clamped_at": null,
+        "total_paragraphs": 7536,
+        "unique_paragraphs_est": 6836,
+        "estimated_extraction_s": 14359.614509700337,
+        "estimated_extraction_h": 3.988781808250094,
+        "estimated_extraction_h_deduped": 3.618489897050876,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 4396,
+          "hotpotqa": 3140
+        }
+      },
+      "musique_10": {
+        "pool_sizes": {
+          "musique": 10,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 20,
+        "n_raw": 188,
+        "n": 188,
+        "clamped_at": null,
+        "total_paragraphs": 7520,
+        "unique_paragraphs_est": 6911,
+        "estimated_extraction_s": 14329.127005433458,
+        "estimated_extraction_h": 3.9803130570648495,
+        "estimated_extraction_h_deduped": 3.6579076994425965,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 3760,
+          "hotpotqa": 3760
+        }
+      },
+      "musique_12": {
+        "pool_sizes": {
+          "musique": 12,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 22,
+        "n_raw": 171,
+        "n": 171,
+        "clamped_at": null,
+        "total_paragraphs": 7524,
+        "unique_paragraphs_est": 6866,
+        "estimated_extraction_s": 14336.748881500178,
+        "estimated_extraction_h": 3.9824302448611606,
+        "estimated_extraction_h_deduped": 3.6341486179923934,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 4104,
+          "hotpotqa": 3420
+        }
+      },
+      "musique_14": {
+        "pool_sizes": {
+          "musique": 14,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 24,
+        "n_raw": 157,
+        "n": 157,
+        "clamped_at": null,
+        "total_paragraphs": 7536,
+        "unique_paragraphs_est": 6836,
+        "estimated_extraction_s": 14359.614509700337,
+        "estimated_extraction_h": 3.988781808250094,
+        "estimated_extraction_h_deduped": 3.618489897050876,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 4396,
+          "hotpotqa": 3140
+        }
+      },
+      "musique_16": {
+        "pool_sizes": {
+          "musique": 16,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 26,
+        "n_raw": 145,
+        "n": 145,
+        "clamped_at": null,
+        "total_paragraphs": 7540,
+        "unique_paragraphs_est": 6806,
+        "estimated_extraction_s": 14367.236385767057,
+        "estimated_extraction_h": 3.9908989960464045,
+        "estimated_extraction_h_deduped": 3.6022468322775776,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 4640,
+          "hotpotqa": 2900
+        }
+      },
+      "musique_20": {
+        "pool_sizes": {
+          "musique": 20,
+          "hotpotqa": 10
+        },
+        "paragraphs_per_question_summed": 30,
+        "n_raw": 125,
+        "n": 125,
+        "clamped_at": null,
+        "total_paragraphs": 7500,
+        "unique_paragraphs_est": 6715,
+        "estimated_extraction_s": 14291.017625099857,
+        "estimated_extraction_h": 3.9697271180832936,
+        "estimated_extraction_h_deduped": 3.5542290130572423,
+        "within_budget": true,
+        "within_hard_cap": true,
+        "per_dataset_paragraphs": {
+          "musique": 5000,
+          "hotpotqa": 2500
+        }
+      }
+    },
+    "pool_sizes": {
+      "musique": 14,
+      "hotpotqa": 10
+    },
+    "chosen_n": 157,
+    "estimated_extraction_hours": 3.988781808250094,
+    "estimated_extraction_hours_deduped": 3.618489897050876,
+    "max_estimated_hours": 5.0,
+    "sample_sizes": {
+      "musique/train": 157,
+      "musique/validation": 157,
+      "hotpotqa/train": 157,
+      "hotpotqa/validation": 157
+    }
+  },
+  "acceptance": {
+    "results/budget.json written": true,
+    "JSON failure rate <= 5% (after salvage)": true,
+    "JSON failure rate <= 5% (strict)": true,
+    "estimated extraction hours <= hard cap (D3)": true,
+    "NUM_PARALLEL=2 test recorded": true,
+    "cache lines == paragraphs extracted": true,
+    "no swap invalidation": true
+  },
+  "all_passed": true
+}

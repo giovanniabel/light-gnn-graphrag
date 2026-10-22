@@ -1,0 +1,269 @@
+{
+  "config": {
+    "label": "lr0.001_dr0.3_wd0.1",
+    "lr": 0.001,
+    "dropout": 0.3,
+    "weight_decay": 0.1,
+    "score": 0.6367860896063162
+  },
+  "datasets": {
+    "musique": {
+      "methods": {
+        "gnn_graph_only": {
+          "method": "gnn_graph_only",
+          "edge_ap_mean": 0.5863678365816096,
+          "edge_ap_pooled": 0.38215439733357676,
+          "sp_recall4": 0.5738888888888889,
+          "allgold4_uncond": 0.15333333333333332,
+          "allgold4_cond": 0.22549019607843138,
+          "n_cond": 102,
+          "n_all": 150
+        },
+        "gnn_plus_vector": {
+          "method": "gnn_plus_vector",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.6633333333333333,
+          "allgold4_uncond": 0.22,
+          "allgold4_cond": 0.3235294117647059,
+          "n_cond": 102,
+          "n_all": 150
+        },
+        "vector_rag": {
+          "method": "vector_rag",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.6922222222222222,
+          "allgold4_uncond": 0.22666666666666666,
+          "allgold4_cond": 0.3333333333333333,
+          "n_cond": 102,
+          "n_all": 150
+        },
+        "ppr": {
+          "method": "ppr",
+          "edge_ap_mean": 0.5337893625187521,
+          "edge_ap_pooled": 0.3765382615786537,
+          "sp_recall4": 0.5616666666666666,
+          "allgold4_uncond": 0.14,
+          "allgold4_cond": 0.20588235294117646,
+          "n_cond": 102,
+          "n_all": 150
+        },
+        "edge_sim": {
+          "method": "edge_sim",
+          "edge_ap_mean": 0.494750727725493,
+          "edge_ap_pooled": 0.3453961595529602,
+          "sp_recall4": 0.6122222222222222,
+          "allgold4_uncond": 0.2,
+          "allgold4_cond": 0.29411764705882354,
+          "n_cond": 102,
+          "n_all": 150
+        },
+        "ppr_plus_vector": {
+          "method": "ppr_plus_vector",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.6388888888888888,
+          "allgold4_uncond": 0.21333333333333335,
+          "allgold4_cond": 0.3137254901960784,
+          "n_cond": 102,
+          "n_all": 150
+        }
+      },
+      "paired_bootstrap": {
+        "allgold4|gnn_graph_only-vs-vector_rag": {
+          "point": -0.10666666666666669,
+          "lo": -0.18666666666666668,
+          "hi": -0.026666666666666672,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "allgold4|gnn_graph_only-vs-ppr": {
+          "point": 0.01999999999999999,
+          "lo": -0.03999999999999998,
+          "hi": 0.07999999999999999,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_graph_only-vs-edge_sim": {
+          "point": -0.053333333333333344,
+          "lo": -0.1333333333333333,
+          "hi": 0.020000000000000018,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_plus_vector-vs-ppr_plus_vector": {
+          "point": 0.020000000000000018,
+          "lo": -0.033333333333333326,
+          "hi": 0.0733333333333333,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_plus_vector-vs-vector_rag": {
+          "point": -0.006666666666666654,
+          "lo": -0.06666666666666665,
+          "hi": 0.053333333333333344,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "edge_ap|gnn_graph_only-vs-ppr": {
+          "point": 0.05257847406285754,
+          "lo": 0.019255681812902048,
+          "hi": 0.0872436377878047,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "edge_ap|gnn_graph_only-vs-edge_sim": {
+          "point": 0.09161710885611662,
+          "lo": 0.050564589520596614,
+          "hi": 0.13405784847138036,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      },
+      "fold_ap": [
+        0.5864487325445761,
+        0.5967127161457962,
+        0.6348414022523037,
+        0.5386880080304998,
+        0.5751483239348727
+      ],
+      "seed_ap": [
+        0.3264531218955109,
+        0.37572586953144826,
+        0.3921562021341234
+      ],
+      "fold_ap_sd": 0.03116393159047478,
+      "seed_ap_sd": 0.027917844237593616
+    },
+    "hotpotqa": {
+      "methods": {
+        "gnn_graph_only": {
+          "method": "gnn_graph_only",
+          "edge_ap_mean": 0.6872043426310229,
+          "edge_ap_pooled": 0.5545675622496911,
+          "sp_recall4": 0.7666666666666667,
+          "allgold4_uncond": 0.5666666666666667,
+          "allgold4_cond": 0.5666666666666667,
+          "n_cond": 150,
+          "n_all": 150
+        },
+        "gnn_plus_vector": {
+          "method": "gnn_plus_vector",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.8533333333333334,
+          "allgold4_uncond": 0.7266666666666667,
+          "allgold4_cond": 0.7266666666666667,
+          "n_cond": 150,
+          "n_all": 150
+        },
+        "vector_rag": {
+          "method": "vector_rag",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.8633333333333333,
+          "allgold4_uncond": 0.7333333333333333,
+          "allgold4_cond": 0.7333333333333333,
+          "n_cond": 150,
+          "n_all": 150
+        },
+        "ppr": {
+          "method": "ppr",
+          "edge_ap_mean": 0.5548095560171847,
+          "edge_ap_pooled": 0.4823860780991233,
+          "sp_recall4": 0.7,
+          "allgold4_uncond": 0.5133333333333333,
+          "allgold4_cond": 0.5133333333333333,
+          "n_cond": 150,
+          "n_all": 150
+        },
+        "edge_sim": {
+          "method": "edge_sim",
+          "edge_ap_mean": 0.5914705868644213,
+          "edge_ap_pooled": 0.48628684466959177,
+          "sp_recall4": 0.7766666666666666,
+          "allgold4_uncond": 0.5933333333333334,
+          "allgold4_cond": 0.5933333333333334,
+          "n_cond": 150,
+          "n_all": 150
+        },
+        "ppr_plus_vector": {
+          "method": "ppr_plus_vector",
+          "edge_ap_mean": null,
+          "edge_ap_pooled": null,
+          "sp_recall4": 0.8233333333333334,
+          "allgold4_uncond": 0.66,
+          "allgold4_cond": 0.66,
+          "n_cond": 150,
+          "n_all": 150
+        }
+      },
+      "paired_bootstrap": {
+        "allgold4|gnn_graph_only-vs-vector_rag": {
+          "point": -0.16666666666666663,
+          "lo": -0.25333333333333335,
+          "hi": -0.07999999999999996,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "allgold4|gnn_graph_only-vs-ppr": {
+          "point": 0.053333333333333344,
+          "lo": -0.026666666666666672,
+          "hi": 0.1333333333333333,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_graph_only-vs-edge_sim": {
+          "point": -0.026666666666666727,
+          "lo": -0.1133333333333334,
+          "hi": 0.06000000000000005,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_plus_vector-vs-ppr_plus_vector": {
+          "point": 0.06666666666666665,
+          "lo": 0.0,
+          "hi": 0.1333333333333333,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|gnn_plus_vector-vs-vector_rag": {
+          "point": -0.006666666666666599,
+          "lo": -0.06666666666666665,
+          "hi": 0.053333333333333344,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "edge_ap|gnn_graph_only-vs-ppr": {
+          "point": 0.1323947866138382,
+          "lo": 0.09807863852720122,
+          "hi": 0.16774451044908367,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "edge_ap|gnn_graph_only-vs-edge_sim": {
+          "point": 0.09573375576660159,
+          "lo": 0.0587051180766035,
+          "hi": 0.13296578911813572,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      },
+      "fold_ap": [
+        0.6976235769392125,
+        0.7388548894506214,
+        0.6536394705086727,
+        0.632891371017019,
+        0.7098891400625814
+      ],
+      "seed_ap": [
+        0.5256915317680615,
+        0.5619794464764925,
+        0.5304356552768371
+      ],
+      "fold_ap_sd": 0.03838095369816512,
+      "seed_ap_sd": 0.01610496895371229
+    }
+  }
+}

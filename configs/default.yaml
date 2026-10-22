@@ -1,0 +1,146 @@
+# Single source of truth for hyperparameters and seeds (agent.md Section 12).
+# Anything changed after seeing eval results must be logged as a deviation.
+# Deviation IDs (D1..D9) refer to agent.md Section 14 "Deviation log".
+
+device: cpu # benchmarked twice: at 200/400 caps cpu 0.382 vs mps 0.534 s/epoch;
+            # re-run at the D14 sizes (70 nodes/415 edges, 778/390 feats):
+            # cpu 0.144 vs mps 0.154 s/epoch (mps 0.94x). cpu both times.
+seed: 1234
+seeds: [1234, 1235, 1236]   # 3 training seeds (Section 7.4)
+
+data:
+  datasets: [musique, hotpotqa]
+
+  # D1: per-dataset pool size. HotpotQA ships exactly 10 candidates, so 10 is the
+  # whole pool. MuSiQue has 20 and needs 14 to clear the Section 3.1 recall gate:
+  # measured 0.873 train / 0.898 validation at 14, against 0.778 / 0.791 at 10.
+  # Selection stays gold-blind for both (tests/test_data.py proves it).
+  pool_sizes:
+    musique: 14
+    hotpotqa: 10
+
+  target_n: 150         # default per (dataset, split); the governor overrides it
+  n_min: 60
+  n_max: 300
+  dev_frac: 0.10        # carved from train for early stopping (Section 3)
+
+  musique_repo: dgslibisey/MuSiQue
+  musique_train_file: musique_ans_v1.0_train.jsonl
+  musique_eval_file: musique_ans_v1.0_dev.jsonl
+  hotpotqa_repo: hotpotqa/hotpot_qa
+  hotpotqa_config: distractor
+  # D5: official HotpotQA train is easy/medium/hard, official validation is 100%
+  # hard. Train is restricted to hard so train and eval match in difficulty.
+  hotpotqa_train_level: hard
+
+graph:
+  hops: 3               # H (Section 4.1). NOT raised: see D13 -- widening H would
+                        # change the Section 4.3 node feature width.
+  max_nodes: 300        # D14, raised from 200: cap-binding 0.0% vs 67.4% at 200/400
+  max_edges: 800        # D14, raised from 400
+  merge_near_duplicates: true
+  merge_cosine: 0.92
+  max_seeds: 5
+  seed_fallback_topk: 3
+
+  # Section 4.1.1 cross-paragraph connectivity -- FROZEN. Chosen on TRAIN/DEV only
+  # (D12); thresholds swept on train/dev and not revisited after validation.
+  # The Section 4.1.1 coverage target was MISSED on MuSiQue and accepted as missed
+  # (D13): 84.8% evidence-only coverage against a 90% target, HotpotQA 99.4%.
+  connectivity:
+    title_hubs: true           # (a) MuSiQue train coverage 29.4% -> 41.1% with fuzzy
+    title_fuzzy: true
+    title_token_jaccard: 0.5
+    same_as_edges: true        # (b) -> 49.9%; threshold swept {0.90,0.88,0.85,0.82}
+    same_as_cosine: 0.85       #     all within 1.4 points, so 0.85 kept
+    same_as_token_match: true
+    same_as_max_per_node: 3
+    paragraph_nodes: true      # (c) -> 84.8% (MuSiQue) / 99.4% (HotpotQA)
+
+model:
+  # FROZEN after the D17 cross-validated grid. Selected by mean OOF per-question
+  # edge AP, but the whole 8-config grid spanned 0.0093 against a fold-to-fold sd
+  # of ~0.031, so this is an arbitrary pick inside the noise, NOT a tuned result:
+  # the finding is that these hyperparameters do not matter in this range.
+  hidden: 128
+  heads: 4
+  layers: 2             # L. Ablation: L=3 within noise, L=0 costs -0.07/-0.10 AP
+  dropout: 0.3          # was 0.1; grid pick, difference +0.0026 (within noise)
+  aggregator: gatv2     # gatv2 | sage
+  query_conditioning: true
+
+train:
+  lr: 1.0e-3            # grid pick
+  weight_decay: 1.0e-1  # was 1e-2; grid pick, within noise
+  batch_graphs: 32
+  max_epochs: 30
+  patience: 5           # early stopping on dev AllGold@4
+
+routing:
+  k: 4                  # K paragraphs to the reader (Section 4.4)
+  paragraph_score: mean # mean of top-2 edge scores | max
+  top2: 2
+  edge_b: 10            # B for Edge-Precision@B / Path-Recall
+  include_triple_header: true
+  top_triples: 5
+
+metrics:
+  # D4: AllGold@4 is reported both unconditional (over all questions) and
+  # conditional on all gold paragraphs being in the pool. Claim C1 is tested on
+  # the conditional version, so pool-construction loss is not charged to the router.
+  allgold_conditional: true
+  allgold_unconditional: true
+  c1_metric: allgold_at_4_conditional
+
+extraction:
+  prompt_version: v2
+  num_predict: 192
+  max_triples: 6                 # D2; enforced by the JSON-schema decoding grammar
+  num_ctx: 2048
+  temperature: 0
+  max_words_per_paragraph: 120   # D2: median paragraph is 99 words; 98.8% of words kept
+  retries: 1
+  json_failure_gate: 0.05
+
+llm_trace:
+  steps: 3
+  max_candidate_edges: 20
+  max_edges_per_step: 3
+  num_predict: 40
+
+budget:
+  extract_budget_s: 14400   # EXTRACT_BUDGET_S = 4 h (Section 8.2)
+  extract_hard_cap_h: 5
+  pilot_paragraphs: 50
+  # D3: the gate is estimated total extraction hours, not t_p alone. t_p is only
+  # meaningful against a fixed pool size and question count; the budget actually
+  # constrains total hours. t_p_stop_s is kept as a reported figure, not a gate.
+  gate_on_estimated_hours: true
+  max_estimated_hours: 5.0
+  t_p_stop_s: 6.0           # reported, no longer a gate (see D3)
+
+profiling:
+  rss_interval_s: 0.1        # sample every 100 ms (Section 7.3)
+  # D10: system-wide swap growth remains a HARD invalidation rule for the M7/M8
+  # efficiency measurement runs, where memory is the quantity under measurement.
+  # It is NOT an abort for extraction, where it proved to fire on unrelated macOS
+  # daemons; extraction uses extraction_guard below.
+  swap_invalidate_mb: 500
+  swap_invalidate_applies_to: [m7, m7b, m8]
+
+  extraction_guard:          # D10 -- abort conditions for long extraction runs
+    rss_growth_factor: 1.5   # (a) own tree RSS (excl. Ollama) vs baseline
+    rss_growth_min_mb: 300   #     and at least this much above it, in absolute terms
+    rss_window_ticks: 10     #     sustained across this many consecutive ticks
+    tp_factor: 1.5           # (b) rolling t_p vs baseline t_p
+    tp_window_paragraphs: 50 #     rolling window
+    pressure_consecutive: 3  # (c) consecutive critical memory-pressure readings
+    warn_every_s: 60         # system swap / RAM logged this often, as a warning
+
+paths:
+  raw: data/raw
+  cache: data/cache
+  triples: data/cache/triples.jsonl
+  embeddings: data/cache/embeddings
+  graphs: data/cache/graphs
+  results: results

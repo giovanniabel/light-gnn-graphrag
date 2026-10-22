@@ -1,0 +1,85 @@
+{
+  "imports": {
+    "torch": "2.14.1",
+    "torch_geometric": "2.8.1",
+    "networkx": "3.7",
+    "sentence_transformers": "6.2.0",
+    "datasets": "5.1.0",
+    "psutil": "7.2.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "yaml": "6.0.3",
+    "sklearn": "1.9.1"
+  },
+  "mps_fallback_set": true,
+  "ollama": {
+    "model_tag": "qwen2.5:1.5b-instruct-q4_K_M",
+    "server_version": "0.35.1",
+    "models": [
+      "qwen2.5:1.5b-instruct-q4_K_M",
+      "dolphin-phi:2.7b",
+      "llama3.2:3b",
+      "mxbai-embed-large:latest"
+    ],
+    "test_prompt": "Answer with one word only. What is the capital of France?",
+    "test_response": "Paris",
+    "latency_s": 2.2203144160012016,
+    "prompt_tokens": 42,
+    "completion_tokens": 2,
+    "json_mode_ok": true
+  },
+  "embedder": {
+    "model": "BAAI/bge-small-en-v1.5",
+    "load_s": 20.305155000001832,
+    "dim": 384,
+    "norm": 1.0000001192092896
+  },
+  "profiling": {
+    "ollama_procs": 3,
+    "stage": "m0_smoke",
+    "latency_s": 0.355070292003802,
+    "llm_tokens": 0,
+    "peak_rss_mb": 1457.203125,
+    "delta_rss_mb": 0.03125,
+    "baseline_rss_mb": 1457.171875,
+    "swap_delta_mb": 0.0
+  },
+  "device": "cpu",
+  "device_benchmark": {
+    "cpu": {
+      "device": "cpu",
+      "epoch_s": 0.38215508299617795,
+      "epoch_s_all": [
+        0.38215508299617795,
+        0.42149783299828414
+      ],
+      "n_graphs": 96,
+      "batch_graphs": 32,
+      "n_params": 429825,
+      "params_under_1m": true
+    },
+    "mps": {
+      "device": "mps",
+      "epoch_s": 0.5339384580001934,
+      "epoch_s_all": [
+        0.5339384580001934,
+        0.5379608340008417
+      ],
+      "n_graphs": 96,
+      "batch_graphs": 32,
+      "n_params": 429825,
+      "params_under_1m": true
+    },
+    "chosen": "cpu",
+    "mps_speedup_over_cpu": 0.7157287085622133
+  },
+  "acceptance": {
+    "imports work": true,
+    "PYTORCH_ENABLE_MPS_FALLBACK=1": true,
+    "DEVICE set in config": true,
+    "ollama model answers test prompt": true,
+    "embedder loads (384-dim, normalized)": true,
+    "process-tree RSS sampler sees ollama": true
+  },
+  "all_passed": true
+}

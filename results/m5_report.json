@@ -1,0 +1,485 @@
+{
+  "hops": 3,
+  "caps": {
+    "max_nodes": 300,
+    "max_edges": 800
+  },
+  "entities_cached": 32762,
+  "relations_cached": 13814,
+  "datasets": {
+    "musique": {
+      "train": {
+        "2hop": {
+          "n_questions": 50,
+          "components_per_question": 2.2,
+          "bfs_node_share": 0.8017502100490128,
+          "pool_covered_share": 0.8242857142857143,
+          "allgold_ceiling": 0.78,
+          "allgold_ceiling_conditional_on_pooling": 0.9,
+          "all_gold_in_pool": 0.88,
+          "sp_recall_ceiling": 0.89,
+          "sp_recall_ceiling_conditional": 0.95,
+          "answer_in_graph": 0.5,
+          "graph_ceiling_path": 0.5,
+          "nodes_mean": 65.6,
+          "edges_mean": 405.0,
+          "nodes_max": 95,
+          "edges_max": 620,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.04632098765432099,
+          "pos_weight": 20.588486140724946,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 92.12,
+            "same_as": 11.28,
+            "para": 80.86
+          }
+        },
+        "4hop": {
+          "n_questions": 50,
+          "components_per_question": 2.72,
+          "bfs_node_share": 0.8363582902883677,
+          "pool_covered_share": 0.86,
+          "allgold_ceiling": 0.2,
+          "allgold_ceiling_conditional_on_pooling": 0.44,
+          "all_gold_in_pool": 0.5,
+          "sp_recall_ceiling": 0.585,
+          "sp_recall_ceiling_conditional": 0.6966666666666668,
+          "answer_in_graph": 0.3,
+          "graph_ceiling_path": 0.3,
+          "nodes_mean": 71.44,
+          "edges_mean": 409.76,
+          "nodes_max": 97,
+          "edges_max": 546,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.060035142522452165,
+          "pos_weight": 15.65691056910569,
+          "questions_without_positive_edge": 3,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 81.38,
+            "same_as": 13.0,
+            "para": 70.32
+          }
+        },
+        "3hop": {
+          "n_questions": 50,
+          "components_per_question": 2.06,
+          "bfs_node_share": 0.8485102345941921,
+          "pool_covered_share": 0.8657142857142857,
+          "allgold_ceiling": 0.48,
+          "allgold_ceiling_conditional_on_pooling": 0.74,
+          "all_gold_in_pool": 0.66,
+          "sp_recall_ceiling": 0.76,
+          "sp_recall_ceiling_conditional": 0.8733333333333333,
+          "answer_in_graph": 0.28,
+          "graph_ceiling_path": 0.28,
+          "nodes_mean": 72.78,
+          "edges_mean": 429.0,
+          "nodes_max": 95,
+          "edges_max": 532,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05473193473193473,
+          "pos_weight": 17.270868824531515,
+          "questions_without_positive_edge": 1,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 92.26,
+            "same_as": 10.44,
+            "para": 82.46
+          }
+        },
+        "ALL": {
+          "n_questions": 150,
+          "components_per_question": 2.3266666666666667,
+          "bfs_node_share": 0.8288729116438576,
+          "pool_covered_share": 0.85,
+          "allgold_ceiling": 0.4866666666666667,
+          "allgold_ceiling_conditional_on_pooling": 0.6933333333333334,
+          "all_gold_in_pool": 0.68,
+          "sp_recall_ceiling": 0.745,
+          "sp_recall_ceiling_conditional": 0.84,
+          "answer_in_graph": 0.36,
+          "graph_ceiling_path": 0.36,
+          "nodes_mean": 69.94,
+          "edges_mean": 414.58666666666664,
+          "nodes_max": 97,
+          "edges_max": 620,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05374027143500354,
+          "pos_weight": 17.608019150209454,
+          "questions_without_positive_edge": 4,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 88.58666666666667,
+            "same_as": 11.573333333333334,
+            "para": 77.88
+          }
+        }
+      },
+      "validation": {
+        "2hop": {
+          "n_questions": 50,
+          "components_per_question": 2.14,
+          "bfs_node_share": 0.8168633187333869,
+          "pool_covered_share": 0.842857142857143,
+          "allgold_ceiling": 0.72,
+          "allgold_ceiling_conditional_on_pooling": 0.84,
+          "all_gold_in_pool": 0.88,
+          "sp_recall_ceiling": 0.86,
+          "sp_recall_ceiling_conditional": 0.92,
+          "answer_in_graph": 0.4,
+          "graph_ceiling_path": 0.4,
+          "nodes_mean": 71.0,
+          "edges_mean": 418.6,
+          "nodes_max": 105,
+          "edges_max": 716,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.043669374104156715,
+          "pos_weight": 21.899343544857768,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 94.08,
+            "same_as": 9.64,
+            "para": 82.5
+          }
+        },
+        "3hop": {
+          "n_questions": 50,
+          "components_per_question": 5.3,
+          "bfs_node_share": 0.6606878511722192,
+          "pool_covered_share": 0.7157142857142857,
+          "allgold_ceiling": 0.2,
+          "allgold_ceiling_conditional_on_pooling": 0.28,
+          "all_gold_in_pool": 0.8,
+          "sp_recall_ceiling": 0.5333333333333333,
+          "sp_recall_ceiling_conditional": 0.57,
+          "answer_in_graph": 0.3,
+          "graph_ceiling_path": 0.3,
+          "nodes_mean": 58.1,
+          "edges_mean": 302.72,
+          "nodes_max": 98,
+          "edges_max": 612,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.052061310782241015,
+          "pos_weight": 18.20812182741117,
+          "questions_without_positive_edge": 6,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 70.78,
+            "same_as": 13.08,
+            "para": 58.76
+          }
+        },
+        "4hop": {
+          "n_questions": 50,
+          "components_per_question": 3.94,
+          "bfs_node_share": 0.7711325834602161,
+          "pool_covered_share": 0.8157142857142857,
+          "allgold_ceiling": 0.22,
+          "allgold_ceiling_conditional_on_pooling": 0.4,
+          "all_gold_in_pool": 0.54,
+          "sp_recall_ceiling": 0.5,
+          "sp_recall_ceiling_conditional": 0.5866666666666667,
+          "answer_in_graph": 0.18,
+          "graph_ceiling_path": 0.18,
+          "nodes_mean": 66.84,
+          "edges_mean": 366.8,
+          "nodes_max": 95,
+          "edges_max": 666,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05834242093784078,
+          "pos_weight": 16.14018691588785,
+          "questions_without_positive_edge": 7,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 73.74,
+            "same_as": 13.62,
+            "para": 60.18
+          }
+        },
+        "ALL": {
+          "n_questions": 150,
+          "components_per_question": 3.7933333333333334,
+          "bfs_node_share": 0.7495612511219407,
+          "pool_covered_share": 0.7914285714285714,
+          "allgold_ceiling": 0.38,
+          "allgold_ceiling_conditional_on_pooling": 0.5066666666666667,
+          "all_gold_in_pool": 0.74,
+          "sp_recall_ceiling": 0.6311111111111112,
+          "sp_recall_ceiling_conditional": 0.6922222222222222,
+          "answer_in_graph": 0.29333333333333333,
+          "graph_ceiling_path": 0.29333333333333333,
+          "nodes_mean": 65.31333333333333,
+          "edges_mean": 362.70666666666665,
+          "nodes_max": 105,
+          "edges_max": 716,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.0509502628386575,
+          "pos_weight": 18.626984126984127,
+          "questions_without_positive_edge": 13,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 79.53333333333333,
+            "same_as": 12.113333333333333,
+            "para": 67.14666666666666
+          }
+        }
+      }
+    },
+    "hotpotqa": {
+      "train": {
+        "2hop": {
+          "n_questions": 150,
+          "components_per_question": 1.0266666666666666,
+          "bfs_node_share": 0.9953893423526237,
+          "pool_covered_share": 0.9933333333333333,
+          "allgold_ceiling": 0.9933333333333333,
+          "allgold_ceiling_conditional_on_pooling": 0.9933333333333333,
+          "all_gold_in_pool": 1.0,
+          "sp_recall_ceiling": 0.9966666666666667,
+          "sp_recall_ceiling_conditional": 0.9966666666666667,
+          "answer_in_graph": 0.4928571428571429,
+          "graph_ceiling_path": 0.4928571428571429,
+          "nodes_mean": 58.29333333333334,
+          "edges_mean": 376.50666666666666,
+          "nodes_max": 74,
+          "edges_max": 596,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05528011898859692,
+          "pos_weight": 17.08968609865471,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 71.75333333333333,
+            "same_as": 11.0,
+            "para": 61.22666666666667
+          }
+        },
+        "ALL": {
+          "n_questions": 150,
+          "components_per_question": 1.0266666666666666,
+          "bfs_node_share": 0.9953893423526237,
+          "pool_covered_share": 0.9933333333333333,
+          "allgold_ceiling": 0.9933333333333333,
+          "allgold_ceiling_conditional_on_pooling": 0.9933333333333333,
+          "all_gold_in_pool": 1.0,
+          "sp_recall_ceiling": 0.9966666666666667,
+          "sp_recall_ceiling_conditional": 0.9966666666666667,
+          "answer_in_graph": 0.4928571428571429,
+          "graph_ceiling_path": 0.4928571428571429,
+          "nodes_mean": 58.29333333333334,
+          "edges_mean": 376.50666666666666,
+          "nodes_max": 74,
+          "edges_max": 596,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05528011898859692,
+          "pos_weight": 17.08968609865471,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 71.75333333333333,
+            "same_as": 11.0,
+            "para": 61.22666666666667
+          }
+        }
+      },
+      "validation": {
+        "2hop": {
+          "n_questions": 150,
+          "components_per_question": 1.0533333333333332,
+          "bfs_node_share": 0.9938466853658368,
+          "pool_covered_share": 0.994,
+          "allgold_ceiling": 0.9933333333333333,
+          "allgold_ceiling_conditional_on_pooling": 0.9933333333333333,
+          "all_gold_in_pool": 1.0,
+          "sp_recall_ceiling": 0.9966666666666667,
+          "sp_recall_ceiling_conditional": 0.9966666666666667,
+          "answer_in_graph": 0.5,
+          "graph_ceiling_path": 0.5,
+          "nodes_mean": 58.06666666666667,
+          "edges_mean": 376.93333333333334,
+          "nodes_max": 72,
+          "edges_max": 512,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05596038203042094,
+          "pos_weight": 16.869785082174463,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 71.73333333333333,
+            "same_as": 11.226666666666667,
+            "para": 61.35333333333333
+          }
+        },
+        "ALL": {
+          "n_questions": 150,
+          "components_per_question": 1.0533333333333332,
+          "bfs_node_share": 0.9938466853658368,
+          "pool_covered_share": 0.994,
+          "allgold_ceiling": 0.9933333333333333,
+          "allgold_ceiling_conditional_on_pooling": 0.9933333333333333,
+          "all_gold_in_pool": 1.0,
+          "sp_recall_ceiling": 0.9966666666666667,
+          "sp_recall_ceiling_conditional": 0.9966666666666667,
+          "answer_in_graph": 0.5,
+          "graph_ceiling_path": 0.5,
+          "nodes_mean": 58.06666666666667,
+          "edges_mean": 376.93333333333334,
+          "nodes_max": 72,
+          "edges_max": 512,
+          "node_cap_rate": 0.0,
+          "edge_cap_rate": 0.0,
+          "cap_bound_rate": 0.0,
+          "positive_edge_rate": 0.05596038203042094,
+          "pos_weight": 16.869785082174463,
+          "questions_without_positive_edge": 0,
+          "empty_graphs": 0,
+          "added_links_mean": {
+            "title": 71.73333333333333,
+            "same_as": 11.226666666666667,
+            "para": 61.35333333333333
+          }
+        }
+      }
+    }
+  },
+  "dropped_train_questions": {
+    "musique": {
+      "n_train": 150,
+      "dropped": 4,
+      "rate": 0.02666666666666667,
+      "examples": [
+        "4hop3__778278_796114_13235_242202",
+        "4hop3__5752_362455_28338_160498",
+        "4hop1__771620_317689_1286_19161",
+        "3hop1__136299_159891_86976"
+      ]
+    },
+    "hotpotqa": {
+      "n_train": 150,
+      "dropped": 0,
+      "rate": 0.0,
+      "examples": []
+    }
+  },
+  "shape_validation": {
+    "all_valid": true,
+    "graphs": [
+      {
+        "qid": "2hop__754806_7606",
+        "N": 47,
+        "E": 250,
+        "pos": 12,
+        "seeds": 3,
+        "failed": []
+      },
+      {
+        "qid": "4hop1__771620_317689_1286_19192",
+        "N": 77,
+        "E": 442,
+        "pos": 18,
+        "seeds": 2,
+        "failed": []
+      },
+      {
+        "qid": "2hop__89126_11140",
+        "N": 64,
+        "E": 456,
+        "pos": 10,
+        "seeds": 1,
+        "failed": []
+      },
+      {
+        "qid": "2hop__530421_126070",
+        "N": 77,
+        "E": 496,
+        "pos": 18,
+        "seeds": 3,
+        "failed": []
+      },
+      {
+        "qid": "3hop1__125161_146982_4653",
+        "N": 84,
+        "E": 516,
+        "pos": 36,
+        "seeds": 1,
+        "failed": []
+      },
+      {
+        "qid": "2hop__375649_55607",
+        "N": 56,
+        "E": 324,
+        "pos": 24,
+        "seeds": 2,
+        "failed": []
+      },
+      {
+        "qid": "4hop1__618356_715233_91861_124556",
+        "N": 86,
+        "E": 466,
+        "pos": 18,
+        "seeds": 1,
+        "failed": []
+      },
+      {
+        "qid": "4hop1__447053_301282_65293_48285",
+        "N": 97,
+        "E": 542,
+        "pos": 40,
+        "seeds": 3,
+        "failed": []
+      },
+      {
+        "qid": "4hop3__312602_629330_70123_63115",
+        "N": 88,
+        "E": 488,
+        "pos": 42,
+        "seeds": 1,
+        "failed": []
+      },
+      {
+        "qid": "2hop__328329_42292",
+        "N": 80,
+        "E": 518,
+        "pos": 22,
+        "seeds": 3,
+        "failed": []
+      }
+    ]
+  },
+  "acceptance": {
+    "graph ceiling reported both conditional and unconditional": true,
+    "unconditional ceiling <= all-gold-in-pool (identity check)": true,
+    "dropped train questions logged": true,
+    "positive-edge rate available for pos_weight": true,
+    "PyG Data shapes valid on 10 graphs": true,
+    "cap-binding stays low (D14 target <= 10%)": true,
+    "no scaffolding edge is a positive": true
+  },
+  "all_passed": true
+}
