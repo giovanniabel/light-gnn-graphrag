@@ -1,0 +1,24 @@
+{
+  "method": "gnn_rrf",
+  "dataset": "hotpotqa",
+  "n_questions": 150,
+  "idle_baseline_rss_mb": 251.890625,
+  "routing": {
+    "median_s": 0.03819016650049889,
+    "p95_s": 0.10158566599784535,
+    "mean_s": 0.0654643875065085,
+    "llm_tokens": 0,
+    "peak_tree_rss_mb": 865.109375,
+    "delta_rss_mb_over_idle": 613.21875,
+    "swap_growth_mb": 0.0,
+    "invalidated_by_swap": false
+  },
+  "routing_breakdown": {
+    "graph_assembly_median_s": 0.03045127100085665,
+    "graph_assembly_p95_s": 0.08535124999980326,
+    "model_forward_median_s": 0.005728333000661223,
+    "model_forward_p95_s": 0.01853395799844293
+  },
+  "swap_start_mb": 255.5625,
+  "swap_end_mb": 255.5625
+}

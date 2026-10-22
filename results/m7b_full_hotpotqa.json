@@ -1,0 +1,25 @@
+{
+  "mode": "full",
+  "datasets": {
+    "hotpotqa": {
+      "n": 150,
+      "median_s": 1.763794541500829,
+      "mean_s": 1.7065900380664971,
+      "p95_s": 2.143459917002474,
+      "tokens_per_question_mean": 1231.8,
+      "llm_calls_per_question_mean": 2.986666666666667,
+      "peak_tree_rss_mb": 2472.265625,
+      "idle_baseline_rss_mb": 1812.765625,
+      "delta_rss_mb": 659.5,
+      "swap_growth_mb": 3072.0625,
+      "invalidated_by_swap": true,
+      "filter_check": {
+        "candidate_edges_offered": 452,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.62,
+      "allgold4": 0.36666666666666664,
+      "n_validation_total": 150
+    }
+  }
+}

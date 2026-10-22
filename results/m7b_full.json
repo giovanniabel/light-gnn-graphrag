@@ -1,0 +1,45 @@
+{
+  "mode": "full",
+  "datasets": {
+    "musique": {
+      "n": 150,
+      "median_s": 1.7670029579985567,
+      "mean_s": 1.759509468873172,
+      "p95_s": 2.483276416998706,
+      "tokens_per_question_mean": 1100.64,
+      "llm_calls_per_question_mean": 2.973333333333333,
+      "peak_tree_rss_mb": 2056.75,
+      "idle_baseline_rss_mb": 1822.609375,
+      "delta_rss_mb": 234.140625,
+      "swap_growth_mb": 3169.4375,
+      "invalidated_by_swap": true,
+      "filter_check": {
+        "candidate_edges_offered": 336,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.6433333333333333,
+      "allgold4": 0.3,
+      "n_validation_total": 150
+    },
+    "hotpotqa": {
+      "n": 150,
+      "median_s": 1.8834861040013493,
+      "mean_s": 1.8278485508467324,
+      "p95_s": 2.248548291998304,
+      "tokens_per_question_mean": 1231.8,
+      "llm_calls_per_question_mean": 2.986666666666667,
+      "peak_tree_rss_mb": 1919.6875,
+      "idle_baseline_rss_mb": 1653.625,
+      "delta_rss_mb": 266.0625,
+      "swap_growth_mb": 4020.5,
+      "invalidated_by_swap": true,
+      "filter_check": {
+        "candidate_edges_offered": 452,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.62,
+      "allgold4": 0.36666666666666664,
+      "n_validation_total": 150
+    }
+  }
+}

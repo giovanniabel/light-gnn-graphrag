@@ -2,7 +2,11 @@
 
 **Updated:** 2026-10-22 · **Spec:** [agent.md](agent.md) (deviations in its §14 log)
 
-M0–M6 are complete. The connectivity config is **frozen** (D12–D14), validation
+M0–M7 are complete. **The one-time validation run is done**; `results/validation_access.log`
+records every read. **C1 is NOT SUPPORTED, C2 INCONCLUSIVE, C3 SUPPORTED on HotpotQA
+only, C4 SUPPORTED.** The reader (M8) and the 3B check have not run.
+
+M0–M6 detail follows. The connectivity config is **frozen** (D12–D14), validation
 ceilings were measured **once**, and all M6 model selection ran on **5-fold CV over
 the training questions** (D17) — validation has still never been scored by a model.
 165 tests pass.
@@ -233,6 +237,126 @@ included), 3 seeds per dataset, 6 checkpoints in `results/checkpoints_final/`.
 MuSiQue 131 train + 15 stop-holdout; HotpotQA 135 + 15. **Validation was not
 evaluated — that is M7.**
 
+## M7: validation results (one-time run)
+
+Environment at the gate: swap 264 MB, RAM 2,620 MB free, pressure normal, AC power,
+Low Power Mode off, `ollama ps` empty (`results/m7_env.json`).
+
+### Indexing cost, re-measured clean (replaces the D11-voided figures)
+
+| | measured |
+| :-- | --: |
+| seconds per paragraph | **1.603** (median 1.590, p95 2.153) |
+| LLM tokens per paragraph | **408** (300 prompt + 108 generated) |
+| triples per paragraph | 5.48 |
+| JSON failures | 0 / 100 |
+| peak tree RSS incl. Ollama | 1,882 MB (idle 1,305, delta **+577**) |
+| swap growth | **+0 MB** → stage **valid** under §7.3 |
+| entity/relation embedding | **23.3 ms per question** |
+
+### MuSiQue validation (n=150) — graph ceiling **0.380**, answer-in-graph **0.293**
+
+| method | SP@4 | AllGold@4 | cond (n=111) | EdgeP@10 | PathRec |
+| :-- | --: | --: | --: | --: | --: |
+| Vector RAG | 0.6333 | 0.267 | 0.252 | — | — |
+| PPR | 0.5506 | 0.240 | 0.234 | 0.4933 | 0.0400 |
+| Edge-Sim | 0.5517 | 0.213 | 0.207 | 0.4767 | 0.0733 |
+| GNN (graph-only) | 0.5500 | 0.240 | 0.252 | 0.6053 | 0.0600 |
+| GNN+Vector (RRF) | 0.6239 | 0.273 | 0.261 | 0.6053 | 0.0600 |
+| PPR+Vector (RRF) | 0.6167 | 0.267 | 0.252 | 0.4933 | 0.0400 |
+| GNN+hybrid-tail | 0.5500 | 0.240 | 0.252 | 0.6053 | 0.0600 |
+| PPR+hybrid-tail | 0.5506 | 0.240 | 0.234 | 0.4933 | 0.0400 |
+| Stacked (D19) | 0.6533 | 0.293 | 0.279 | 0.6053 | 0.0600 |
+| LLM-Trace (1.5B) | 0.6433 | 0.300 | — | — | — |
+| **ceiling (graph methods)** | — | **0.380** | — | — | **0.293** |
+
+### HotpotQA validation (n=150) — graph ceiling **0.993**, answer-in-graph **0.500**
+
+| method | SP@4 | AllGold@4 | cond (n=150) | EdgeP@10 | PathRec |
+| :-- | --: | --: | --: | --: | --: |
+| Vector RAG | 0.8933 | 0.793 | 0.793 | — | — |
+| PPR | 0.7067 | 0.533 | 0.533 | 0.5493 | 0.1400 |
+| Edge-Sim | 0.8033 | 0.613 | 0.613 | 0.6860 | 0.1867 |
+| GNN (graph-only) | 0.7500 | 0.567 | 0.567 | 0.7487 | 0.1533 |
+| GNN+Vector (RRF) | 0.8433 | 0.713 | 0.713 | 0.7487 | 0.1533 |
+| PPR+Vector (RRF) | 0.8367 | 0.693 | 0.693 | 0.5493 | 0.1400 |
+| GNN+hybrid-tail | 0.7500 | 0.567 | 0.567 | 0.7487 | 0.1533 |
+| PPR+hybrid-tail | 0.7067 | 0.533 | 0.533 | 0.5493 | 0.1400 |
+| Stacked (D19) | 0.8900 | 0.793 | 0.793 | 0.7487 | 0.1533 |
+| LLM-Trace (1.5B) | 0.6200 | 0.367 | — | — | — |
+| **ceiling (graph methods)** | — | **0.993** | — | — | **0.500** |
+
+### Efficiency, routing stage (ms; RSS in MB)
+
+**MuSiQue**
+
+| method | median | p95 | assembly | forward | peak RSS | ΔRSS | tokens |
+| :-- | --: | --: | --: | --: | --: | --: | --: |
+| Vector RAG | 0.2 | 7.7 | 0.0 | 0.22 | 300 | +42 | 0 |
+| PPR | 40.3 | 70.8 | 39.0 | 1.04 | 801 | +543 | 0 |
+| Edge-Sim | 583.5 | 942.1 | 34.9 | 548.02 | 1618 | +1359 | 0 |
+| GNN (graph-only) | 43.8 | 83.3 | 38.9 | 4.34 | 852 | +599 | 0 |
+| GNN+Vector (RRF) | 44.0 | 88.2 | 37.8 | 4.91 | 872 | +618 | 0 |
+| PPR+Vector (RRF) | 38.7 | 70.9 | 35.8 | 1.60 | 822 | +569 | 0 |
+| GNN+hybrid-tail | 44.5 | 89.7 | 38.7 | 4.89 | 875 | +622 | 0 |
+| PPR+hybrid-tail | 40.1 | 122.7 | 36.3 | 1.78 | 818 | +564 | 0 |
+| Stacked (D19) | 48.0 | 87.5 | 39.7 | 6.50 | 882 | +629 | 0 |
+| LLM-Trace (1.5B) | 1573 | 2051 | — | — | 3234 | +1411 | 1101 |
+
+**HotpotQA**
+
+| method | median | p95 | assembly | forward | peak RSS | ΔRSS | tokens |
+| :-- | --: | --: | --: | --: | --: | --: | --: |
+| Vector RAG | 0.5 | 7.5 | 0.0 | 0.51 | 293 | +39 | 0 |
+| PPR | 27.5 | 69.5 | 26.5 | 0.87 | 791 | +537 | 0 |
+| Edge-Sim | 674.3 | 944.4 | 26.4 | 638.21 | 1730 | +1476 | 0 |
+| GNN (graph-only) | 35.6 | 105.6 | 30.9 | 4.28 | 850 | +598 | 0 |
+| GNN+Vector (RRF) | 38.2 | 101.6 | 30.5 | 5.73 | 865 | +613 | 0 |
+| PPR+Vector (RRF) | 29.0 | 75.4 | 26.6 | 1.70 | 810 | +558 | 0 |
+| GNN+hybrid-tail | 37.1 | 94.6 | 30.7 | 5.39 | 869 | +617 | 0 |
+| PPR+hybrid-tail | 29.1 | 76.6 | 26.7 | 1.64 | 813 | +561 | 0 |
+| Stacked (D19) | 38.3 | 95.2 | 30.4 | 6.68 | 871 | +619 | 0 |
+| LLM-Trace (1.5B) | 1764 | 2143 | — | — | 2472 | +660 | 1232 |
+
+All nine LLM-free methods recorded **+0 MB swap growth** — no stage invalidated.
+**LLM-Trace's efficiency stage IS invalid under §7.3** (swap +2,532 / +3,072 MB even
+after being redone one dataset per process; see D21). Its latency is reported as
+indicative: three independent runs agree within 13–23% (1.57–1.77 s MuSiQue,
+1.76–2.16 s HotpotQA), and the smoke run with **zero** swap growth sits inside that
+range, so the ~35–50× C3 margin is not an artefact. Edge-Sim's 583/674 ms is
+dominated by ~400 sharded-cache lookups per question, an artefact of the cache
+layout rather than the method.
+
+### C1–C4 verdicts (pre-registered §1.1; C1 has D15's two rows, tested on D4-conditional)
+
+| claim | verdict | evidence |
+| :-- | :-- | :-- |
+| **C1** | **NOT SUPPORTED** | (a) graph-only vs Vector RAG, conditional: MuSiQue **+0.000** [−0.090, +0.090] (a dead tie, n=111); HotpotQA **−0.227** [−0.320, −0.127], significantly worse. (b) matched pair GNN+Vec − PPR+Vec: +0.009 [−0.018, +0.045] and +0.020 [−0.040, +0.080] — no gain whose CI excludes zero. |
+| **C2** | **INCONCLUSIVE** | GNN − PPR on AllGold@4 includes zero on both (MuSiQue +0.018 [−0.036, +0.072] cond; HotpotQA +0.033 [−0.040, +0.107]). But Edge-Precision@10 is 0.605 vs 0.493 and 0.749 vs 0.549, and CV edge-AP CIs excluded zero, with `L=0` costing −0.071/−0.098. Learning clearly helps **edge scoring**; it does not reach the AllGold@4 metric C2 was registered on. |
+| **C3** | **SUPPORTED on HotpotQA, NOT SUPPORTED on MuSiQue** | Half 1 (cost): **35.9×** and **49.6×** cheaper than LLM-Trace, and **0** query-time LLM tokens by construction — passes on both. Half 2 (quality): MuSiQue GNN is **6.0 points below** LLM-Trace (outside the 3-point tolerance, CI −0.060 [−0.133, +0.007]); HotpotQA GNN is **20.0 points above** (CI +0.200 [+0.107, +0.293]). |
+| **C4** | **SUPPORTED** | Peak process-tree RSS incl. Ollama **3,234 MB (3.16 GB)** < 6 GB, worst case being LLM-Trace. Covers indexing and routing only — the reader (M8) has not run. |
+
+**A 1.5B tracer is a weak LLM-Trace baseline** (§13), and the M7b 3B check that
+would bound how much is the tracer versus the method was **not run**. C3's MuSiQue
+failure should be read with that in mind: the comparison it loses is against a
+baseline the spec itself flags as handicapped.
+
+**The stacker caveat:** D19's combiner was **fit on out-of-fold GNN scores** during
+CV but is **applied here to final-model GNN scores**, which are in-sample for the
+training questions the final models saw. This is the standard stacking mismatch; it
+can only flatter the stacked row, and that row ties Vector RAG (0.793) on HotpotQA
+and leads it by +0.027 on MuSiQue — neither CI excluding zero.
+
+**Two variants are inert by construction:** `GNN+hybrid-tail` is identical to `GNN`
+on every metric (likewise PPR), because the hybrid tail only reorders paragraphs
+ranked *below* every graph-scored one, and with K=4 and ≥4 scored paragraphs on
+nearly every question it can never alter the top-4.
+
+**4-hop MuSiQue is exploratory (n=50):** every method lands at 0.04–0.08 against a
+0.220 ceiling. The clearest single cell in the whole run is **3-hop MuSiQue, where
+Vector RAG scores 0.260 against a graph ceiling of 0.200** — it beats the bound
+that constrains every graph method, because it is not bounded by reachability.
+
 ## Methods that will be scored on validation (M7)
 
 This is the complete list. Every variant that was evaluated appears here,
@@ -251,9 +375,9 @@ empty and the guard refuses the read without `--allow-validation`.
 | 7 | **GNN+hybrid-tail** | secondary variant | labelled, never primary |
 | 8 | **PPR+hybrid-tail** | secondary variant | labelled, never primary |
 | 9 | **Stacked hybrid (D19)** | learned combiner | reported though it lost on CV |
-| 10 | **LLM-Trace (1.5B)** | needs Ollama | M7, Ollama phase |
-| 11 | **LLM-Trace (3B)** | needs Ollama | M7b, optional, 60 questions |
-| 12 | **Gold-paragraph oracle** | reader ceiling | M8 |
+| 10 | **LLM-Trace (1.5B)** | needs Ollama | **DONE** (efficiency stage §7.3-invalid, D21) |
+| 11 | **LLM-Trace (3B)** | needs Ollama | **not run** — M7b optional, 60 questions |
+| 12 | **Gold-paragraph oracle** | reader ceiling | **not run** — M8 |
 
 **Not implemented, deliberately:** D20 (paragraph-aware GNN) — its gate closed.
 

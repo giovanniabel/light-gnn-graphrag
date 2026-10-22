@@ -1,0 +1,24 @@
+{
+  "method": "edge_sim",
+  "dataset": "hotpotqa",
+  "n_questions": 150,
+  "idle_baseline_rss_mb": 253.859375,
+  "routing": {
+    "median_s": 0.6742538335001882,
+    "p95_s": 0.9443507089999912,
+    "mean_s": 0.7321277010598715,
+    "llm_tokens": 0,
+    "peak_tree_rss_mb": 1729.859375,
+    "delta_rss_mb_over_idle": 1476.0,
+    "swap_growth_mb": 0.0,
+    "invalidated_by_swap": false
+  },
+  "routing_breakdown": {
+    "graph_assembly_median_s": 0.026381333000244922,
+    "graph_assembly_p95_s": 0.07324762499774806,
+    "model_forward_median_s": 0.6382089790022292,
+    "model_forward_p95_s": 0.8890756250002596
+  },
+  "swap_start_mb": 255.5625,
+  "swap_end_mb": 255.5625
+}

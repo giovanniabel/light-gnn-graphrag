@@ -1,0 +1,47 @@
+{
+  "mode": "smoke",
+  "datasets": {
+    "musique": {
+      "n": 10,
+      "median_s": 1.6388435620010569,
+      "mean_s": 1.5618123582004046,
+      "p95_s": 1.933205834000546,
+      "tokens_per_question_mean": 1050.5,
+      "llm_calls_per_question_mean": 2.9,
+      "peak_tree_rss_mb": 2027.046875,
+      "idle_baseline_rss_mb": 1701.21875,
+      "delta_rss_mb": 325.828125,
+      "swap_growth_mb": 0.0,
+      "invalidated_by_swap": false,
+      "filter_check": {
+        "candidate_edges_offered": 336,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.6166666666666667,
+      "allgold4": 0.4,
+      "n_validation_total": 150
+    },
+    "hotpotqa": {
+      "n": 10,
+      "median_s": 2.1572691460023634,
+      "mean_s": 2.0615767458995835,
+      "p95_s": 2.580063624998729,
+      "tokens_per_question_mean": 1404.7,
+      "llm_calls_per_question_mean": 3.0,
+      "peak_tree_rss_mb": 2101.328125,
+      "idle_baseline_rss_mb": 1853.3125,
+      "delta_rss_mb": 248.015625,
+      "swap_growth_mb": 0.0,
+      "invalidated_by_swap": false,
+      "filter_check": {
+        "candidate_edges_offered": 452,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.7,
+      "allgold4": 0.4,
+      "n_validation_total": 150
+    }
+  },
+  "projected_total_min": 9.49028177000855,
+  "gate_exceeds_60min": false
+}

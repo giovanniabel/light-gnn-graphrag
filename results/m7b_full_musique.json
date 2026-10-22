@@ -1,0 +1,25 @@
+{
+  "mode": "full",
+  "datasets": {
+    "musique": {
+      "n": 150,
+      "median_s": 1.5729571669999132,
+      "mean_s": 1.535720233573326,
+      "p95_s": 2.0508494160021655,
+      "tokens_per_question_mean": 1100.64,
+      "llm_calls_per_question_mean": 2.973333333333333,
+      "peak_tree_rss_mb": 3233.96875,
+      "idle_baseline_rss_mb": 1823.28125,
+      "delta_rss_mb": 1410.6875,
+      "swap_growth_mb": 2531.5625,
+      "invalidated_by_swap": true,
+      "filter_check": {
+        "candidate_edges_offered": 336,
+        "scaffolding_offered": 0
+      },
+      "sp_recall4": 0.6433333333333333,
+      "allgold4": 0.3,
+      "n_validation_total": 150
+    }
+  }
+}

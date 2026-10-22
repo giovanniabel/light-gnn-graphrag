@@ -121,6 +121,126 @@ def rrf_pair(graph_ranking: list[str], ex, embedder, k: int = 4) -> Routed:
     return _routed(fuse_with_vector(graph_ranking, vec, pool), [], t0)
 
 
+# ---------------------------------------------------------------- LLM-Trace
+TRACE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "edges": {"type": "array", "minItems": 0, "maxItems": 3,
+                  "items": {"type": "integer"}}
+    },
+    "required": ["edges"],
+}
+
+TRACE_SYSTEM = ("You trace a path through a knowledge graph to answer a question. "
+                "Reply with JSON only.")
+
+
+def trace_candidates(qg, frontier: set[int], used: set[int], limit: int = 20) -> list[int]:
+    """Candidate edge indices for one LLM-Trace step.
+
+    THIS IS THE TRIPLE-ONLY ENFORCEMENT POINT. An edge is offered to the model
+    only if its kind is `triple`, so the Section 4.1.1 scaffolding (title,
+    same_as, para) is never a traversal option: LLM-Trace walks extracted
+    evidence only, which keeps it comparable to the other graph methods whose
+    paragraph scoring is likewise evidence-only.
+    """
+    kinds = qg.edge_kind or [KIND_TRIPLE] * len(qg.edges)
+    deg: dict[int, int] = {}
+    for u, v in qg.edges:
+        deg[u] = deg.get(u, 0) + 1
+        deg[v] = deg.get(v, 0) + 1
+    cand = []
+    for i, (u, v) in enumerate(qg.edges):
+        if i in used:
+            continue
+        if kinds[i] != KIND_TRIPLE:          # <-- scaffolding can never be traversed
+            continue
+        if u in frontier or v in frontier:
+            other = v if u in frontier else u
+            cand.append((deg.get(other, 0), i))
+    cand.sort(key=lambda t: (-t[0], t[1]))   # Section 5: chosen by degree
+    return [i for _d, i in cand[:limit]]
+
+
+def llm_trace(qg, ex, model_tag: str, k: int = 4, steps: int = 3,
+              max_candidates: int = 20, num_predict: int = 40, client=None) -> Routed:
+    """Bounded iterative traversal with the SLM (agent.md Section 5, Section 10).
+
+    Up to `steps` calls; each offers <= max_candidates outgoing TRIPLE edges chosen
+    by degree and asks for <= 3 edge indices as JSON.
+    """
+    import json as _json
+
+    from src.ollama_client import OllamaClient
+
+    t0 = time.perf_counter()
+    cli = client or OllamaClient(model_tag, num_ctx=2048, temperature=0.0)
+    pool = [p.pid for p in ex.paragraphs]
+    if not qg.edges or not qg.seeds:
+        return _routed(pool, [], t0)
+
+    frontier: set[int] = set(qg.seeds)
+    used: set[int] = set()
+    chosen: list[int] = []
+    prompt_tokens = eval_tokens = 0
+    n_calls = 0
+
+    for _step in range(steps):
+        cand = trace_candidates(qg, frontier, used, max_candidates)
+        if not cand:
+            break
+        lines = [f"{j}: {qg.nodes[qg.edges[i][0]]} -[{qg.edge_rel[i]}]-> "
+                 f"{qg.nodes[qg.edges[i][1]]}" for j, i in enumerate(cand)]
+        front = ", ".join(sorted({qg.nodes[n] for n in frontier})[:10])
+        prompt = (f"Question: {qg.question}\n"
+                  f"Current entities: {front}\n"
+                  f"Candidate edges:\n" + "\n".join(lines) +
+                  "\n\nChoose up to 3 edge numbers that help answer the question.\n"
+                  'Reply as JSON: {"edges": [0, 1]}\nJSON:')
+        try:
+            out, usage, _raw = cli.generate(prompt, system=TRACE_SYSTEM,
+                                            fmt=TRACE_SCHEMA, num_predict=num_predict)
+            n_calls += 1
+            prompt_tokens += usage.prompt_tokens
+            eval_tokens += usage.completion_tokens
+            picked = _json.loads(out).get("edges", [])
+        except Exception:
+            break
+        step_new = []
+        for j in picked:
+            if isinstance(j, int) and 0 <= j < len(cand):
+                i = cand[j]
+                if i not in used:
+                    used.add(i)
+                    chosen.append(i)
+                    step_new.append(i)
+        if not step_new:
+            break
+        for i in step_new:
+            u, v = qg.edges[i]
+            frontier.add(u)
+            frontier.add(v)
+
+    # collected edges -> paragraphs, earliest-selected first, then pool order
+    seen, ranked = set(), []
+    for i in chosen:
+        pid = qg.edge_pid[i]
+        if pid not in seen and pid in pool:
+            seen.add(pid)
+            ranked.append(pid)
+    ranked += [p for p in pool if p not in seen]
+
+    st = StageStats(latency_s=time.perf_counter() - t0,
+                    llm_tokens=prompt_tokens + eval_tokens, stage="routing")
+    r = Routed(paragraph_ids=ranked,
+               edges=[(i, float(len(chosen) - n)) for n, i in enumerate(chosen)],
+               stats=st)
+    r.n_calls = n_calls
+    r.prompt_tokens = prompt_tokens
+    r.eval_tokens = eval_tokens
+    return r
+
+
 def edge_scores_for_ap(qg, scores: list[float]) -> tuple[list[float], list[float]]:
     """Evidence-edge (score, label) pairs, so edge AP is comparable across methods."""
     kinds = qg.edge_kind or [KIND_TRIPLE] * len(qg.edge_pid)

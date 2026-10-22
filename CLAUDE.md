@@ -7,7 +7,7 @@ exact next step.
 **[agent.md](agent.md) is the specification and the single source of truth.**
 Read it in full before writing code. Build order is Section 11; the rules for
 agents are Section 12; every departure from the spec is recorded in the
-Section 14 deviation log (D1-D11) with its reason and the measurement behind it.
+Section 14 deviation log (D1-D20) with its reason and the measurement behind it.
 
 ## Non-negotiables (agent.md Sections 2, 6.1, 12)
 
@@ -19,7 +19,10 @@ Section 14 deviation log (D1-D11) with its reason and the measurement behind it.
 * **`configs/default.yaml` is the only place hyperparameters and seeds live.**
   Do not hardcode them. Use `src.config.set_config_value` to change one key --
   a full `save_config` rewrite strips every comment from the file.
-* **Never tune on the eval split.** Dev is carved from train for early stopping.
+* **Never tune on the eval split.** Model selection and ablations run on 5-fold CV
+  over the training questions (D17); the 10% dev carve is only an inner early-stopping
+  holdout. Reading the validation split requires `--allow-validation REASON` and is
+  appended to `results/validation_access.log` — see `src/validation_guard.py`.
 * **Never pool MuSiQue and HotpotQA into one headline number.**
 * **Never measure memory from the Python process alone** (`src.profiling.tree_rss_mb`
   includes the Ollama processes; `own_tree_rss_mb` deliberately excludes them and is
@@ -37,4 +40,6 @@ scripts/run_phase.sh <phase> [--resume] [--max-hours H]   # caffeinate + ollama 
 ```
 
 Phases: `m0 m1 pilot m3 m4 m5 m6 m7 m7b m8 m10` (see agent.md Section 11).
+M6 model selection runs through `scripts/m6_cv.py <stage>`; M7a through
+`scripts/m7a_run.py` (one subprocess per method, for clean per-process RSS).
 Long runs belong in the background under `caffeinate -i`, on AC power.

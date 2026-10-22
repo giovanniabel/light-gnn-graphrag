@@ -1,0 +1,44 @@
+2026-10-22T16:25:49	ALLOWED	load_pools('musique', 'validation')	M7 smoke test
+2026-10-22T16:25:57	UNLOCK	process	M7 one-time validation run
+2026-10-22T16:25:57	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:25:59	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:26:12	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:27:47	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:28:02	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:28:15	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:28:27	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:28:40	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:28:53	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run
+2026-10-22T16:29:07	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:29:08	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:29:19	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:31:10	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:31:23	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:31:35	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:31:46	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:31:59	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:32:09	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run
+2026-10-22T16:33:21	UNLOCK	process	M7 one-time validation run (aggregation)
+2026-10-22T16:33:21	ALLOWED	load_pools('musique', 'validation')	M7 one-time validation run (aggregation)
+2026-10-22T16:33:21	ALLOWED	load_examples('musique', 'validation')	M7 one-time validation run (aggregation)
+2026-10-22T16:33:27	ALLOWED	load_pools('hotpotqa', 'validation')	M7 one-time validation run (aggregation)
+2026-10-22T16:33:27	ALLOWED	load_examples('hotpotqa', 'validation')	M7 one-time validation run (aggregation)
+2026-10-22T16:34:59	UNLOCK	process	M7b LLM-Trace (smoke)
+2026-10-22T16:35:00	ALLOWED	load_pools('musique', 'validation')	M7b LLM-Trace (smoke)
+2026-10-22T16:35:30	ALLOWED	load_pools('hotpotqa', 'validation')	M7b LLM-Trace (smoke)
+2026-10-22T16:36:10	UNLOCK	process	M7b LLM-Trace (full)
+2026-10-22T16:36:11	ALLOWED	load_pools('musique', 'validation')	M7b LLM-Trace (full)
+2026-10-22T16:40:48	ALLOWED	load_pools('hotpotqa', 'validation')	M7b LLM-Trace (full)
+2026-10-22T16:46:35	UNLOCK	process	M7b LLM-Trace (full)
+2026-10-22T16:46:35	ALLOWED	load_pools('musique', 'validation')	M7b LLM-Trace (full)
+2026-10-22T16:50:41	UNLOCK	process	M7b LLM-Trace (full)
+2026-10-22T16:50:41	ALLOWED	load_pools('hotpotqa', 'validation')	M7b LLM-Trace (full)
+2026-10-22T16:57:15	UNLOCK	process	M7 verdicts (conditional question sets)
+2026-10-22T16:57:15	ALLOWED	load_pools('musique', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:15	ALLOWED	load_examples('musique', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:18	ALLOWED	load_pools('hotpotqa', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:18	ALLOWED	load_examples('hotpotqa', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:21	ALLOWED	load_pools('musique', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:21	ALLOWED	load_examples('musique', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:22	ALLOWED	load_pools('hotpotqa', 'validation')	M7 verdicts (conditional question sets)
+2026-10-22T16:57:22	ALLOWED	load_examples('hotpotqa', 'validation')	M7 verdicts (conditional question sets)

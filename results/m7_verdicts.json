@@ -1,0 +1,166 @@
+{
+  "claims": {
+    "C1": {
+      "musique": {
+        "row_a_conditional": {
+          "point": 0.0,
+          "lo": -0.09009009009009009,
+          "hi": 0.09009009009009009,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "row_a_unconditional": {
+          "point": -0.026666666666666672,
+          "lo": -0.1,
+          "hi": 0.04666666666666669,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "row_b": {
+          "point": 0.009009009009009028,
+          "lo": -0.01801801801801803,
+          "hi": 0.04504504504504503,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "verdict_a": "NOT SUPPORTED",
+        "verdict_b": "INCONCLUSIVE",
+        "ceiling": 0.38,
+        "n_conditional": 111
+      },
+      "hotpotqa": {
+        "row_a_conditional": {
+          "point": -0.22666666666666668,
+          "lo": -0.32000000000000006,
+          "hi": -0.1266666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "row_a_unconditional": {
+          "point": -0.22666666666666668,
+          "lo": -0.32000000000000006,
+          "hi": -0.1266666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "row_b": {
+          "point": 0.020000000000000018,
+          "lo": -0.040000000000000036,
+          "hi": 0.07999999999999996,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "verdict_a": "NOT SUPPORTED",
+        "verdict_b": "INCONCLUSIVE",
+        "ceiling": 0.9933333333333333,
+        "n_conditional": 150
+      }
+    },
+    "C2": {
+      "musique": {
+        "gnn_vs_ppr_allgold4_uncond": {
+          "point": 0.0,
+          "lo": -0.04666666666666666,
+          "hi": 0.04666666666666666,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "gnn_vs_ppr_allgold4_cond": {
+          "point": 0.018018018018018,
+          "lo": -0.03603603603603606,
+          "hi": 0.07207207207207209,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        }
+      },
+      "hotpotqa": {
+        "gnn_vs_ppr_allgold4_uncond": {
+          "point": 0.033333333333333326,
+          "lo": -0.03999999999999998,
+          "hi": 0.10666666666666663,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "gnn_vs_ppr_allgold4_cond": {
+          "point": 0.033333333333333326,
+          "lo": -0.03999999999999998,
+          "hi": 0.10666666666666663,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        }
+      }
+    },
+    "C3": {
+      "musique": {
+        "latency_ratio": 35.885636617029725,
+        "gnn_median_ms": 43.832499999552965,
+        "trace_median_ms": 1572.9571669999132,
+        "allgold_gap_points": 6.0,
+        "ci": {
+          "point": -0.06,
+          "lo": -0.13333333333333333,
+          "hi": 0.00666666666666671,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "half1_passes": true,
+        "half2_passes": false,
+        "trace_tokens_per_q": 1100.64,
+        "trace_stage_swap_invalid": true
+      },
+      "hotpotqa": {
+        "latency_ratio": 49.600376352738024,
+        "gnn_median_ms": 35.560103999159764,
+        "trace_median_ms": 1763.794541500829,
+        "allgold_gap_points": -20.0,
+        "ci": {
+          "point": 0.2,
+          "lo": 0.10666666666666663,
+          "hi": 0.29333333333333333,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "half1_passes": true,
+        "half2_passes": true,
+        "trace_tokens_per_q": 1231.8,
+        "trace_stage_swap_invalid": true
+      }
+    },
+    "C4": {
+      "peak_rss_mb": 3233.96875,
+      "under_6gb": true,
+      "top": [
+        {
+          "rss_mb": 3233.96875,
+          "what": "llm_trace/musique",
+          "stage": "routing"
+        },
+        {
+          "rss_mb": 2472.265625,
+          "what": "llm_trace/hotpotqa",
+          "stage": "routing"
+        },
+        {
+          "rss_mb": 1881.765625,
+          "what": "extraction",
+          "stage": "indexing"
+        },
+        {
+          "rss_mb": 1729.859375,
+          "what": "edge_sim/hotpotqa",
+          "stage": "routing"
+        },
+        {
+          "rss_mb": 1617.71875,
+          "what": "edge_sim/musique",
+          "stage": "routing"
+        },
+        {
+          "rss_mb": 882.421875,
+          "what": "stacked/musique",
+          "stage": "routing"
+        }
+      ]
+    }
+  }
+}

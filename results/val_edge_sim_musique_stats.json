@@ -1,0 +1,24 @@
+{
+  "method": "edge_sim",
+  "dataset": "musique",
+  "n_questions": 150,
+  "idle_baseline_rss_mb": 258.578125,
+  "routing": {
+    "median_s": 0.5835128130020166,
+    "p95_s": 0.942125165998732,
+    "mean_s": 0.6195578358932835,
+    "llm_tokens": 0,
+    "peak_tree_rss_mb": 1617.71875,
+    "delta_rss_mb_over_idle": 1359.140625,
+    "swap_growth_mb": 0.0,
+    "invalidated_by_swap": false
+  },
+  "routing_breakdown": {
+    "graph_assembly_median_s": 0.03493654200065066,
+    "graph_assembly_p95_s": 0.0626507919987489,
+    "model_forward_median_s": 0.5480179375008447,
+    "model_forward_p95_s": 0.9011006670007191
+  },
+  "swap_start_mb": 255.5625,
+  "swap_end_mb": 255.5625
+}

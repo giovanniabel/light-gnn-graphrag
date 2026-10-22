@@ -1,0 +1,36 @@
+{
+  "n_paragraphs": 100,
+  "n_questions_drawn_from": 46,
+  "t_p_mean_s": 1.6029099820898773,
+  "t_p_median_s": 1.5904691875002754,
+  "t_p_p95_s": 2.15327545800028,
+  "llm_tokens_per_paragraph_mean": 407.74,
+  "llm_tokens_total": 40774,
+  "eval_tokens_per_paragraph_mean": 108.04,
+  "triples_per_paragraph_mean": 5.48,
+  "json_failures": 0,
+  "peak_tree_rss_mb_incl_ollama": 1881.765625,
+  "idle_baseline_rss_mb": 1305.21875,
+  "delta_rss_mb": 576.546875,
+  "swap_growth_mb": 0.0,
+  "stage_invalidated_by_swap": false,
+  "wall_s": 160.29551370899935,
+  "embedding": {
+    "unique_entities": 634,
+    "unique_relations": 397,
+    "n_questions": 46,
+    "seconds_total": 1.073781416998827,
+    "seconds_per_question": 0.023343074282583195,
+    "entities_per_question": 13.782608695652174,
+    "relations_per_question": 8.630434782608695,
+    "peak_tree_rss_mb": 884.546875,
+    "delta_rss_mb": 247.5625,
+    "swap_growth_mb": 0.0
+  },
+  "vm_snapshot_end": {
+    "vm_total_mb": 8192.0,
+    "vm_available_mb": 2575.328125,
+    "vm_percent": 68.6,
+    "swap_used_mb": 263.5625
+  }
+}

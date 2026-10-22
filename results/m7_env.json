@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-10-22T16:20:02",
+  "ram_total_mb": 8192.0,
+  "ram_available_mb": 2620.390625,
+  "ram_percent": 68.0,
+  "swap_used_mb": 263.5625,
+  "swap_total_mb": 1024.0,
+  "memory_pressure_level": 1,
+  "power_source": "Now drawing from 'AC Power'",
+  "battery_line": " -InternalBattery-0 (id=23003235)\t100%; charged; 0:00 remaining present: true",
+  "low_power_mode": "lowpowermode         0",
+  "thermal": "Note: No thermal warning level has been recorded; Note: No performance warning level has been recorded; Note: No CPU power status has been recorded",
+  "ollama_loaded_models": [],
+  "tree_rss_mb_incl_ollama": 64.421875,
+  "own_tree_rss_mb": 22.296875,
+  "top5_processes": [
+    {
+      "rss_mb": 563.875,
+      "name": "Claude Helper (Renderer)",
+      "pid": 7464
+    },
+    {
+      "rss_mb": 392.796875,
+      "name": "claude",
+      "pid": 7886
+    },
+    {
+      "rss_mb": 306.734375,
+      "name": "Claude",
+      "pid": 7365
+    },
+    {
+      "rss_mb": 142.203125,
+      "name": "mediaanalysisd",
+      "pid": 6572
+    },
+    {
+      "rss_mb": 130.515625,
+      "name": "WallpaperImageExtension",
+      "pid": 712
+    }
+  ]
+}
