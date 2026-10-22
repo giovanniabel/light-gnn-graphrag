@@ -1,0 +1,51 @@
+  swap 0 MB | RAM available 2382 MB
+=== M7c: efficiency re-measurement (full) ===
+  swap gate: 0 MB used, limit 300 MB
+  ollama unloaded: nothing was loaded
+
+--- musique: LLM-Trace (own process; Ollama loaded last) ---
+W1022 18:19:23.975000 1867 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+  swap at start 0 MB, tree RSS 299 MB
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 9914.32it/s]
+  encoder and cache released; swap 0 MB, tree RSS 716 MB
+  ollama ps: ['qwen2.5:1.5b-instruct-q4_K_M']  swap 0 MB
+    n=150  median 1543.0 ms  p95 2040.8 ms  1101 tok/q
+    peak tree RSS 2005 MB (delta +349), swap growth +3389 MB -> INVALID under §7.3
+--- musique: GNN + Vector routing (own process; Ollama OFF) ---
+W1022 18:23:22.654000 2053 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+  swap at start 1606 MB, tree RSS 284 MB
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 12550.43it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/Users/giovanniabelchristian/program/personal_project/light-gnn-graphrag/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+  encoder and cache released; swap 1590 MB, tree RSS 891 MB
+    n=150  median 4.2 ms  p95 5.2 ms  0 tok/q
+    peak tree RSS 894 MB (delta +3), swap growth +0 MB -> valid
+
+--- hotpotqa: LLM-Trace (own process; Ollama loaded last) ---
+W1022 18:23:35.786000 2066 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+  swap at start 1590 MB, tree RSS 285 MB
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 22015.89it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  encoder and cache released; swap 1582 MB, tree RSS 701 MB
+  ollama ps: ['qwen2.5:1.5b-instruct-q4_K_M']  swap 1582 MB
+    n=150  median 1683.9 ms  p95 2034.9 ms  1232 tok/q
+    peak tree RSS 3482 MB (delta +1643), swap growth +2195 MB -> INVALID under §7.3
+--- hotpotqa: GNN + Vector routing (own process; Ollama OFF) ---
+W1022 18:27:52.712000 2188 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+  swap at start 1688 MB, tree RSS 280 MB
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 10681.68it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/Users/giovanniabelchristian/program/personal_project/light-gnn-graphrag/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+  encoder and cache released; swap 1624 MB, tree RSS 882 MB
+    n=150  median 4.1 ms  p95 4.5 ms  0 tok/q
+    peak tree RSS 885 MB (delta +3), swap growth +0 MB -> valid
+
+=== M7c DONE (full) ===
+  wrote: results/m7c_<stage>_<dataset>_full.json  (4 files)
+    m7c_llm_trace_hotpotqa_full.json
+    m7c_llm_trace_musique_full.json
+    m7c_routing_hotpotqa_full.json
+    m7c_routing_musique_full.json
+  check each file's "invalidated_by_swap": false before quoting its numbers.

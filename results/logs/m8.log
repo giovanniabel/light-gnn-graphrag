@@ -1,0 +1,125 @@
+  swap 1623 MB | RAM available 3815 MB
+=== M8: reader (full) ===
+  reader: qwen2.5:1.5b-instruct-q4_K_M, greedy, max 24 tokens, K=4 paragraphs, one fixed template
+  conditions: vector ppr llm_trace gnn gnn_rrf stacked oracle
+
+--- vector / musique ---
+    n=150  EM 0.1800  F1 0.2694  median 0.67s  619 tok/q  peakRSS 2608MB  swap -122MB
+
+--- ppr / musique ---
+    n=150  EM 0.1133  F1 0.1869  median 0.64s  600 tok/q  peakRSS 1680MB  swap +1587MB  !! SWAP-INVALID
+
+--- llm_trace / musique ---
+    n=150  EM 0.1533  F1 0.2322  median 0.51s  615 tok/q  peakRSS 1940MB  swap +568MB  !! SWAP-INVALID
+
+--- gnn / musique ---
+    n=150  EM 0.1133  F1 0.1914  median 0.54s  604 tok/q  peakRSS 2016MB  swap +830MB  !! SWAP-INVALID
+
+--- gnn_rrf / musique ---
+    n=150  EM 0.1733  F1 0.2525  median 0.47s  614 tok/q  peakRSS 2152MB  swap +507MB  !! SWAP-INVALID
+
+--- stacked / musique ---
+    n=150  EM 0.1533  F1 0.2498  median 0.37s  613 tok/q  peakRSS 2300MB  swap +156MB
+
+--- oracle / musique ---
+    n=150  EM 0.3667  F1 0.4636  median 0.41s  457 tok/q  peakRSS 2072MB  swap +926MB  !! SWAP-INVALID
+
+--- vector / hotpotqa ---
+    n=150  EM 0.4733  F1 0.5822  median 0.67s  570 tok/q  peakRSS 1904MB  swap +841MB  !! SWAP-INVALID
+
+--- ppr / hotpotqa ---
+    n=150  EM 0.3867  F1 0.5063  median 0.60s  564 tok/q  peakRSS 1933MB  swap -212MB
+
+--- llm_trace / hotpotqa ---
+    n=150  EM 0.4267  F1 0.5344  median 0.55s  583 tok/q  peakRSS 2178MB  swap -103MB
+
+--- gnn / hotpotqa ---
+    n=150  EM 0.4200  F1 0.5157  median 0.49s  565 tok/q  peakRSS 2268MB  swap -126MB
+
+--- gnn_rrf / hotpotqa ---
+    n=150  EM 0.4800  F1 0.5769  median 0.39s  560 tok/q  peakRSS 2340MB  swap -8MB
+
+--- stacked / hotpotqa ---
+    n=150  EM 0.4600  F1 0.5677  median 0.30s  564 tok/q  peakRSS 2493MB  swap -131MB
+
+--- oracle / hotpotqa ---
+    n=150  EM 0.5600  F1 0.6974  median 0.25s  295 tok/q  peakRSS 2146MB  swap +355MB
+
+  ollama unloaded: ['qwen2.5:1.5b-instruct-q4_K_M']
+
+=== M8 DONE (full) ===
+
+=== M8 EM/F1 ===
+
+  musique
+    condition          n       EM       F1
+    vector           150   0.1800   0.2694
+    ppr              150   0.1133   0.1869
+    llm_trace        150   0.1533   0.2322
+    gnn              150   0.1133   0.1914
+    gnn_rrf          150   0.1733   0.2525
+    stacked          150   0.1533   0.2498
+    oracle           150   0.3667   0.4636
+      vector         - oracle   EM  -0.1867 [-0.2667, -0.1133]  excludes 0
+      vector         - oracle   F1  -0.1942 [-0.2717, -0.1200]  excludes 0
+      ppr            - vector   EM  -0.0667 [-0.1333, +0.0000]  includes 0
+      ppr            - vector   F1  -0.0825 [-0.1458, -0.0201]  excludes 0
+      ppr            - oracle   EM  -0.2533 [-0.3333, -0.1800]  excludes 0
+      ppr            - oracle   F1  -0.2767 [-0.3501, -0.2044]  excludes 0
+      llm_trace      - vector   EM  -0.0267 [-0.0667, +0.0067]  includes 0
+      llm_trace      - vector   F1  -0.0372 [-0.0792, +0.0031]  includes 0
+      llm_trace      - oracle   EM  -0.2133 [-0.2933, -0.1400]  excludes 0
+      llm_trace      - oracle   F1  -0.2314 [-0.3034, -0.1605]  excludes 0
+      gnn            - vector   EM  -0.0667 [-0.1333, +0.0000]  includes 0
+      gnn            - vector   F1  -0.0780 [-0.1467, -0.0091]  excludes 0
+      gnn            - oracle   EM  -0.2533 [-0.3333, -0.1733]  excludes 0
+      gnn            - oracle   F1  -0.2722 [-0.3509, -0.1970]  excludes 0
+      gnn_rrf        - vector   EM  -0.0067 [-0.0600, +0.0467]  includes 0
+      gnn_rrf        - vector   F1  -0.0169 [-0.0748, +0.0401]  includes 0
+      gnn_rrf        - oracle   EM  -0.1933 [-0.2733, -0.1133]  excludes 0
+      gnn_rrf        - oracle   F1  -0.2112 [-0.2878, -0.1356]  excludes 0
+      stacked        - vector   EM  -0.0267 [-0.0600, +0.0000]  includes 0
+      stacked        - vector   F1  -0.0196 [-0.0572, +0.0159]  includes 0
+      stacked        - oracle   EM  -0.2133 [-0.2933, -0.1333]  excludes 0
+      stacked        - oracle   F1  -0.2139 [-0.2932, -0.1377]  excludes 0
+      oracle         - vector   EM  +0.1867 [+0.1133, +0.2667]  excludes 0
+      oracle         - vector   F1  +0.1942 [+0.1200, +0.2717]  excludes 0
+
+  hotpotqa
+    condition          n       EM       F1
+    vector           150   0.4733   0.5822
+    ppr              150   0.3867   0.5063
+    llm_trace        150   0.4267   0.5344
+    gnn              150   0.4200   0.5157
+    gnn_rrf          150   0.4800   0.5769
+    stacked          150   0.4600   0.5677
+    oracle           150   0.5600   0.6974
+      vector         - oracle   EM  -0.0867 [-0.1600, -0.0200]  excludes 0
+      vector         - oracle   F1  -0.1152 [-0.1883, -0.0457]  excludes 0
+      ppr            - vector   EM  -0.0867 [-0.1600, -0.0133]  excludes 0
+      ppr            - vector   F1  -0.0759 [-0.1510, -0.0026]  excludes 0
+      ppr            - oracle   EM  -0.1733 [-0.2533, -0.0933]  excludes 0
+      ppr            - oracle   F1  -0.1911 [-0.2683, -0.1159]  excludes 0
+      llm_trace      - vector   EM  -0.0467 [-0.1267, +0.0267]  includes 0
+      llm_trace      - vector   F1  -0.0479 [-0.1261, +0.0297]  includes 0
+      llm_trace      - oracle   EM  -0.1333 [-0.2133, -0.0533]  excludes 0
+      llm_trace      - oracle   F1  -0.1630 [-0.2413, -0.0857]  excludes 0
+      gnn            - vector   EM  -0.0533 [-0.1267, +0.0200]  includes 0
+      gnn            - vector   F1  -0.0666 [-0.1377, +0.0066]  includes 0
+      gnn            - oracle   EM  -0.1400 [-0.2133, -0.0667]  excludes 0
+      gnn            - oracle   F1  -0.1817 [-0.2583, -0.1093]  excludes 0
+      gnn_rrf        - vector   EM  +0.0067 [-0.0533, +0.0667]  includes 0
+      gnn_rrf        - vector   F1  -0.0054 [-0.0687, +0.0571]  includes 0
+      gnn_rrf        - oracle   EM  -0.0800 [-0.1467, -0.0133]  excludes 0
+      gnn_rrf        - oracle   F1  -0.1205 [-0.1929, -0.0503]  excludes 0
+      stacked        - vector   EM  -0.0133 [-0.0600, +0.0333]  includes 0
+      stacked        - vector   F1  -0.0146 [-0.0607, +0.0306]  includes 0
+      stacked        - oracle   EM  -0.1000 [-0.1667, -0.0333]  excludes 0
+      stacked        - oracle   F1  -0.1298 [-0.2014, -0.0608]  excludes 0
+      oracle         - vector   EM  +0.0867 [+0.0200, +0.1600]  excludes 0
+      oracle         - vector   F1  +0.1152 [+0.0457, +0.1883]  excludes 0
+
+  wrote: results/read_<method>_<dataset>.jsonl  (per-question answers, EM/F1)
+         results/read_<method>_<dataset>.json   (per-condition summary)
+  a successful finish prints the EM/F1 table plus paired-bootstrap CIs
+  against Vector RAG and against the gold oracle.

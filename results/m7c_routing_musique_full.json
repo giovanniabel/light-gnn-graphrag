@@ -1,0 +1,19 @@
+{
+  "stage": "routing",
+  "dataset": "musique",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 0.004182708499996579,
+  "p95_s": 0.0051757500000348955,
+  "mean_s": 0.004434036426665291,
+  "tokens_per_question_mean": 0.0,
+  "peak_tree_rss_mb": 893.96875,
+  "idle_baseline_rss_mb": 890.75,
+  "delta_rss_mb": 3.21875,
+  "swap_start_mb": 1589.8125,
+  "swap_end_mb": 1589.8125,
+  "swap_growth_mb": 0.0,
+  "invalidated_by_swap": false,
+  "projected_full_min": 0.010456771249991448
+}

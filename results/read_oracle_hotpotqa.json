@@ -1,0 +1,17 @@
+{
+  "method": "oracle",
+  "dataset": "hotpotqa",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 0.24871089599992047,
+  "mean_s": 0.25911315498666077,
+  "p95_s": 0.4730339579998599,
+  "tokens_per_question_mean": 294.55333333333334,
+  "em": 0.56,
+  "f1": 0.6974021164021164,
+  "peak_tree_rss_mb": 2145.984375,
+  "delta_rss_mb": 158.421875,
+  "swap_growth_mb": 355.125,
+  "invalidated_by_swap": false
+}

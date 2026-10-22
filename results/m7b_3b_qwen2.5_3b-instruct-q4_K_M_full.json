@@ -1,0 +1,56 @@
+{
+  "tag": "qwen2.5:3b-instruct-q4_K_M",
+  "mode": "full",
+  "datasets": {
+    "musique": {
+      "n": 30,
+      "median_s": 2.8739437709998583,
+      "tokens_per_question_mean": 1023.9333333333333,
+      "sp_recall4": 0.6444444444444444,
+      "allgold4": 0.3,
+      "peak_tree_rss_mb": 2902.71875,
+      "swap_growth_mb": -570.0,
+      "invalidated_by_swap": false,
+      "n_subset_total": 30,
+      "vs_1_5b_allgold4": {
+        "point": -0.033333333333333326,
+        "lo": -0.13333333333333336,
+        "hi": 0.06666666666666671,
+        "n_resamples": 10000,
+        "excludes_zero": false
+      },
+      "vs_1_5b_sp_recall4": {
+        "point": 0.0,
+        "lo": -0.05555555555555558,
+        "hi": 0.05555555555555558,
+        "n_resamples": 10000,
+        "excludes_zero": false
+      }
+    },
+    "hotpotqa": {
+      "n": 30,
+      "median_s": 3.2690838545000815,
+      "tokens_per_question_mean": 1165.3666666666666,
+      "sp_recall4": 0.6666666666666666,
+      "allgold4": 0.36666666666666664,
+      "peak_tree_rss_mb": 2687.390625,
+      "swap_growth_mb": 782.125,
+      "invalidated_by_swap": true,
+      "n_subset_total": 30,
+      "vs_1_5b_allgold4": {
+        "point": 0.09999999999999998,
+        "lo": -0.033333333333333326,
+        "hi": 0.23333333333333336,
+        "n_resamples": 10000,
+        "excludes_zero": false
+      },
+      "vs_1_5b_sp_recall4": {
+        "point": 0.11666666666666659,
+        "lo": 0.016666666666666607,
+        "hi": 0.23333333333333328,
+        "n_resamples": 10000,
+        "excludes_zero": true
+      }
+    }
+  }
+}

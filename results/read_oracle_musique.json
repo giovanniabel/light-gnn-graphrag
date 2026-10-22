@@ -1,0 +1,17 @@
+{
+  "method": "oracle",
+  "dataset": "musique",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 0.4107543334999946,
+  "mean_s": 0.436268635819982,
+  "p95_s": 0.8624626250000347,
+  "tokens_per_question_mean": 456.52666666666664,
+  "em": 0.36666666666666664,
+  "f1": 0.46364151034151035,
+  "peak_tree_rss_mb": 2072.03125,
+  "delta_rss_mb": 94.359375,
+  "swap_growth_mb": 926.3125,
+  "invalidated_by_swap": true
+}

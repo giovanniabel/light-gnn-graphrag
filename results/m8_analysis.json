@@ -1,0 +1,319 @@
+{
+  "validity": [
+    {
+      "stage": "M7 indexing (extraction)",
+      "swap_start_mb": 264.0,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 1881.765625,
+      "valid": true
+    },
+    {
+      "stage": "M7c llm_trace/musique",
+      "swap_start_mb": 0.0,
+      "swap_growth_mb": 3389.0625,
+      "peak_rss_mb": 2005.234375,
+      "valid": false
+    },
+    {
+      "stage": "M7c routing/musique",
+      "swap_start_mb": 1589.8125,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 893.96875,
+      "valid": true
+    },
+    {
+      "stage": "M7c llm_trace/hotpotqa",
+      "swap_start_mb": 1581.8125,
+      "swap_growth_mb": 2194.5625,
+      "peak_rss_mb": 3482.1875,
+      "valid": false
+    },
+    {
+      "stage": "M7c routing/hotpotqa",
+      "swap_start_mb": 1623.6875,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 884.921875,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader vector/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": -121.8125,
+      "peak_rss_mb": 2607.984375,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader ppr/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 1586.9375,
+      "peak_rss_mb": 1679.65625,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader llm_trace/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 567.75,
+      "peak_rss_mb": 1940.1875,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader gnn/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 830.375,
+      "peak_rss_mb": 2015.640625,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader gnn_rrf/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 507.1875,
+      "peak_rss_mb": 2152.15625,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader stacked/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 155.625,
+      "peak_rss_mb": 2300.03125,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader oracle/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 926.3125,
+      "peak_rss_mb": 2072.03125,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader vector/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 841.0625,
+      "peak_rss_mb": 1904.390625,
+      "valid": false
+    },
+    {
+      "stage": "M8 reader ppr/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": -212.25,
+      "peak_rss_mb": 1932.75,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader llm_trace/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": -102.6875,
+      "peak_rss_mb": 2177.53125,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader gnn/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": -126.25,
+      "peak_rss_mb": 2268.234375,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader gnn_rrf/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": -7.6875,
+      "peak_rss_mb": 2340.21875,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader stacked/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": -131.125,
+      "peak_rss_mb": 2492.71875,
+      "valid": true
+    },
+    {
+      "stage": "M8 reader oracle/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 355.125,
+      "peak_rss_mb": 2145.984375,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing vector/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 300.078125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing ppr/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 801.4375,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing edge_sim/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 1196.203125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing gnn/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 852.140625,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing gnn_rrf/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 871.71875,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing ppr_rrf/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 822.15625,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing stacked/musique",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 882.421875,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing vector/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 292.703125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing ppr/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 791.078125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing edge_sim/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 1477.3125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing gnn/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 849.828125,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing gnn_rrf/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 865.109375,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing ppr_rrf/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 809.75,
+      "valid": true
+    },
+    {
+      "stage": "M7a routing stacked/hotpotqa",
+      "swap_start_mb": null,
+      "swap_growth_mb": 0.0,
+      "peak_rss_mb": 871.3125,
+      "valid": true
+    }
+  ],
+  "routing_scope": {
+    "musique": {
+      "m7a_full_ms": 43.832499999552965,
+      "m7a_assembly_ms": 38.89795800023421,
+      "m7a_forward_ms": 4.338500002631918,
+      "m7c_forward_only_ms": 4.182708499996579
+    },
+    "hotpotqa": {
+      "m7a_full_ms": 35.560103999159764,
+      "m7a_assembly_ms": 30.93610349969822,
+      "m7a_forward_ms": 4.281999998056563,
+      "m7c_forward_only_ms": 4.0966249999883075
+    }
+  },
+  "c3_latency": {
+    "musique": {
+      "gnn_full_routing_ms": 43.832499999552965,
+      "trace_ms_range": [
+        1543.008125,
+        1638.8435620010569
+      ],
+      "ratio_range": [
+        35.20237552080618,
+        37.38877686688578
+      ]
+    },
+    "hotpotqa": {
+      "gnn_full_routing_ms": 35.560103999159764,
+      "trace_ms_range": [
+        1683.9155834999247,
+        2157.2691460023634
+      ],
+      "ratio_range": [
+        47.354068017903245,
+        60.66543410709195
+      ]
+    }
+  },
+  "c4": {
+    "peak_rss_mb": 3482.1875,
+    "under_6gb": true,
+    "top": [
+      {
+        "rss_mb": 3482.1875,
+        "stage": "M7c llm_trace/hotpotqa",
+        "swap_growth_mb": 2194.5625
+      },
+      {
+        "rss_mb": 2607.984375,
+        "stage": "M8 reader vector/musique",
+        "swap_growth_mb": -121.8125
+      },
+      {
+        "rss_mb": 2492.71875,
+        "stage": "M8 reader stacked/hotpotqa",
+        "swap_growth_mb": -131.125
+      },
+      {
+        "rss_mb": 2340.21875,
+        "stage": "M8 reader gnn_rrf/hotpotqa",
+        "swap_growth_mb": -7.6875
+      },
+      {
+        "rss_mb": 2300.03125,
+        "stage": "M8 reader stacked/musique",
+        "swap_growth_mb": 155.625
+      },
+      {
+        "rss_mb": 2268.234375,
+        "stage": "M8 reader gnn/hotpotqa",
+        "swap_growth_mb": -126.25
+      },
+      {
+        "rss_mb": 2177.53125,
+        "stage": "M8 reader llm_trace/hotpotqa",
+        "swap_growth_mb": -102.6875
+      },
+      {
+        "rss_mb": 2152.15625,
+        "stage": "M8 reader gnn_rrf/musique",
+        "swap_growth_mb": 507.1875
+      }
+    ]
+  }
+}

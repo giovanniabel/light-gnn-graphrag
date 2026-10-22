@@ -1,0 +1,17 @@
+{
+  "method": "gnn_rrf",
+  "dataset": "musique",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 0.47217862499985586,
+  "mean_s": 0.48289610888666024,
+  "p95_s": 0.8817987909999374,
+  "tokens_per_question_mean": 614.3266666666667,
+  "em": 0.17333333333333334,
+  "f1": 0.25246903096903095,
+  "peak_tree_rss_mb": 2152.15625,
+  "delta_rss_mb": 296.203125,
+  "swap_growth_mb": 507.1875,
+  "invalidated_by_swap": true
+}

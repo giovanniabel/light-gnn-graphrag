@@ -1,0 +1,19 @@
+{
+  "stage": "routing",
+  "dataset": "hotpotqa",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 0.0040966249999883075,
+  "p95_s": 0.004522124999994048,
+  "mean_s": 0.004381169686665392,
+  "tokens_per_question_mean": 0.0,
+  "peak_tree_rss_mb": 884.921875,
+  "idle_baseline_rss_mb": 881.859375,
+  "delta_rss_mb": 3.0625,
+  "swap_start_mb": 1623.6875,
+  "swap_end_mb": 1623.6875,
+  "swap_growth_mb": 0.0,
+  "invalidated_by_swap": false,
+  "projected_full_min": 0.010241562499970769
+}

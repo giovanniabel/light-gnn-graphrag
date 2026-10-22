@@ -2,9 +2,11 @@
 
 **Updated:** 2026-10-22 · **Spec:** [agent.md](agent.md) (deviations in its §14 log)
 
-M0–M7 are complete. **The one-time validation run is done**; `results/validation_access.log`
-records every read. **C1 is NOT SUPPORTED, C2 INCONCLUSIVE, C3 SUPPORTED on HotpotQA
-only, C4 SUPPORTED.** The reader (M8) and the 3B check have not run.
+M0–M8 are complete, plus the 3B strength check and the Pareto analysis. **The one-time validation run is done**; `results/validation_access.log`
+records every read. **Final verdicts: C1 NOT SUPPORTED, C2 INCONCLUSIVE, C3 cost-half SUPPORTED /
+quality-half SUPPORTED on HotpotQA and INCONCLUSIVE on MuSiQue, C4 SUPPORTED with
+a stated RSS limitation.** Post-hoc analyses (edge-level C2 evidence, answer-level
+EM/F1, the 3B check) are reported separately and labelled as such.
 
 M0–M6 detail follows. The connectivity config is **frozen** (D12–D14), validation
 ceilings were measured **once**, and all M6 model selection ran on **5-fold CV over
@@ -236,6 +238,115 @@ Frozen config, trained on the **full** training set (the former dev questions
 included), 3 seeds per dataset, 6 checkpoints in `results/checkpoints_final/`.
 MuSiQue 131 train + 15 stop-holdout; HotpotQA 135 + 15. **Validation was not
 evaluated — that is M7.**
+
+## M8 reader results, 3B check and final verdicts
+
+### EM / F1 (n=150 per dataset, K=4 paragraphs, one fixed prompt, greedy, 24 tokens)
+
+| condition | MuSiQue EM | MuSiQue F1 | HotpotQA EM | HotpotQA F1 |
+| :-- | --: | --: | --: | --: |
+| Vector RAG | **0.180** | **0.269** | 0.473 | **0.582** |
+| PPR | 0.113 | 0.187 | 0.387 | 0.506 |
+| LLM-Trace (1.5B) | 0.153 | 0.232 | 0.427 | 0.534 |
+| GNN | 0.113 | 0.191 | 0.420 | 0.516 |
+| GNN+Vector (RRF) | 0.173 | 0.252 | **0.480** | 0.577 |
+| Stacked (D19) | 0.153 | 0.250 | 0.460 | 0.568 |
+| **Gold oracle** | **0.367** | **0.464** | **0.560** | **0.697** |
+
+**Oracle sanity check PASSED on both datasets** — the oracle is the ceiling on EM
+and F1, as it must be. Vector RAG − oracle is −0.187 EM (MuSiQue) and −0.087
+(HotpotQA), both CIs excluding zero, so substantial reader headroom remains and
+the reader is not saturating the comparison.
+
+By hop bucket, MuSiQue EM: 2-hop 0.220 / 3-hop 0.220 / 4-hop 0.100 for Vector RAG
+against the oracle's 0.460 / 0.380 / 0.260. HotpotQA by type: bridge 0.484,
+comparison 0.429 (Vector RAG).
+
+### Stage validity — 8 of 33 measured stages are INVALID under §7.3 (D26)
+
+| stage | swap at start | swap growth | verdict |
+| :-- | --: | --: | :-- |
+| M7 indexing (extraction) | 264 MB | +0 MB | valid |
+| M7c LLM-Trace / MuSiQue | 0 MB | **+3,389 MB** | **INVALID** |
+| M7c routing / MuSiQue | 1,590 MB | +0 MB | valid¹ |
+| M7c LLM-Trace / HotpotQA | 1,582 MB | **+2,195 MB** | **INVALID** |
+| M7c routing / HotpotQA | 1,624 MB | +0 MB | valid¹ |
+| M8 reader, 5 of 14 stages | — | +507 … +1,587 MB | **INVALID** |
+| M7a routing, all 14 stages | — | +0 MB | valid |
+| 3B check / HotpotQA | — | +782 MB | **INVALID** |
+
+¹ **Start-state caveat (D25):** the M7c gate checks only at script start. The run
+began at 0 MB and passed, but every stage after the first began at ~1.6 GB because
+the preceding LLM-Trace stage had already pushed the machine into swap. The +0 MB
+growth verdict stands on the §7.3 rule as written, but these were not measured on a
+clean machine.
+
+**EM/F1 and every retrieval metric are unaffected by any of this.** The reader and
+the traversal both decode greedily at `temperature=0`, so identical context gives
+identical output regardless of timing or paging. Only latency, token-rate and RSS
+figures from the invalid stages are void.
+
+### The 4.2 ms vs 43.8 ms routing discrepancy — resolved (agent.md §7.3 clarified)
+
+`scripts/m7c_stage.py` builds its QueryGraphs and PyG tensors **before** the timer,
+so its "routing" figure is **model forward + aggregation only**:
+
+| | MuSiQue | HotpotQA |
+| :-- | --: | --: |
+| M7a routing, full §7.3 scope | **43.8 ms** | **35.6 ms** |
+| — of which graph assembly | 38.9 ms | 30.9 ms |
+| — of which model forward | 4.3 ms | 4.3 ms |
+| M7c "routing" (forward only) | 4.2 ms | 4.1 ms |
+
+§7.3 defines routing as "everything from question + graph to ranked paragraphs",
+which includes question embedding, seed linking and ego-graph/feature assembly —
+all inside `build_graph()`. **C3 uses the M7a numbers**; the M7c figure is
+relabelled and must not be quoted as routing latency.
+
+### LLM-Trace efficiency: four measurements, all indicative (D24)
+
+| measurement | MuSiQue median | HotpotQA median | swap growth | valid |
+| :-- | --: | --: | --: | :-- |
+| M7 first run | 1,573 ms | 1,764 ms | +2,532 / +3,072 | INVALID |
+| 10-question smoke | 1,639 ms | 2,157 ms | +0 / +0 | valid (smallest n) |
+| D21 redo | 1,573 ms | 1,764 ms | +2,532 / +3,072 | INVALID |
+| M7c clean start | 1,543 ms | 1,684 ms | +3,389 / +2,195 | INVALID |
+
+Tokens 1,050–1,405 per question. **C3 latency ratio**, valid M7a routing against
+the indicative LLM-Trace range: MuSiQue **35.2×–37.4×**, HotpotQA **47.4×–60.7×**.
+
+### Post-hoc analyses, labelled
+
+**P1 — edge-level evidence for C2's substance.** Edge-Precision@10, four CIs all
+excluding zero: GNN − PPR +0.112 [+0.059, +0.168] and +0.199 [+0.146, +0.254];
+GNN − Edge-Sim +0.129 [+0.068, +0.190] and +0.063 [+0.010, +0.113]. C2 was
+registered on AllGold@4, one metric level above where the effect lives.
+
+**P2 — answer level.** `GNN+Vector RRF − GNN` is **+0.060 EM [+0.007, +0.113] on
+both datasets** (post-hoc): fusion helps the reader. `GNN − Vector` EM on MuSiQue
+is **−0.067 [−0.133, +0.000]** — **borderline, upper bound exactly 0.000**, and its
+F1 counterpart −0.078 [−0.147, −0.009] does exclude zero. `Stacked − Vector` EM on
+MuSiQue is likewise borderline at [−0.060, +0.000].
+
+**P3 — 3B strength check (n=30 per dataset, directional only).** `3B − 1.5B` on
+MuSiQue: all CIs include zero, so **a 3B tracer is not materially better there** —
+which weakens the "weak tracer" explanation for C3's MuSiQue result. On HotpotQA
+the 3B is better on SP-Recall@4 (+0.117 [+0.017, +0.233]) yet the GNN still beats
+it (+0.300 [+0.100, +0.500] AllGold@4).
+
+**44 paired bootstraps, none corrected for multiplicity.** ~2 false positives are
+expected at 95% confidence; two CIs have a bound of exactly 0.000. Single CIs that
+only just exclude zero are not findings.
+
+### Pareto analysis
+
+`notebooks/pareto_analysis.py` → `results/pareto_{musique,hotpotqa}.png` and
+`results/pareto_table.json`. Three cost axes (routing latency, LLM tokens, peak
+RSS) against AllGold@4 and reader EM, indexing and query cost shown separately and
+combined, hollow markers for §7.3-invalid or indicative points, the graph ceiling
+drawn as a dashed line. The combined-cost panel is the least flattering: graph
+methods pay **~22.5 s/question** of indexing on MuSiQue against Vector RAG's
+**~0.02 s**, for no gain in AllGold@4.
 
 ## M7: validation results (one-time run)
 

@@ -1,0 +1,228 @@
+Thu Oct 22 19:06:06 WIB 2026
+vm.swapusage: total = 2048.00M  used = 1377.81M  free = 670.19M  (encrypted)
+
+PID   COMMAND          MEM 
+408   WindowServer     467M
+1350  Claude Helper (R 436M
+887   stable           294M
+946   Spotify Helper ( 280M
+1252  Claude           235M
+899   Spotify          222M
+1259  Claude Helper    183M
+925   Spotify Helper   108M
+Thu Oct 22 19:06:26 WIB 2026
+vm.swapusage: total = 2048.00M  used = 1345.75M  free = 702.25M  (encrypted)
+
+PID   COMMAND          MEM 
+408   WindowServer     470M
+1350  Claude Helper (R 437M
+1259  Claude Helper    294M
+887   stable           291M
+946   Spotify Helper ( 280M
+1252  Claude           235M
+899   Spotify          222M
+925   Spotify Helper   108M
+Thu Oct 22 19:06:46 WIB 2026
+vm.swapusage: total = 2048.00M  used = 1193.69M  free = 854.31M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 594M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 280M
+1259  Claude Helper    270M
+1252  Claude           243M
+899   Spotify          222M
+3375  claude           155M
+Thu Oct 22 19:07:06 WIB 2026
+vm.swapusage: total = 2048.00M  used = 875.75M  free = 1172.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 475M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 280M
+1259  Claude Helper    246M
+1252  Claude           242M
+899   Spotify          222M
+3375  claude           156M
+Thu Oct 22 19:07:26 WIB 2026
+vm.swapusage: total = 2048.00M  used = 875.75M  free = 1172.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 481M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 280M
+1259  Claude Helper    233M
+899   Spotify          222M
+1252  Claude           221M
+3375  claude           161M
+Thu Oct 22 19:07:47 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 484M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 280M
+1259  Claude Helper    223M
+899   Spotify          222M
+1252  Claude           221M
+3375  claude           162M
+Thu Oct 22 19:08:07 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 493M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 280M
+1259  Claude Helper    223M
+899   Spotify          222M
+1252  Claude           222M
+3375  claude           162M
+Thu Oct 22 19:08:27 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 523M
+408   WindowServer     407M
+887   stable           281M
+946   Spotify Helper ( 281M
+1252  Claude           222M
+899   Spotify          222M
+1259  Claude Helper    173M
+3375  claude           164M
+Thu Oct 22 19:08:47 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 518M
+408   WindowServer     407M
+946   Spotify Helper ( 281M
+887   stable           275M
+1252  Claude           222M
+899   Spotify          222M
+1259  Claude Helper    222M
+3375  claude           163M
+Thu Oct 22 19:09:07 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 519M
+408   WindowServer     407M
+946   Spotify Helper ( 281M
+887   stable           272M
+899   Spotify          222M
+1252  Claude           222M
+1259  Claude Helper    219M
+3375  claude           163M
+Thu Oct 22 19:09:28 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 522M
+408   WindowServer     407M
+946   Spotify Helper ( 280M
+887   stable           272M
+1259  Claude Helper    225M
+1252  Claude           224M
+899   Spotify          222M
+3375  claude           163M
+Thu Oct 22 19:09:48 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 524M
+408   WindowServer     407M
+946   Spotify Helper ( 280M
+887   stable           272M
+1252  Claude           223M
+899   Spotify          222M
+1259  Claude Helper    177M
+3375  claude           163M
+Thu Oct 22 19:10:08 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 525M
+408   WindowServer     407M
+3906  python3.12       318M
+1259  Claude Helper    292M
+946   Spotify Helper ( 280M
+887   stable           272M
+1252  Claude           224M
+899   Spotify          222M
+Thu Oct 22 19:10:28 WIB 2026
+vm.swapusage: total = 2048.00M  used = 867.75M  free = 1180.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 529M
+408   WindowServer     407M
+946   Spotify Helper ( 280M
+887   stable           271M
+1259  Claude Helper    230M
+1252  Claude           225M
+899   Spotify          222M
+3375  claude           164M
+Thu Oct 22 19:10:48 WIB 2026
+vm.swapusage: total = 2048.00M  used = 851.75M  free = 1196.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 532M
+408   WindowServer     407M
+946   Spotify Helper ( 281M
+887   stable           271M
+1259  Claude Helper    230M
+1252  Claude           225M
+899   Spotify          222M
+3375  claude           164M
+Thu Oct 22 19:11:09 WIB 2026
+vm.swapusage: total = 2048.00M  used = 851.75M  free = 1196.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 533M
+408   WindowServer     407M
+946   Spotify Helper ( 281M
+887   stable           278M
+1259  Claude Helper    278M
+1252  Claude           225M
+899   Spotify          222M
+3375  claude           164M
+Thu Oct 22 19:11:29 WIB 2026
+vm.swapusage: total = 2048.00M  used = 851.75M  free = 1196.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 539M
+408   WindowServer     407M
+946   Spotify Helper ( 281M
+887   stable           268M
+1252  Claude           226M
+1259  Claude Helper    223M
+899   Spotify          222M
+3375  claude           164M
+Thu Oct 22 19:11:49 WIB 2026
+vm.swapusage: total = 2048.00M  used = 851.75M  free = 1196.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 536M
+408   WindowServer     407M
+946   Spotify Helper ( 280M
+887   stable           268M
+1252  Claude           226M
+899   Spotify          222M
+1259  Claude Helper    175M
+3375  claude           164M
+Thu Oct 22 19:12:09 WIB 2026
+vm.swapusage: total = 2048.00M  used = 851.75M  free = 1196.25M  (encrypted)
+
+PID   COMMAND          MEM 
+1350  Claude Helper (R 540M
+408   WindowServer     407M
+946   Spotify Helper ( 280M
+887   stable           268M
+1259  Claude Helper    233M
+1252  Claude           226M
+899   Spotify          222M
+3375  claude           165M

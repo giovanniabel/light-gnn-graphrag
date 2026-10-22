@@ -1,0 +1,19 @@
+{
+  "stage": "llm_trace",
+  "dataset": "musique",
+  "mode": "full",
+  "n": 150,
+  "n_validation_total": 150,
+  "median_s": 1.543008125,
+  "p95_s": 2.0408222080000087,
+  "mean_s": 1.488958113853334,
+  "tokens_per_question_mean": 1100.64,
+  "peak_tree_rss_mb": 2005.234375,
+  "idle_baseline_rss_mb": 1656.140625,
+  "delta_rss_mb": 349.09375,
+  "swap_start_mb": 0.0,
+  "swap_end_mb": 3092.5,
+  "swap_growth_mb": 3389.0625,
+  "invalidated_by_swap": true,
+  "projected_full_min": 3.8575203125
+}

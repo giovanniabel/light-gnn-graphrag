@@ -1,0 +1,480 @@
+{
+  "comparisons": [],
+  "datasets": {
+    "musique": {
+      "rows": {
+        "vector": {
+          "em": 0.18,
+          "f1": 0.26939393939393935
+        },
+        "ppr": {
+          "em": 0.11333333333333333,
+          "f1": 0.18693003856047333
+        },
+        "llm_trace": {
+          "em": 0.15333333333333332,
+          "f1": 0.2322150627150627
+        },
+        "gnn": {
+          "em": 0.11333333333333333,
+          "f1": 0.1914055389055389
+        },
+        "gnn_rrf": {
+          "em": 0.17333333333333334,
+          "f1": 0.25246903096903095
+        },
+        "stacked": {
+          "em": 0.15333333333333332,
+          "f1": 0.2497785547785548
+        },
+        "oracle": {
+          "em": 0.36666666666666664,
+          "f1": 0.46364151034151035
+        }
+      },
+      "cis": {
+        "em|gnn-vs-vector": {
+          "point": -0.06666666666666667,
+          "lo": -0.13333333333333333,
+          "hi": 0.0,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        },
+        "f1|gnn-vs-vector": {
+          "point": -0.07798840048840044,
+          "lo": -0.14667887667887666,
+          "hi": -0.009063492063492079,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "em|gnn-vs-oracle": {
+          "point": -0.2533333333333333,
+          "lo": -0.3333333333333333,
+          "hi": -0.17333333333333334,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "f1|gnn-vs-oracle": {
+          "point": -0.27223597143597145,
+          "lo": -0.35091159211159206,
+          "hi": -0.19695033855033853,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "em|gnn-vs-ppr": {
+          "point": 0.0,
+          "lo": -0.04000000000000001,
+          "hi": 0.04000000000000001,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn-vs-ppr": {
+          "point": 0.004475500345065581,
+          "lo": -0.040445134575569364,
+          "hi": 0.048760524499654956,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|gnn-vs-llm_trace": {
+          "point": -0.039999999999999994,
+          "lo": -0.10666666666666666,
+          "hi": 0.026666666666666644,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn-vs-llm_trace": {
+          "point": -0.040809523809523796,
+          "lo": -0.10795238095238094,
+          "hi": 0.026904761904761876,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|gnn_rrf-vs-gnn": {
+          "point": 0.06000000000000001,
+          "lo": 0.006666666666666654,
+          "hi": 0.11333333333333334,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn_rrf-vs-gnn": {
+          "point": 0.06106349206349204,
+          "lo": 0.004111111111111121,
+          "hi": 0.1182857142857143,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "POST-HOC"
+        },
+        "em|stacked-vs-gnn_rrf": {
+          "point": -0.020000000000000018,
+          "lo": -0.07333333333333332,
+          "hi": 0.033333333333333326,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|stacked-vs-gnn_rrf": {
+          "point": -0.00269047619047616,
+          "lo": -0.05513492063492062,
+          "hi": 0.049087301587301596,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|vector-vs-oracle": {
+          "point": -0.18666666666666665,
+          "lo": -0.26666666666666666,
+          "hi": -0.11333333333333331,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "f1|vector-vs-oracle": {
+          "point": -0.194247570947571,
+          "lo": -0.2717496873496873,
+          "hi": -0.12001630591630591,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "em|stacked-vs-vector": {
+          "point": -0.026666666666666672,
+          "lo": -0.06,
+          "hi": 0.0,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        },
+        "f1|stacked-vs-vector": {
+          "point": -0.019615384615384562,
+          "lo": -0.0572222222222222,
+          "hi": 0.015888888888888897,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        }
+      },
+      "n": 150,
+      "oracle_check_passed": true
+    },
+    "hotpotqa": {
+      "rows": {
+        "vector": {
+          "em": 0.47333333333333333,
+          "f1": 0.5822433862433862
+        },
+        "ppr": {
+          "em": 0.38666666666666666,
+          "f1": 0.5063174603174603
+        },
+        "llm_trace": {
+          "em": 0.4266666666666667,
+          "f1": 0.5343703703703704
+        },
+        "gnn": {
+          "em": 0.42,
+          "f1": 0.5156666666666666
+        },
+        "gnn_rrf": {
+          "em": 0.48,
+          "f1": 0.5768888888888889
+        },
+        "stacked": {
+          "em": 0.46,
+          "f1": 0.5676507936507936
+        },
+        "oracle": {
+          "em": 0.56,
+          "f1": 0.6974021164021164
+        }
+      },
+      "cis": {
+        "em|gnn-vs-vector": {
+          "point": -0.053333333333333344,
+          "lo": -0.12666666666666665,
+          "hi": 0.019999999999999962,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        },
+        "f1|gnn-vs-vector": {
+          "point": -0.06657671957671962,
+          "lo": -0.13772486772486775,
+          "hi": 0.006645502645502677,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        },
+        "em|gnn-vs-oracle": {
+          "point": -0.14000000000000007,
+          "lo": -0.21333333333333337,
+          "hi": -0.06666666666666671,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "f1|gnn-vs-oracle": {
+          "point": -0.18173544973544975,
+          "lo": -0.25828571428571423,
+          "hi": -0.10925925925925928,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "em|gnn-vs-ppr": {
+          "point": 0.033333333333333326,
+          "lo": -0.013333333333333364,
+          "hi": 0.08666666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn-vs-ppr": {
+          "point": 0.00934920634920633,
+          "lo": -0.04299999999999998,
+          "hi": 0.06233333333333346,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|gnn-vs-llm_trace": {
+          "point": -0.00666666666666671,
+          "lo": -0.08000000000000002,
+          "hi": 0.06666666666666665,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn-vs-llm_trace": {
+          "point": -0.018703703703703778,
+          "lo": -0.0941534391534391,
+          "hi": 0.05420634920634915,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|gnn_rrf-vs-gnn": {
+          "point": 0.06,
+          "lo": 0.006666666666666654,
+          "hi": 0.1133333333333334,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "POST-HOC"
+        },
+        "f1|gnn_rrf-vs-gnn": {
+          "point": 0.06122222222222229,
+          "lo": 0.0032222222222222374,
+          "hi": 0.1206666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "POST-HOC"
+        },
+        "em|stacked-vs-gnn_rrf": {
+          "point": -0.019999999999999962,
+          "lo": -0.0733333333333333,
+          "hi": 0.026666666666666727,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "f1|stacked-vs-gnn_rrf": {
+          "point": -0.009238095238095267,
+          "lo": -0.06526984126984137,
+          "hi": 0.04473015873015873,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "POST-HOC"
+        },
+        "em|vector-vs-oracle": {
+          "point": -0.08666666666666673,
+          "lo": -0.15999999999999998,
+          "hi": -0.020000000000000018,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "f1|vector-vs-oracle": {
+          "point": -0.11515873015873013,
+          "lo": -0.1883068783068783,
+          "hi": -0.04572486772486761,
+          "n_resamples": 10000,
+          "excludes_zero": true,
+          "registered": "pre-registered"
+        },
+        "em|stacked-vs-vector": {
+          "point": -0.013333333333333308,
+          "lo": -0.06,
+          "hi": 0.033333333333333326,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        },
+        "f1|stacked-vs-vector": {
+          "point": -0.014592592592592601,
+          "lo": -0.06066666666666665,
+          "hi": 0.030592592592592616,
+          "n_resamples": 10000,
+          "excludes_zero": false,
+          "registered": "pre-registered"
+        }
+      },
+      "n": 150,
+      "oracle_check_passed": true
+    }
+  },
+  "three_b": {
+    "musique": {
+      "n": 30,
+      "summary": {
+        "n": 30,
+        "median_s": 2.8739437709998583,
+        "tokens_per_question_mean": 1023.9333333333333,
+        "sp_recall4": 0.6444444444444444,
+        "allgold4": 0.3,
+        "peak_tree_rss_mb": 2902.71875,
+        "swap_growth_mb": -570.0,
+        "invalidated_by_swap": false,
+        "n_subset_total": 30,
+        "vs_1_5b_allgold4": {
+          "point": -0.033333333333333326,
+          "lo": -0.13333333333333336,
+          "hi": 0.06666666666666671,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "vs_1_5b_sp_recall4": {
+          "point": 0.0,
+          "lo": -0.05555555555555558,
+          "hi": 0.05555555555555558,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        }
+      },
+      "cis": {
+        "allgold4|3B - 1.5B": {
+          "point": -0.033333333333333326,
+          "lo": -0.13333333333333336,
+          "hi": 0.06666666666666668,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|GNN - 3B": {
+          "point": 0.0,
+          "lo": -0.13333333333333333,
+          "hi": 0.13333333333333333,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|GNN - 1.5B": {
+          "point": -0.033333333333333326,
+          "lo": -0.2,
+          "hi": 0.13333333333333336,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|3B - 1.5B": {
+          "point": 0.0,
+          "lo": -0.05555555555555558,
+          "hi": 0.05555555555555558,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|GNN - 3B": {
+          "point": -0.019444444444444375,
+          "lo": -0.12222222222222234,
+          "hi": 0.07500000000000007,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "sp_recall4|GNN - 1.5B": {
+          "point": -0.019444444444444375,
+          "lo": -0.13333333333333341,
+          "hi": 0.09444444444444433,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        }
+      }
+    },
+    "hotpotqa": {
+      "n": 30,
+      "summary": {
+        "n": 30,
+        "median_s": 3.2690838545000815,
+        "tokens_per_question_mean": 1165.3666666666666,
+        "sp_recall4": 0.6666666666666666,
+        "allgold4": 0.36666666666666664,
+        "peak_tree_rss_mb": 2687.390625,
+        "swap_growth_mb": 782.125,
+        "invalidated_by_swap": true,
+        "n_subset_total": 30,
+        "vs_1_5b_allgold4": {
+          "point": 0.09999999999999998,
+          "lo": -0.033333333333333326,
+          "hi": 0.23333333333333336,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "vs_1_5b_sp_recall4": {
+          "point": 0.11666666666666659,
+          "lo": 0.016666666666666607,
+          "hi": 0.23333333333333328,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      },
+      "cis": {
+        "allgold4|3B - 1.5B": {
+          "point": 0.09999999999999998,
+          "lo": -0.033333333333333326,
+          "hi": 0.23333333333333336,
+          "n_resamples": 10000,
+          "excludes_zero": false
+        },
+        "allgold4|GNN - 3B": {
+          "point": 0.3,
+          "lo": 0.09999999999999998,
+          "hi": 0.5,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "allgold4|GNN - 1.5B": {
+          "point": 0.39999999999999997,
+          "lo": 0.2,
+          "hi": 0.6000000000000001,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "sp_recall4|3B - 1.5B": {
+          "point": 0.11666666666666659,
+          "lo": 0.016666666666666607,
+          "hi": 0.23333333333333328,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "sp_recall4|GNN - 3B": {
+          "point": 0.16666666666666674,
+          "lo": 0.06666666666666665,
+          "hi": 0.2666666666666667,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        },
+        "sp_recall4|GNN - 1.5B": {
+          "point": 0.2833333333333333,
+          "lo": 0.16666666666666674,
+          "hi": 0.3999999999999999,
+          "n_resamples": 10000,
+          "excludes_zero": true
+        }
+      }
+    }
+  },
+  "n_comparisons": 44
+}

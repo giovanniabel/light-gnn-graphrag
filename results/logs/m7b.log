@@ -1,0 +1,28 @@
+  swap 1598 MB | RAM available 4226 MB
+=== M7b: 3B strength check (full) ===
+  tag: qwen2.5:3b-instruct-q4_K_M
+  installed models:
+    qwen2.5:3b-instruct-q4_K_M
+    qwen2.5:1.5b-instruct-q4_K_M
+    dolphin-phi:2.7b
+    llama3.2:3b
+    mxbai-embed-large:latest
+W1022 18:47:30.624000 2964 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+  subset: musique 30, hotpotqa 30  (seeded 1234, stratified, fixed in results/m7b_3b_subset.json)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 26689.68it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+    3B - 1.5B allgold4    -0.0333 [-0.1333, +0.0667]  includes 0
+    3B - 1.5B sp_recall4  +0.0000 [-0.0556, +0.0556]  includes 0
+    musique: n=30  median 2.87s  1024 tok/q  SP@4 0.6444  AllGold@4 0.300  swap -570 MB
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 9319.53it/s]
+    3B - 1.5B allgold4    +0.1000 [-0.0333, +0.2333]  includes 0
+    3B - 1.5B sp_recall4  +0.1167 [+0.0167, +0.2333]  excludes 0
+    hotpotqa: n=30  median 3.27s  1165 tok/q  SP@4 0.6667  AllGold@4 0.367  swap +782 MB
+
+-> results/m7b_3b_qwen2.5_3b-instruct-q4_K_M_full.json
+
+=== M7b 3B DONE (full) ===
+  subset (fixed, reused by both runs): results/m7b_3b_subset.json
+  wrote: results/val_llm_trace_3b_<dataset>.jsonl  (per-question)
+         results/m7b_3b_<tag>_full.json            (summary + paired CIs vs 1.5B)
+  a successful finish prints '3B - 1.5B' CIs for AllGold@4 and SP-Recall@4.
