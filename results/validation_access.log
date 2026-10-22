@@ -73,3 +73,6 @@
 2026-10-22T17:11:36	UNLOCK	process	M7b 3B strength check (test)
 2026-10-22T17:11:38	ALLOWED	load_pools('musique', 'validation')	M7b 3B strength check (test)
 2026-10-22T17:12:00	ALLOWED	load_pools('hotpotqa', 'validation')	M7b 3B strength check (test)
+2026-10-22T18:06:58	ALLOWED	load_pools('musique', 'validation')	M8 reader run (test)
+2026-10-22T18:07:06	ALLOWED	load_pools('musique', 'validation')	M8 reader run (test)
+2026-10-22T18:07:14	ALLOWED	load_pools('musique', 'validation')	M8 reader run (test)
