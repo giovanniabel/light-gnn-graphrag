@@ -27,8 +27,8 @@ METHODS = ["vector", "ppr", "llm_trace", "gnn", "gnn_rrf", "stacked", "oracle"]
 DS = ["musique", "hotpotqa"]
 
 
-def out_path(m, ds):
-    return ROOT / "results" / f"read_{m}_{ds}.jsonl"
+def out_path(m, ds, prefix="read"):
+    return ROOT / "results" / f"{prefix}_{m}_{ds}.jsonl"
 
 
 def summarize_estimate():
@@ -89,20 +89,23 @@ def report():
                           f"{'excludes 0' if ci.excludes_zero else 'includes 0'}")
 
 
-def main(method: str, ds: str, mode: str) -> int:
+def main(method: str, ds: str, mode: str, split: str = "validation",
+         prefix: str = "read", src_prefix: str = "val") -> int:
+    """`split`/`prefix`/`src_prefix` default to the M8 one-time run; the M11
+    extension (D27) passes "validation_ext"/"ext_read"/"ext_val"."""
     cfg = load_config()
     k = int(cfg["routing"]["k"])
-    exs = {e.qid: e for e in load_pools(ds, "validation", pool_size_for(cfg, ds))}
+    exs = {e.qid: e for e in load_pools(ds, split, pool_size_for(cfg, ds))}
     n_total = len(exs)
 
     if method == "oracle":
         contexts = {q: sorted(e.gold_pids) for q, e in exs.items()}
     else:
-        src = ROOT / "results" / f"val_{method}_{ds}.jsonl"
+        src = ROOT / "results" / f"{src_prefix}_{method}_{ds}.jsonl"
         contexts = {r["qid"]: r["ranked"][:k]
                     for r in (json.loads(l) for l in src.read_text().splitlines() if l.strip())}
 
-    path = out_path(method, ds)
+    path = out_path(method, ds, prefix)
     done = set()
     if mode == "full" and path.exists():
         done = {json.loads(l)["qid"] for l in path.read_text().splitlines() if l.strip()}
@@ -134,13 +137,30 @@ def main(method: str, ds: str, mode: str) -> int:
                          "n_paragraphs": len(paras), "latency_s": lat[-1],
                          "llm_tokens": usage.total,
                          "n_hops": ex.n_hops, "hotpot_type": ex.meta.get("hotpot_type")})
+    # A fully-resumed run measures nothing, so every statistic below would be
+    # computed over an empty list -- which used to surface as a bare
+    # StatisticsError from statistics.median, i.e. the same failure shape as
+    # D28: the run looks finished, exits non-zero somewhere a grep can miss, and
+    # writes no report. Say what happened and what to do instead. Rebuilding the
+    # stats from the existing rows is deliberately NOT done: their latencies come
+    # from a different process on a differently loaded machine, and mixing
+    # timings across runs is exactly what the Section 7.3 rules exist to prevent.
+    if not rows:
+        raise SystemExit(
+            f"{method}/{ds}/{split}: all {len(done)} questions were already in "
+            f"{path.name}, so nothing was measured and no report can be written. "
+            "Delete that file (and its _stats.json) to re-read and re-measure, "
+            "or leave them as they are if the existing run still stands."
+        )
+
     s = prof.stats
     if mode == "full":
         with open(path, "a") as f:
             for r in rows:
                 f.write(json.dumps(r) + "\n")
 
-    res = {"method": method, "dataset": ds, "mode": mode, "n": len(rows),
+    res = {"method": method, "dataset": ds, "split": split, "mode": mode,
+           "n": len(rows),
            "n_validation_total": n_total,
            "median_s": statistics.median(lat), "mean_s": statistics.fmean(lat),
            "p95_s": sorted(lat)[min(len(lat)-1, int(round(0.95*(len(lat)-1))))],
@@ -150,7 +170,8 @@ def main(method: str, ds: str, mode: str) -> int:
            "peak_tree_rss_mb": s.peak_rss_mb, "delta_rss_mb": s.delta_rss_mb,
            "swap_growth_mb": s.swap_delta_mb, "invalidated_by_swap": prof.invalidated}
     tag = f"_{mode}" if mode == "test" else ""
-    (ROOT / "results" / f"read_{method}_{ds}{tag}.json").write_text(json.dumps(res, indent=2))
+    (ROOT / "results" / f"{prefix}_{method}_{ds}{tag}.json").write_text(
+        json.dumps(res, indent=2))
     print(f"    n={res['n']}  EM {res['em']:.4f}  F1 {res['f1']:.4f}  "
           f"median {res['median_s']:.2f}s  {res['tokens_per_question_mean']:.0f} tok/q  "
           f"peakRSS {res['peak_tree_rss_mb']:.0f}MB  swap {res['swap_growth_mb']:+.0f}MB"
@@ -168,4 +189,5 @@ if __name__ == "__main__":
         report()
     else:
         raise SystemExit(main(sys.argv[1], sys.argv[2],
-                              sys.argv[3] if len(sys.argv) > 3 else "test"))
+                              sys.argv[3] if len(sys.argv) > 3 else "test",
+                              *sys.argv[4:7]))

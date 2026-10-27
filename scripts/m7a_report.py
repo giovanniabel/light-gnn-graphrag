@@ -28,9 +28,28 @@ PAIRS = [("gnn", "vector"), ("gnn", "ppr"), ("gnn", "edge_sim"),
          ("gnn_rrf", "ppr_rrf"), ("stacked", "vector"), ("stacked", "gnn_rrf")]
 
 
-def rows_of(method, ds):
-    p = ROOT / "results" / f"val_{method}_{ds}.jsonl"
+def rows_of(method, ds, prefix="val"):
+    p = ROOT / "results" / f"{prefix}_{method}_{ds}.jsonl"
     return {r["qid"]: r for r in (json.loads(l) for l in p.read_text().splitlines() if l.strip())}
+
+
+def originals_for(ds, split, cfg):
+    """qid -> the UNPOOLED gold set. Example.gold_pids is derived from the
+    paragraphs it holds, so a pooled example reports gold already restricted to
+    its pool; pool recall needs the gold set from before pool selection."""
+    if split == "validation":
+        return {e.qid: e.gold_pids
+                for e in load_examples(ds, "validation", int(cfg["data"]["target_n"]),
+                                       int(cfg["seed"]))}
+    from src.data import ensure_raw
+    from scripts.ext_sample import eligible
+
+    qids = set(json.loads(
+        (ROOT / "results" / f"ext_sample_{ds}.json").read_text())["qids"])
+    out = {e.qid: e.gold_pids for e in eligible(ds, cfg, ensure_raw(cfg))
+           if e.qid in qids}
+    assert len(out) == len(qids), f"{ds}: {len(out)} of {len(qids)} ext qids found"
+    return out
 
 
 def bucket(r, ds):
@@ -41,19 +60,18 @@ def m(v):
     return statistics.fmean(v) if v else None
 
 
-def main() -> int:
-    allow("M7 one-time validation run (aggregation)")
+def main(split: str = "validation", prefix: str = "val",
+         out_name: str = "m7a_report.json") -> int:
+    allow(f"M7a aggregation (split={split})")
     cfg = load_config()
     tc = TripleCache(cfg.path("triples"), env("SLM_TAG"), effective_prompt_version(cfg))
     report = {"datasets": {}}
 
     for ds in ("musique", "hotpotqa"):
         ps = pool_size_for(cfg, ds)
-        pooled = load_pools(ds, "validation", ps)
-        orig = {e.qid: e.gold_pids
-                for e in load_examples(ds, "validation", int(cfg["data"]["target_n"]),
-                                       int(cfg["seed"]))}
-        data = {mm: rows_of(mm, ds) for mm in METHODS}
+        pooled = load_pools(ds, split, ps)
+        orig = originals_for(ds, split, cfg)
+        data = {mm: rows_of(mm, ds, prefix) for mm in METHODS}
         qids = sorted(data["vector"])
         by_b = {}
         for q in qids:
@@ -123,13 +141,14 @@ def main() -> int:
                 vb = [data[b][q][metric] for q in qids]
                 cis[f"{metric}|{a}-vs-{b}"] = paired_bootstrap(va, vb, n=10_000).as_dict()
 
-        stats = {mm: json.loads((ROOT / "results" / f"val_{mm}_{ds}_stats.json").read_text())
+        stats = {mm: json.loads(
+            (ROOT / "results" / f"{prefix}_{mm}_{ds}_stats.json").read_text())
                  for mm in METHODS}
         report["datasets"][ds] = {"context": ctxrows, "methods": mrows,
                                   "paired_bootstrap": cis, "efficiency": stats}
 
         # ---- print -------------------------------------------------------
-        print(f"\n{'='*118}\n{ds.upper()} / VALIDATION  (n={len(qids)})\n{'='*118}")
+        print(f"\n{'='*118}\n{ds.upper()} / {split.upper()}  (n={len(qids)})\n{'='*118}")
         c = ctxrows["ALL"]
         print(f"  context: pool recall {c['pool_recall']:.3f} | extraction coverage "
               f"{c['extraction_coverage']:.3f} | graph pool coverage {c['graph_pool_coverage']:.3f}")
@@ -178,10 +197,11 @@ def main() -> int:
         bad = [mm for mm in METHODS if stats[mm]["routing"]["invalidated_by_swap"]]
         print(f"  stages invalidated by swap (>500 MB): {bad or 'none'}")
 
-    (ROOT / "results" / "m7a_report.json").write_text(json.dumps(report, indent=2, default=str))
-    print(f"\n-> results/m7a_report.json")
+    report["split"] = split
+    (ROOT / "results" / out_name).write_text(json.dumps(report, indent=2, default=str))
+    print(f"\n-> results/{out_name}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(*sys.argv[1:4]))

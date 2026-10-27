@@ -98,20 +98,23 @@ def run_one(ds, exs, qgs, cfg, cli, limit=None, done=None):
     return rows, lat, toks, calls, prof
 
 
-def main(mode: str, only_ds: str | None = None) -> int:
+def main(mode: str, only_ds: str | None = None,
+         split: str = "validation", prefix: str = "val") -> int:
+    """`split`/`prefix` default to the M7b one-time run; the M11 extension
+    (D27) passes "validation_ext"/"ext_val" so the same code measures it."""
     import gc
 
     cfg = load_config()
-    allow(f"M7b LLM-Trace ({mode})")
+    allow(f"M7b LLM-Trace ({mode}, split={split})")
     unload_all()
     print(f"--- M7b: LLM-Trace, Ollama ON ({mode}){f' [{only_ds}]' if only_ds else ''} ---")
     print(f"  swap at start: {swap_used_mb():.0f} MB")
     print(f"  schema output, num_predict={cfg['llm_trace']['num_predict']}, "
           f"steps<={cfg['llm_trace']['steps']}, candidates<={cfg['llm_trace']['max_candidate_edges']}")
 
-    out = {"mode": mode, "datasets": {}}
+    out = {"mode": mode, "split": split, "datasets": {}}
     for ds in ([only_ds] if only_ds else list(DATASETS)):
-        exs = load_pools(ds, "validation", pool_size_for(cfg, ds))
+        exs = load_pools(ds, split, pool_size_for(cfg, ds))
         # Build graphs FIRST, then release the encoder and cache, THEN load Ollama.
         # The first attempt held 300 graphs + bge + cache + Ollama at once and drove
         # the machine 3-4 GB into swap, voiding the stage under Section 7.3.
@@ -131,7 +134,7 @@ def main(mode: str, only_ds: str | None = None) -> int:
               f"offered across 30 graphs, {vf['scaffolding_offered']} of them scaffolding "
               f"({'triple-only CONFIRMED' if vf['scaffolding_offered'] == 0 else 'LEAK'})")
 
-        path = ROOT / "results" / f"val_llm_trace_{ds}.jsonl"
+        path = ROOT / "results" / f"{prefix}_llm_trace_{ds}.jsonl"
         done = set()
         if mode == "full" and path.exists():
             done = {json.loads(l)["qid"] for l in path.read_text().splitlines() if l.strip()}
@@ -182,6 +185,8 @@ def main(mode: str, only_ds: str | None = None) -> int:
     unload_all()
     print(f"\n  model unloaded")
     tag = f"{mode}_{only_ds}" if only_ds else mode
+    if prefix != "val":
+        tag = f"{prefix}_{tag}"
     (ROOT / "results" / f"m7b_{tag}.json").write_text(json.dumps(out, indent=2, default=str))
     print(f"-> results/m7b_{tag}.json")
     return 0
@@ -189,4 +194,5 @@ def main(mode: str, only_ds: str | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1] if len(sys.argv) > 1 else "smoke",
-                          sys.argv[2] if len(sys.argv) > 2 else None))
+                          sys.argv[2] if len(sys.argv) > 2 else None,
+                          *sys.argv[3:5]))

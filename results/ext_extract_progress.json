@@ -1,0 +1,147 @@
+{
+  "chunks": [
+    {
+      "chunk": 0,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1194.578125
+    },
+    {
+      "chunk": 1,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1214.3125
+    },
+    {
+      "chunk": 2,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1126.140625
+    },
+    {
+      "chunk": 3,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1212.0
+    },
+    {
+      "chunk": 4,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1216.703125
+    },
+    {
+      "chunk": 5,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1213.390625
+    },
+    {
+      "chunk": 6,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1212.59375
+    },
+    {
+      "chunk": 7,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1212.796875
+    },
+    {
+      "chunk": 8,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1211.984375
+    },
+    {
+      "chunk": 9,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1219.0625
+    },
+    {
+      "chunk": 10,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1279.015625
+    },
+    {
+      "chunk": 11,
+      "n_extracted": 0,
+      "complete": true,
+      "t_p": null,
+      "json_failures": 0,
+      "triples_mean": null,
+      "swap_growth_mb": 0.0,
+      "valid": true,
+      "peak_tree_rss_mb": 1209.90625
+    },
+    {
+      "chunk": 12,
+      "n_extracted": 272,
+      "complete": true,
+      "t_p": 4.351300344573434,
+      "json_failures": 0,
+      "triples_mean": 5.584558823529412,
+      "swap_growth_mb": -310.6875,
+      "valid": true,
+      "peak_tree_rss_mb": 2474.6875
+    }
+  ]
+}

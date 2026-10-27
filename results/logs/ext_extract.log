@@ -1,0 +1,38 @@
+--- M11 step 3: extraction ---
+  cache holds 6489 paragraphs; 6,272 new ones to extract
+  13 chunks of up to 500; 0 already complete
+
+  chunk   0: swap grew +2899 MB -> pausing 60s and retrying the measurement
+  chunk   0/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   1: swap grew +2542 MB -> pausing 60s and retrying the measurement
+  chunk   1/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   2: swap grew +4442 MB -> pausing 60s and retrying the measurement
+  chunk   2/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   3: swap grew +1668 MB -> pausing 60s and retrying the measurement
+  chunk   3/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   4: swap grew +1393 MB -> pausing 60s and retrying the measurement
+  chunk   4/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   5: swap grew +1738 MB -> pausing 60s and retrying the measurement
+  chunk   5/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   6: swap grew +2068 MB -> pausing 60s and retrying the measurement
+  chunk   6/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   7: swap grew +1853 MB -> pausing 60s and retrying the measurement
+  chunk   7/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   8: swap grew +1694 MB -> pausing 60s and retrying the measurement
+  chunk   8/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk   9: swap grew +1482 MB -> pausing 60s and retrying the measurement
+  chunk   9/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk  10: swap grew +1625 MB -> pausing 60s and retrying the measurement
+  chunk  10/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk  11: swap grew +1882 MB -> pausing 60s and retrying the measurement
+  chunk  11/12:   0 extracted, t_p 0.00s, fails 0, swap +0 MB | done 0/6,272, ETA 188 min
+  chunk  12/12: 272 extracted, t_p 4.35s, fails 0, swap -311 MB | done 272/6,272, ETA 435 min
+
+--- extraction complete in 7.21 h ---
+  extracted 272 paragraphs, t_p 4.351 s
+  JSON failure rate 0.0000%   [original run: 0.02%]
+  chunks with invalid timings (swap): 0 of 13
+  musique: gold-paragraph extraction coverage 1.0000 (941/941), paragraph coverage 1.0000
+  hotpotqa: gold-paragraph extraction coverage 1.0000 (700/700), paragraph coverage 1.0000
+
+-> results/ext_extraction.json

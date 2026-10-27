@@ -104,3 +104,159 @@
 2026-10-22T18:47:27	UNLOCK	process	M7b 3B strength check (full)
 2026-10-22T18:47:28	ALLOWED	load_pools('musique', 'validation')	M7b 3B strength check (full)
 2026-10-22T18:57:12	ALLOWED	load_pools('hotpotqa', 'validation')	M7b 3B strength check (full)
+2026-10-26T17:40:02	UNLOCK	process	M11 extension: sampling the 350 new validation questions (D27)
+2026-10-26T17:40:02	ALLOWED	ext_sample: reading the validation split to draw new questions	M11 extension: sampling the 350 new validation questions (D27)
+2026-10-26T17:41:58	UNLOCK	process	M11 extension: timing check (D27)
+2026-10-26T17:46:10	UNLOCK	process	M11 extension: extracting the new validation pools (D27)
+2026-10-27T01:01:09	UNLOCK	process	M11 step 3 recovery: rebuilding the extraction report from the cache (D28)
+2026-10-27T01:01:31	UNLOCK	process	M11 step 3 recovery: rebuilding the extraction report from the cache (D28)
+2026-10-27T01:24:15	UNLOCK	process	M11 extension: scoring the new 350 (D27)
+2026-10-27T03:08:58	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T03:56:12	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T04:13:36	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T05:56:12	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T06:52:53	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T07:51:58	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T07:54:25	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T07:57:38	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:00:09	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:07:31	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:10:04	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:14:30	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:18:53	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:23:14	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-27T08:27:20	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: scoring the new 350 (D27)
+2026-10-28T00:21:38	UNLOCK	process	M7b LLM-Trace (full, split=validation_ext)
+2026-10-28T00:21:38	ALLOWED	load_pools('musique', 'validation_ext')	M7b LLM-Trace (full, split=validation_ext)
+2026-10-28T00:44:33	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M7b LLM-Trace (full, split=validation_ext)
+2026-10-28T01:06:51	UNLOCK	process	M7a aggregation (split=validation_ext)
+2026-10-28T01:06:51	ALLOWED	load_pools('musique', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T01:07:08	UNLOCK	process	M7a aggregation (split=validation_ext)
+2026-10-28T01:07:09	ALLOWED	load_pools('musique', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T01:07:23	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T01:08:42	UNLOCK	process	M11: embedding pass for the extension pools (D27)
+2026-10-28T01:08:42	ALLOWED	load_pools('musique', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T01:08:43	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T01:10:10	UNLOCK	process	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:10:11	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:10:13	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:11:23	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:15:48	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:17:02	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:18:17	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:19:28	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:20:43	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:21:55	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:23:11	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:23:14	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:24:32	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:30:38	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:32:01	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:33:24	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:34:43	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:36:17	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:37:37	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: clean re-run with the embedding cache warm (D27)
+2026-10-28T01:39:46	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: determinism recheck of gnn/hotpotqa (D27)
+2026-10-28T01:41:24	ALLOWED	load_pools('musique', 'validation_ext')	M11: zero-embedding audit of the extension graphs (D27)
+2026-10-28T01:42:23	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: zero-embedding audit of the extension graphs (D27)
+2026-10-28T01:44:54	ALLOWED	load_pools('musique', 'validation_ext')	M11: counting to_pyg zero-fills in the real scoring path (D27)
+2026-10-28T01:45:55	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: counting to_pyg zero-fills in the real scoring path (D27)
+2026-10-28T01:47:21	ALLOWED	load_pools('musique', 'validation_ext')	M11: isolating which to_pyg feature the cold cache zeroed (D27)
+2026-10-28T01:47:27	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: isolating which to_pyg feature the cold cache zeroed (D27)
+2026-10-28T01:48:51	UNLOCK	process	M7a aggregation (split=validation_ext)
+2026-10-28T01:48:51	ALLOWED	load_pools('musique', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T01:49:06	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T01:50:11	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T01:57:31	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:03:37	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:09:00	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:14:51	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:20:23	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:24:47	ALLOWED	load_pools('musique', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:29:36	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:36:44	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:43:22	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:49:46	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T02:56:19	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T03:01:41	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T03:06:17	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 extension: reader on the new 350 (D27)
+2026-10-28T03:10:47	UNLOCK	process	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:47	ALLOWED	load_pools('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:47	ALLOWED	load_examples('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:48	ALLOWED	load_pools('musique', 'validation_ext')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:50	ALLOWED	load_pools('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:50	ALLOWED	load_examples('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:10:52	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:11:25	ALLOWED	load_examples('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:11:31	ALLOWED	load_examples('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T03:13:23	ALLOWED	load_pools('musique', 'validation')	M11: latency control -- re-time GNN on the published 150 against the enlarged embedding cache (D27)
+2026-10-28T03:13:46	ALLOWED	load_pools('hotpotqa', 'validation')	M11: latency control -- re-time GNN on the published 150 against the enlarged embedding cache (D27)
+2026-10-28T03:15:30	ALLOWED	load_pools('musique', 'validation')	M11: diagnose routing-latency inflation (cache-hit probe, no metrics read)
+2026-10-28T03:15:46	ALLOWED	load_pools('musique', 'validation')	M11: diagnose routing-latency inflation (cache-hit probe, no metrics read)
+2026-10-28T03:15:53	ALLOWED	load_pools('musique', 'validation_ext')	M11: diagnose routing-latency inflation (cache-hit probe, no metrics read)
+2026-10-28T03:16:41	ALLOWED	load_pools('musique', 'validation')	M11: audit to_pyg relation/entity cache misses on the extension (no metrics read)
+2026-10-28T03:16:51	ALLOWED	load_pools('musique', 'validation_ext')	M11: audit to_pyg relation/entity cache misses on the extension (no metrics read)
+2026-10-28T03:16:59	ALLOWED	load_pools('hotpotqa', 'validation')	M11: audit to_pyg relation/entity cache misses on the extension (no metrics read)
+2026-10-28T03:17:03	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: audit to_pyg relation/entity cache misses on the extension (no metrics read)
+2026-10-28T03:19:46	UNLOCK	process	M11: embedding pass for the extension pools (D27)
+2026-10-28T03:19:46	ALLOWED	load_pools('musique', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T03:19:46	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T03:19:47	ALLOWED	load_pools('musique', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T03:20:40	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11: embedding pass for the extension pools (D27)
+2026-10-28T03:21:52	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: verify zero relation/entity cache misses after the graph pass
+2026-10-28T03:22:06	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: verify zero relation/entity cache misses after the graph pass
+2026-10-28T03:22:32	UNLOCK	process	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:22:33	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:22:36	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:22:48	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:26:35	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:26:55	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:27:15	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:27:28	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:27:48	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:28:01	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:28:22	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:28:25	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:28:34	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:33:47	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:34:05	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:34:23	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:34:33	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:34:52	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:35:02	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-measure the extension after caching relation and entity texts
+2026-10-28T03:35:51	ALLOWED	load_pools('musique', 'validation')	M11 D30: re-time GNN on the published 150 with a fully warm cache (latency baseline)
+2026-10-28T03:36:14	ALLOWED	load_pools('hotpotqa', 'validation')	M11 D30: re-time GNN on the published 150 with a fully warm cache (latency baseline)
+2026-10-28T03:36:59	ALLOWED	load_pools('musique', 'validation')	M11 D30: count in-loop encodes per split to attribute routing latency
+2026-10-28T03:37:12	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: count in-loop encodes per split to attribute routing latency
+2026-10-28T03:37:17	ALLOWED	load_pools('hotpotqa', 'validation')	M11 D30: count in-loop encodes per split to attribute routing latency
+2026-10-28T03:37:25	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: count in-loop encodes per split to attribute routing latency
+2026-10-28T03:38:08	UNLOCK	process	M11 D30: warm the published validation split's graph texts (latency baseline)
+2026-10-28T03:38:08	ALLOWED	load_pools('musique', 'validation')	M11 D30: warm the published validation split's graph texts (latency baseline)
+2026-10-28T03:38:23	ALLOWED	load_pools('hotpotqa', 'validation')	M11 D30: warm the published validation split's graph texts (latency baseline)
+2026-10-28T03:38:39	ALLOWED	load_pools('musique', 'validation')	M11 D30: like-for-like GNN latency baseline on the published 150, fully warm cache
+2026-10-28T03:38:53	ALLOWED	load_pools('hotpotqa', 'validation')	M11 D30: like-for-like GNN latency baseline on the published 150, fully warm cache
+2026-10-28T03:39:46	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:39:49	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:39:50	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:39:51	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:39:53	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:39:54	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:40:33	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN contexts after the relation-feature fix
+2026-10-28T03:41:23	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:48:34	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:54:16	ALLOWED	load_pools('musique', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T03:58:34	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T04:05:36	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T04:10:48	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 D30: re-read GNN-family contexts after the relation-feature fix
+2026-10-28T04:15:40	UNLOCK	process	M7a aggregation (split=validation_ext)
+2026-10-28T04:15:40	ALLOWED	load_pools('musique', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T04:15:55	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M7a aggregation (split=validation_ext)
+2026-10-28T04:16:17	UNLOCK	process	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:17	ALLOWED	load_pools('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:17	ALLOWED	load_examples('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:19	ALLOWED	load_pools('musique', 'validation_ext')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:21	ALLOWED	load_pools('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:21	ALLOWED	load_examples('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:22	ALLOWED	load_pools('hotpotqa', 'validation_ext')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:16:56	ALLOWED	load_examples('musique', 'validation')	M11 step 5: verdicts on the extension (D27)
+2026-10-28T04:17:02	ALLOWED	load_examples('hotpotqa', 'validation')	M11 step 5: verdicts on the extension (D27)

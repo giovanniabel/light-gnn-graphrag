@@ -1,0 +1,18 @@
+{
+  "method": "ppr",
+  "dataset": "musique",
+  "split": "validation_ext",
+  "mode": "full",
+  "n": 350,
+  "n_validation_total": 350,
+  "median_s": 1.0484954375060624,
+  "mean_s": 1.0382045727657636,
+  "p95_s": 1.752995082992129,
+  "tokens_per_question_mean": 571.0428571428571,
+  "em": 0.11428571428571428,
+  "f1": 0.18132248283928956,
+  "peak_tree_rss_mb": 1674.359375,
+  "delta_rss_mb": 172.78125,
+  "swap_growth_mb": 3200.25,
+  "invalidated_by_swap": true
+}

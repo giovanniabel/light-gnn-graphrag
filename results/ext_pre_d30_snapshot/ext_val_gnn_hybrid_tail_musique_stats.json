@@ -1,0 +1,25 @@
+{
+  "method": "gnn_hybrid_tail",
+  "dataset": "musique",
+  "split": "validation_ext",
+  "n_questions": 350,
+  "idle_baseline_rss_mb": 241.859375,
+  "routing": {
+    "median_s": 0.16924589549307711,
+    "p95_s": 0.37158474999887403,
+    "mean_s": 0.1991579683605648,
+    "llm_tokens": 0,
+    "peak_tree_rss_mb": 1456.296875,
+    "delta_rss_mb_over_idle": 1214.4375,
+    "swap_growth_mb": -8.0,
+    "invalidated_by_swap": false
+  },
+  "routing_breakdown": {
+    "graph_assembly_median_s": 0.16168122900126036,
+    "graph_assembly_p95_s": 0.36096579099830706,
+    "model_forward_median_s": 0.0066270620009163395,
+    "model_forward_p95_s": 0.02676320800674148
+  },
+  "swap_start_mb": 3275.625,
+  "swap_end_mb": 3267.625
+}

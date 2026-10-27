@@ -1,0 +1,18 @@
+{
+  "method": "stacked",
+  "dataset": "musique",
+  "split": "validation_ext",
+  "mode": "full",
+  "n": 350,
+  "n_validation_total": 350,
+  "median_s": 0.6670942505006678,
+  "mean_s": 0.7459025389171854,
+  "p95_s": 1.5961282920034137,
+  "tokens_per_question_mean": 592.0685714285714,
+  "em": 0.15714285714285714,
+  "f1": 0.23580598906229158,
+  "peak_tree_rss_mb": 1818.15625,
+  "delta_rss_mb": 381.140625,
+  "swap_growth_mb": -251.4375,
+  "invalidated_by_swap": false
+}

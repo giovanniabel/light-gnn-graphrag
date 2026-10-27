@@ -1,0 +1,18 @@
+{
+  "method": "llm_trace",
+  "dataset": "hotpotqa",
+  "split": "validation_ext",
+  "mode": "full",
+  "n": 350,
+  "n_validation_total": 350,
+  "median_s": 1.070816896004544,
+  "mean_s": 1.0900742730116222,
+  "p95_s": 1.7593058749916963,
+  "tokens_per_question_mean": 589.7514285714286,
+  "em": 0.29428571428571426,
+  "f1": 0.3987720216291645,
+  "peak_tree_rss_mb": 1624.9375,
+  "delta_rss_mb": 149.390625,
+  "swap_growth_mb": 3.1875,
+  "invalidated_by_swap": false
+}

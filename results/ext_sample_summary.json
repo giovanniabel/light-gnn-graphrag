@@ -1,0 +1,47 @@
+{
+  "musique": {
+    "dataset": "musique",
+    "n": 350,
+    "seed": 20261026,
+    "sha256_of_qid_list": "4fa6b8a7db237ee2661c11b8c616a03d6ed7d9333bfc417cdbc66bddf98eb47a",
+    "pool_size": 14,
+    "excluded_original_150": 150,
+    "excluded_train": 150,
+    "eligible_total": 2417,
+    "available_after_exclusion": 2267,
+    "hop_distribution": {
+      "2": 117,
+      "3": 117,
+      "4": 116
+    },
+    "type_distribution": {
+      "None": 350
+    },
+    "level_distribution": {
+      "None": 350
+    },
+    "pool_file": "data/cache/pools/musique_validation_ext_p14.json"
+  },
+  "hotpotqa": {
+    "dataset": "hotpotqa",
+    "n": 350,
+    "seed": 20261026,
+    "sha256_of_qid_list": "aba802ed38f673340bb49f06a65d743a55e42c407c44ff3d1cb3bf1665a45e40",
+    "pool_size": 10,
+    "excluded_original_150": 150,
+    "excluded_train": 150,
+    "eligible_total": 7345,
+    "available_after_exclusion": 7195,
+    "hop_distribution": {
+      "2": 350
+    },
+    "type_distribution": {
+      "bridge": 279,
+      "comparison": 71
+    },
+    "level_distribution": {
+      "hard": 350
+    },
+    "pool_file": "data/cache/pools/hotpotqa_validation_ext_p10.json"
+  }
+}

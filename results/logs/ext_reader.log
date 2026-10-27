@@ -1,0 +1,29 @@
+--- vector / musique ---
+    n=350  EM 0.1571  F1 0.2359  median 1.21s  598 tok/q  peakRSS 1531MB  swap +3997MB  !! SWAP-INVALID
+--- ppr / musique ---
+    n=350  EM 0.1143  F1 0.1813  median 1.05s  571 tok/q  peakRSS 1674MB  swap +3200MB  !! SWAP-INVALID
+--- llm_trace / musique ---
+    n=350  EM 0.1629  F1 0.2319  median 0.92s  588 tok/q  peakRSS 1714MB  swap +192MB
+--- gnn / musique ---
+    n=350  EM 0.1057  F1 0.1652  median 0.99s  574 tok/q  peakRSS 1727MB  swap +155MB
+--- gnn_rrf / musique ---
+    n=350  EM 0.1457  F1 0.2212  median 0.94s  587 tok/q  peakRSS 1718MB  swap +257MB
+--- stacked / musique ---
+    n=350  EM 0.1571  F1 0.2358  median 0.67s  592 tok/q  peakRSS 1818MB  swap -251MB
+--- oracle / musique ---
+    n=350  EM 0.3657  F1 0.4415  median 0.77s  431 tok/q  peakRSS 1539MB  swap +704MB  !! SWAP-INVALID
+--- vector / hotpotqa ---
+    n=350  EM 0.3743  F1 0.5111  median 1.21s  558 tok/q  peakRSS 1594MB  swap +590MB  !! SWAP-INVALID
+--- ppr / hotpotqa ---
+    n=350  EM 0.3486  F1 0.4736  median 1.14s  555 tok/q  peakRSS 1726MB  swap +79MB
+--- llm_trace / hotpotqa ---
+    n=350  EM 0.2943  F1 0.3988  median 1.07s  590 tok/q  peakRSS 1625MB  swap +3MB
+--- gnn / hotpotqa ---
+    n=350  EM 0.3343  F1 0.4587  median 1.11s  549 tok/q  peakRSS 1654MB  swap +621MB  !! SWAP-INVALID
+--- gnn_rrf / hotpotqa ---
+    n=350  EM 0.3714  F1 0.4964  median 0.92s  549 tok/q  peakRSS 1641MB  swap +187MB
+--- stacked / hotpotqa ---
+    n=350  EM 0.3800  F1 0.5112  median 0.79s  552 tok/q  peakRSS 1766MB  swap -208MB
+--- oracle / hotpotqa ---
+    n=350  EM 0.5200  F1 0.6661  median 0.54s  292 tok/q  peakRSS 1674MB  swap +831MB  !! SWAP-INVALID
+model unloaded

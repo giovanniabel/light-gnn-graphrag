@@ -519,9 +519,28 @@ def to_pyg(qg: QueryGraph, emb_cache, hops: int = 3):
     """
     from torch_geometric.data import Data
 
+    # No feature is ever zero-filled. A cache miss does not mean "this text has
+    # no embedding", it means the embedding pass was not run for this split, and
+    # a zero vector is not a neutral stand-in: it silently removes exactly the
+    # query conditioning this model is built on.
+    #   * question missing -> e_v*q, cos(e_v,q) and cos(r_e,q) all collapse to 0
+    #     and the router scores edges query-blind (D29, the M11 HotpotQA pools).
+    #   * relation missing -> r_e = 0 and cos(r_e,q) = 0, so that edge's entire
+    #     edge_attr carries no signal (D30: 10% of the M11 extension's edges).
+    # Both produced plausible-looking scores and neither announced itself, so
+    # every kind now fails loudly. Published train/validation splits are 0% miss,
+    # so this raises only where a pass is genuinely absent.
     def _emb(text: str, kind: str) -> torch.Tensor:
         v = emb_cache.get(text, kind)
-        return v if v is not None else torch.zeros(384)
+        if v is None:
+            raise KeyError(
+                f"no cached {kind} embedding for {text[:60]!r} "
+                f"(qid {qg.qid!r}, {qg.dataset}). to_pyg must not zero-fill "
+                "features: that silently degrades query conditioning. Run the "
+                "embedding pass for this split first (scripts/m3_embed.py, or "
+                "scripts/ext_embed.py for an extension split)."
+            )
+        return v
 
     q = _emb(qg.question, "questions")
     qn = torch.nn.functional.normalize(q, dim=-1)

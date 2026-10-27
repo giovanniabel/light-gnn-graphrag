@@ -50,10 +50,13 @@ def save_pools(examples: list[Example], dataset: str, split: str, pool_size: int
 
 
 def load_pools(dataset: str, split: str, pool_size: int) -> list[Example] | None:
-    if split == "validation":
+    # Any split whose name starts with "validation" is held-out data, the M11
+    # extension's "validation_ext" included -- guarding only the exact string
+    # "validation" would have let the extension's pools be read unlogged.
+    if split.startswith("validation"):
         from src.validation_guard import require
 
-        require(f"load_pools({dataset!r}, 'validation')")
+        require(f"load_pools({dataset!r}, {split!r})")
     p = pool_path(dataset, split, pool_size)
     if not p.exists():
         return None

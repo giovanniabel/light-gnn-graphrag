@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import pytest
 
+from src.config import load_config
 from src import validation_guard as vg
 
 
@@ -66,13 +67,37 @@ def test_train_split_is_never_guarded():
     assert src.count("require(") == 1
 
 
-def test_guard_is_hooked_into_every_validation_reader():
-    """A new reader of the validation split must not slip past the guard."""
+def test_guard_is_hooked_into_every_validation_reader(monkeypatch):
+    """A new reader of the validation split must not slip past the guard.
+
+    Checked by behaviour rather than by source text: the readers are called with
+    the guard locked and must raise. Every split whose name begins with
+    "validation" counts -- the M11 extension (D27) added "validation_ext", which
+    an exact-string gate let through unlogged.
+    """
+    from src import validation_guard as vg
+    from scripts.m1_data import load_pools
+    from scripts.m6_train import load_graphs
+
+    monkeypatch.setattr(vg, "_allowed", False)
+    monkeypatch.setattr(vg, "_reason", "")
+    monkeypatch.delenv("ALLOW_VALIDATION", raising=False)
+
+    for split in ("validation", "validation_ext"):
+        with pytest.raises(vg.ValidationAccessError):
+            load_pools("musique", split, 14)
+        with pytest.raises(vg.ValidationAccessError):
+            load_graphs(load_config(), "musique", split)
+
+
+def test_guard_gate_is_prefix_based_not_exact():
+    """The gate must cover every validation-derived split, not one literal name."""
     import inspect
 
     from scripts.m1_data import load_pools
     from scripts.m6_train import load_graphs
 
     for fn in (load_pools, load_graphs):
-        s = inspect.getsource(fn)
-        assert 'split == "validation"' in s and "require(" in s, f"{fn.__name__} ungated"
+        src = inspect.getsource(fn)
+        assert 'startswith("validation")' in src, f"{fn.__name__} ungated"
+        assert "require(" in src, f"{fn.__name__} never calls require()"

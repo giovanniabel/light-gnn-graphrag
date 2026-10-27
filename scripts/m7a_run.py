@@ -25,7 +25,9 @@ DATASETS = ["musique", "hotpotqa"]
 REASON = "M7 one-time validation run"
 
 
-def main() -> int:
+def main(split: str = "validation", prefix: str = "val",
+         reason: str | None = None) -> int:
+    reason = reason or REASON
     unload_all()
     ps = subprocess.run(["ollama", "ps"], capture_output=True, text=True).stdout
     rows = [l for l in ps.strip().splitlines()[1:] if l.strip()]
@@ -34,17 +36,18 @@ def main() -> int:
     if rows:
         print("  refusing to run with a model loaded (§6.1)")
         return 1
-    allow(REASON)          # logged to results/validation_access.log
-    print(f"  validation UNLOCKED: {REASON!r}\n")
+    allow(reason)          # logged to results/validation_access.log
+    print(f"  validation UNLOCKED: {reason!r}  split={split}\n")
 
-    env = {**os.environ, "ALLOW_VALIDATION": "1", "ALLOW_VALIDATION_REASON": REASON,
+    env = {**os.environ, "ALLOW_VALIDATION": "1", "ALLOW_VALIDATION_REASON": reason,
            "TOKENIZERS_PARALLELISM": "false"}
     t0 = time.perf_counter()
     failures = []
     for ds in DATASETS:
         for m in METHODS:
             r = subprocess.run(
-                [sys.executable, str(ROOT / "scripts" / "m7a_method.py"), m, ds],
+                [sys.executable, str(ROOT / "scripts" / "m7a_method.py"),
+                 m, ds, split, prefix],
                 env=env, capture_output=True, text=True, cwd=str(ROOT),
             )
             out = [l for l in r.stdout.splitlines()
@@ -60,9 +63,9 @@ def main() -> int:
         for m, d, err in failures:
             print(f"    {m}/{d}: {err}")
         return 1
-    print(f"\n  per-question outputs: results/val_<method>_<dataset>.jsonl")
+    print(f"\n  per-question outputs: results/{prefix}_<method>_<dataset>.jsonl")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main(*sys.argv[1:4]))

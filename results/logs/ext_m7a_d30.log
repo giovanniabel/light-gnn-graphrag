@@ -1,0 +1,28 @@
+--- M7a: validation retrieval, Ollama OFF ---
+  `ollama ps` -> 0 loaded (EMPTY)
+  validation UNLOCKED: 'M11 D30: re-measure the extension after caching relation and entity texts'  split=validation_ext
+
+  vector             musique   n=350  SP@4 0.6483  AllGold@4 0.303  route med 0.4ms  peakRSS 325MB  swap +0MB
+  ppr                musique   n=350  SP@4 0.5279  AllGold@4 0.220  route med 17.6ms  peakRSS 494MB  swap +0MB
+  [edge_sim] preloaded 84978 edge-text embeddings before timing
+  edge_sim           musique   n=350  SP@4 0.5462  AllGold@4 0.223  route med 17.1ms  peakRSS 1344MB  swap +0MB
+  gnn                musique   n=350  SP@4 0.5224  AllGold@4 0.211  route med 26.5ms  peakRSS 726MB  swap +0MB
+  gnn_rrf            musique   n=350  SP@4 0.6181  AllGold@4 0.274  route med 27.0ms  peakRSS 764MB  swap +0MB
+  ppr_rrf            musique   n=350  SP@4 0.6183  AllGold@4 0.269  route med 18.3ms  peakRSS 541MB  swap +0MB
+  gnn_hybrid_tail    musique   n=350  SP@4 0.5224  AllGold@4 0.211  route med 27.6ms  peakRSS 772MB  swap +0MB
+  ppr_hybrid_tail    musique   n=350  SP@4 0.5279  AllGold@4 0.220  route med 18.5ms  peakRSS 546MB  swap -48MB
+  stacked            musique   n=350  SP@4 0.6517  AllGold@4 0.303  route med 29.0ms  peakRSS 841MB  swap +0MB
+  vector             hotpotqa  n=350  SP@4 0.8829  AllGold@4 0.774  route med 0.4ms  peakRSS 339MB  swap +0MB
+  ppr                hotpotqa  n=350  SP@4 0.6957  AllGold@4 0.489  route med 10.1ms  peakRSS 507MB  swap +0MB
+  [edge_sim] preloaded 120184 edge-text embeddings before timing
+  edge_sim           hotpotqa  n=350  SP@4 0.7743  AllGold@4 0.586  route med 10.3ms  peakRSS 1473MB  swap +0MB
+  gnn                hotpotqa  n=350  SP@4 0.7557  AllGold@4 0.583  route med 19.9ms  peakRSS 709MB  swap +0MB
+  gnn_rrf            hotpotqa  n=350  SP@4 0.8471  AllGold@4 0.723  route med 20.6ms  peakRSS 749MB  swap -24MB
+  ppr_rrf            hotpotqa  n=350  SP@4 0.8357  AllGold@4 0.697  route med 10.6ms  peakRSS 530MB  swap +0MB
+  gnn_hybrid_tail    hotpotqa  n=350  SP@4 0.7571  AllGold@4 0.586  route med 21.0ms  peakRSS 754MB  swap +0MB
+  ppr_hybrid_tail    hotpotqa  n=350  SP@4 0.6971  AllGold@4 0.491  route med 10.6ms  peakRSS 530MB  swap +0MB
+  stacked            hotpotqa  n=350  SP@4 0.8829  AllGold@4 0.780  route med 22.5ms  peakRSS 759MB  swap +0MB
+
+  18 runs in 768s
+
+  per-question outputs: results/ext_val_<method>_<dataset>.jsonl

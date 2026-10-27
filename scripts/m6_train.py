@@ -38,10 +38,10 @@ from scripts.m1_data import load_pools  # noqa: E402
 
 
 def load_graphs(cfg, ds: str, split: str) -> dict:
-    if split == "validation":
+    if split.startswith("validation"):        # "validation_ext" included (D27)
         from src.validation_guard import require
 
-        require(f"load_graphs({ds!r}, 'validation')")
+        require(f"load_graphs({ds!r}, {split!r})")
     hops = int(cfg["graph"]["hops"])
     path = cfg.path("graphs") / f"{ds}_{split}_H{hops}.pt"
     datas = torch.load(path, map_location="cpu", weights_only=False)

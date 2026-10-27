@@ -1,0 +1,7 @@
+    n=350  EM 0.1057  F1 0.1671  median 1.20s  575 tok/q  peakRSS 1645MB  swap +4419MB  !! SWAP-INVALID
+    n=350  EM 0.1457  F1 0.2198  median 0.94s  585 tok/q  peakRSS 1701MB  swap +2654MB  !! SWAP-INVALID
+    n=350  EM 0.1571  F1 0.2358  median 0.66s  592 tok/q  peakRSS 1770MB  swap +330MB
+    n=350  EM 0.3343  F1 0.4566  median 1.19s  549 tok/q  peakRSS 1758MB  swap +803MB  !! SWAP-INVALID
+    n=350  EM 0.3743  F1 0.4995  median 0.89s  549 tok/q  peakRSS 1695MB  swap -192MB
+    n=350  EM 0.3800  F1 0.5110  median 0.76s  552 tok/q  peakRSS 1736MB  swap +92MB
+model unloaded

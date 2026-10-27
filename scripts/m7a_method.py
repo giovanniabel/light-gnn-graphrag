@@ -52,7 +52,12 @@ def load_final_models(cfg, ds):
     return out
 
 
-def main(method: str, ds: str) -> int:
+def main(method: str, ds: str, split: str = "validation",
+         prefix: str = "val") -> int:
+    """`split`/`prefix` default to the M7a one-time run. The M11 extension
+    (D27) passes split="validation_ext", prefix="ext_val" so the extension is
+    measured by this same code -- same metrics, same timed region, same
+    Edge-Sim preload -- rather than by a parallel copy that could drift."""
     cfg = load_config()
     k = int(cfg["routing"]["k"])
     hops = int(cfg["graph"]["hops"])
@@ -60,7 +65,7 @@ def main(method: str, ds: str) -> int:
     idle_rss = tree_rss_mb()          # this process's own idle baseline
     swap0 = swap_used_mb()
 
-    exs = load_pools(ds, "validation", pool_size_for(cfg, ds))
+    exs = load_pools(ds, split, pool_size_for(cfg, ds))
     tc = TripleCache(cfg.path("triples"), env("SLM_TAG"), effective_prompt_version(cfg))
     ec = EmbeddingCache(cfg.path("embeddings"), env("EMBED_MODEL"))
     emb = Embedder(env("EMBED_MODEL"), device=cfg.get("device") or "cpu", cache=ec)
@@ -192,7 +197,7 @@ def main(method: str, ds: str) -> int:
             t_route.append(prof.per_item_s[-1])
 
             row = {
-                "qid": ex.qid, "dataset": ds, "method": method,
+                "qid": ex.qid, "dataset": ds, "method": method, "split": split,
                 "n_hops": ex.n_hops, "hotpot_type": ex.meta.get("hotpot_type"),
                 "answer": ex.answer, "yes_no": is_yes_no(ex.answer),
                 "pool": pool, "gold": sorted(ex.gold_pids),
@@ -217,7 +222,7 @@ def main(method: str, ds: str) -> int:
             rows.append(row)
 
     s = prof.stats
-    out = ROOT / "results" / f"val_{method}_{ds}.jsonl"
+    out = ROOT / "results" / f"{prefix}_{method}_{ds}.jsonl"
     with open(out, "w") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
@@ -227,7 +232,7 @@ def main(method: str, ds: str) -> int:
         return v[min(len(v) - 1, int(round(p * (len(v) - 1))))] if v else None
 
     stats = {
-        "method": method, "dataset": ds, "n_questions": len(rows),
+        "method": method, "dataset": ds, "split": split, "n_questions": len(rows),
         "idle_baseline_rss_mb": idle_rss,
         "routing": {
             "median_s": statistics.median(t_route), "p95_s": q(t_route, 0.95),
@@ -246,7 +251,8 @@ def main(method: str, ds: str) -> int:
         },
         "swap_start_mb": swap0, "swap_end_mb": swap_used_mb(),
     }
-    (ROOT / "results" / f"val_{method}_{ds}_stats.json").write_text(json.dumps(stats, indent=2))
+    (ROOT / "results" / f"{prefix}_{method}_{ds}_stats.json").write_text(
+        json.dumps(stats, indent=2))
     print(f"  {method:<18} {ds:<9} n={len(rows)}  "
           f"SP@4 {statistics.fmean(r['sp_recall4'] for r in rows):.4f}  "
           f"AllGold@4 {statistics.fmean(r['allgold4'] for r in rows):.3f}  "
@@ -257,4 +263,4 @@ def main(method: str, ds: str) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1], sys.argv[2]))
+    raise SystemExit(main(*sys.argv[1:5]))

@@ -1,0 +1,18 @@
+{
+  "method": "gnn",
+  "dataset": "hotpotqa",
+  "split": "validation_ext",
+  "mode": "full",
+  "n": 350,
+  "n_validation_total": 350,
+  "median_s": 1.1138516460050596,
+  "mean_s": 1.1153916354856588,
+  "p95_s": 1.7151189580035862,
+  "tokens_per_question_mean": 549.2228571428572,
+  "em": 0.3342857142857143,
+  "f1": 0.45872719344147916,
+  "peak_tree_rss_mb": 1654.0625,
+  "delta_rss_mb": 53.15625,
+  "swap_growth_mb": 620.75,
+  "invalidated_by_swap": true
+}

@@ -483,3 +483,80 @@ def test_node_text_defaults_to_the_node_name():
     ex = make_ex(gold=("p0",))
     qg = build_graph(ex, [T("A", "r", "B", "p0")], FakeEmbedder(), merge_near_duplicates=False)
     assert qg.node_text == qg.nodes
+
+
+def test_to_pyg_refuses_to_zero_fill_the_question():
+    """A missing question embedding must raise, not silently zero the query.
+
+    Zero-filling it makes e_v*q, cos(e_v,q) and cos(r_e,q) all zero, so the
+    router runs query-blind and still produces plausible-looking scores -- which
+    is what happened to the M11 extension's HotpotQA pools, whose questions had
+    never been through the M3 embedding pass (D29).
+    """
+    import pytest
+
+    ex = make_ex(question="about n0", gold=("p0",))
+    qg = build_graph(ex, _chain(6), FakeEmbedder(), hops=3, merge_near_duplicates=False)
+
+    class NoQuestionCache(FakeCache):
+        def get(self, text, kind="misc"):
+            if kind == "questions":
+                return None
+            return super().get(text, kind)
+
+    with pytest.raises(KeyError, match="cached questions embedding"):
+        to_pyg(qg, NoQuestionCache(), hops=3)
+
+    # the same graph still builds once the question embedding is there
+    d = to_pyg(qg, FakeCache(), hops=3)
+    assert d.x.shape[0] == qg.n_nodes
+
+
+def test_to_pyg_empty_graph_also_requires_the_question():
+    """The n == 0 early return must not slip past the question check."""
+    import pytest
+
+    qg = build_graph(make_ex(), [], FakeEmbedder(), merge_near_duplicates=False)
+
+    class NoQuestionCache(FakeCache):
+        def get(self, text, kind="misc"):
+            return None if kind == "questions" else super().get(text, kind)
+
+    with pytest.raises(KeyError, match="cached questions embedding"):
+        to_pyg(qg, NoQuestionCache(), hops=3)
+
+
+def test_to_pyg_refuses_to_zero_fill_a_relation():
+    """A missing relation embedding must raise too (D30).
+
+    Zero-filling r_e leaves that edge's entire edge_attr signal-free -- r_e = 0
+    and cos(r_e,q) = 0 -- which is how 10% of the M11 extension's edges were
+    scored before this was caught. Nothing announced it: the scores stayed in
+    range and the rankings stayed plausible.
+    """
+    import pytest
+
+    ex = make_ex(question="about n0", gold=("p0",))
+    qg = build_graph(ex, _chain(6), FakeEmbedder(), hops=3, merge_near_duplicates=False)
+
+    class NoRelationCache(FakeCache):
+        def get(self, text, kind="misc"):
+            return None if kind == "relations" else super().get(text, kind)
+
+    with pytest.raises(KeyError, match="cached relations embedding"):
+        to_pyg(qg, NoRelationCache(), hops=3)
+
+
+def test_to_pyg_refuses_to_zero_fill_an_entity():
+    """Same rule for node texts: no feature is ever silently zeroed (D30)."""
+    import pytest
+
+    ex = make_ex(question="about n0", gold=("p0",))
+    qg = build_graph(ex, _chain(6), FakeEmbedder(), hops=3, merge_near_duplicates=False)
+
+    class NoEntityCache(FakeCache):
+        def get(self, text, kind="misc"):
+            return None if kind == "entities" else super().get(text, kind)
+
+    with pytest.raises(KeyError, match="cached entities embedding"):
+        to_pyg(qg, NoEntityCache(), hops=3)

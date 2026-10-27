@@ -1,0 +1,26 @@
+{
+  "n_timed": 100,
+  "t_p_mean_s": 1.767080522970282,
+  "t_p_median_s": 1.6856571875032387,
+  "t_p_p95_s": 2.8971434159975615,
+  "llm_tokens_per_paragraph": 423.03,
+  "triples_per_paragraph": 5.45,
+  "json_failures": 0,
+  "json_failure_rate": 0.0,
+  "peak_tree_rss_mb": 1409.796875,
+  "swap_growth_mb": 846.6875,
+  "stage_valid": false,
+  "slots_total": 7744,
+  "slots_cached": 1472,
+  "paragraphs_to_extract": 6272,
+  "projected": {
+    "extraction_h": 3.078646955574891,
+    "embedding_h": 0.004530555555555556,
+    "llm_trace_h": 0.3111111111111111,
+    "reader_h": 0.8166666666666667,
+    "other_h": 0.2,
+    "total_h": 4.410955288908225,
+    "gate_h": 12.0,
+    "within_gate": true
+  }
+}

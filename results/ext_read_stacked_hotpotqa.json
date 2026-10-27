@@ -1,0 +1,18 @@
+{
+  "method": "stacked",
+  "dataset": "hotpotqa",
+  "split": "validation_ext",
+  "mode": "full",
+  "n": 350,
+  "n_validation_total": 350,
+  "median_s": 0.7624413749945234,
+  "mean_s": 0.7762511194027528,
+  "p95_s": 1.4989294999977574,
+  "tokens_per_question_mean": 552.2657142857142,
+  "em": 0.38,
+  "f1": 0.5110287243102369,
+  "peak_tree_rss_mb": 1736.390625,
+  "delta_rss_mb": 100.78125,
+  "swap_growth_mb": 91.6875,
+  "invalidated_by_swap": false
+}

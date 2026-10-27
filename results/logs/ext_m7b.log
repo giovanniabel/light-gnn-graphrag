@@ -1,0 +1,52 @@
+W1028 00:21:42.905000 25723 .venv/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+--- M7b: LLM-Trace, Ollama ON (full) ---
+  swap at start: 1857 MB
+  schema output, num_predict=40, steps<=3, candidates<=20
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 8611.11it/s]
+  graphs built and encoder released; swap 1932 MB, tree RSS 543 MB
+  ollama ps: ['qwen2.5:1.5b-instruct-q4_K_M']  swap 2512 MB
+
+  musique: filter check -> 276 candidate edges offered across 30 graphs, 0 of them scaffolding (triple-only CONFIRMED)
+    musique 25/350  4.55s/q  1020 tok/q
+    musique 50/350  3.86s/q  1001 tok/q
+    musique 75/350  3.62s/q  1012 tok/q
+    musique 100/350  3.67s/q  1023 tok/q
+    musique 125/350  3.66s/q  1045 tok/q
+    musique 150/350  3.57s/q  1040 tok/q
+    musique 175/350  3.53s/q  1044 tok/q
+    musique 200/350  3.62s/q  1051 tok/q
+    musique 225/350  3.69s/q  1051 tok/q
+    musique 250/350  3.72s/q  1054 tok/q
+    musique 275/350  3.74s/q  1055 tok/q
+    musique 300/350  3.76s/q  1060 tok/q
+    musique 325/350  3.78s/q  1065 tok/q
+    musique 350/350  3.79s/q  1081 tok/q
+    n=350  median 3.73s  p95 5.77s  1081 tok/q  2.96 calls/q
+    SP@4 0.6519  AllGold@4 0.311
+    peak tree RSS 1575 MB (delta +158), swap +8655 MB  !! SWAP-INVALID
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7103.36it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  graphs built and encoder released; swap 11539 MB, tree RSS 1730 MB
+  ollama ps: ['qwen2.5:1.5b-instruct-q4_K_M']  swap 11539 MB
+
+  hotpotqa: filter check -> 398 candidate edges offered across 30 graphs, 0 of them scaffolding (triple-only CONFIRMED)
+    hotpotqa 25/350  3.40s/q  1130 tok/q
+    hotpotqa 50/350  3.55s/q  1194 tok/q
+    hotpotqa 75/350  3.61s/q  1211 tok/q
+    hotpotqa 100/350  3.57s/q  1181 tok/q
+    hotpotqa 125/350  3.61s/q  1201 tok/q
+    hotpotqa 150/350  3.63s/q  1212 tok/q
+    hotpotqa 175/350  3.60s/q  1204 tok/q
+    hotpotqa 200/350  3.57s/q  1201 tok/q
+    hotpotqa 225/350  3.55s/q  1201 tok/q
+    hotpotqa 250/350  3.54s/q  1201 tok/q
+    hotpotqa 275/350  3.53s/q  1202 tok/q
+    hotpotqa 300/350  3.51s/q  1199 tok/q
+    hotpotqa 325/350  3.51s/q  1205 tok/q
+    hotpotqa 350/350  3.50s/q  1205 tok/q
+    n=350  median 3.58s  p95 4.47s  1205 tok/q  2.99 calls/q
+    SP@4 0.5971  AllGold@4 0.314
+    peak tree RSS 1563 MB (delta +23), swap +2056 MB  !! SWAP-INVALID
+
+  model unloaded
+-> results/m7b_ext_val_full.json

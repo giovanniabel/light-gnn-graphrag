@@ -1,0 +1,34 @@
+{
+  "splits": {
+    "musique": {
+      "n_questions": 350,
+      "paragraphs": 4900,
+      "encoded": 0,
+      "cache_hits": 5250,
+      "seconds": 0.8363775420002639,
+      "graph_pass": {
+        "relation_texts": 5937,
+        "entity_texts": 13756,
+        "encoded": 19133,
+        "cache_hits": 67746,
+        "seconds": 53.74475904200517
+      }
+    },
+    "hotpotqa": {
+      "n_questions": 350,
+      "paragraphs": 3500,
+      "encoded": 0,
+      "cache_hits": 3850,
+      "seconds": 0.027584124996792525,
+      "graph_pass": {
+        "relation_texts": 7046,
+        "entity_texts": 17685,
+        "encoded": 22708,
+        "cache_hits": 46507,
+        "seconds": 54.966749582992634
+      }
+    }
+  },
+  "shards_written": 512,
+  "total_seconds": 112.1166035829956
+}
