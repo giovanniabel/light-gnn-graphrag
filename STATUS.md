@@ -1,17 +1,40 @@
 # STATUS
 
-**Updated:** 2026-10-22 · **Spec:** [agent.md](agent.md) (deviations in its §14 log)
+**Updated:** 2026-11-24 · **Spec:** [agent.md](agent.md) (deviations in its §14 log)
 
-M0–M8 are complete, plus the 3B strength check and the Pareto analysis. **The one-time validation run is done**; `results/validation_access.log`
-records every read. **Final verdicts: C1 NOT SUPPORTED, C2 INCONCLUSIVE, C3 cost-half SUPPORTED /
-quality-half SUPPORTED on HotpotQA and INCONCLUSIVE on MuSiQue, C4 SUPPORTED with
-a stated RSS limitation.** Post-hoc analyses (edge-level C2 evidence, answer-level
-EM/F1, the 3B check) are reported separately and labelled as such.
+**M0–M11 are complete**, plus the 3B strength check and the Pareto analysis. Every
+validation read is recorded in `results/validation_access.log`. 179 tests pass.
 
-M0–M6 detail follows. The connectivity config is **frozen** (D12–D14), validation
-ceilings were measured **once**, and all M6 model selection ran on **5-fold CV over
-the training questions** (D17) — validation has still never been scored by a model.
-165 tests pass.
+**M11 replicated the whole evaluation on 350 NEW validation questions per dataset**
+(pre-registered as D27 and committed before any new question was read; config
+frozen, nothing retrained or retuned). **Three verdicts changed, every one because
+350 questions resolve what 150 could not — no point estimate reversed direction:**
+
+| claim | 150 questions | **350 new questions** |
+| :-- | :-- | :-- |
+| **C1** (a), MuSiQue | INCONCLUSIVE (a dead tie) | **NOT SUPPORTED** — −0.101 [−0.160, −0.043] |
+| **C2**, HotpotQA | INCONCLUSIVE | **SUPPORTED** — +0.094 [+0.051, +0.140] |
+| **C3** quality, MuSiQue | INCONCLUSIVE | **NOT SUPPORTED** — −0.100 [−0.146, −0.057] vs the −0.03 margin |
+
+Unchanged: C1 NOT SUPPORTED on HotpotQA and C1(b) INCONCLUSIVE on both, C2
+INCONCLUSIVE on MuSiQue, C3 quality SUPPORTED on HotpotQA, C3 cost and C4
+SUPPORTED. So the headline is now **C1 NOT SUPPORTED on both datasets, C2 split
+(SUPPORTED on HotpotQA / INCONCLUSIVE on MuSiQue), C3 cost SUPPORTED with quality
+SUPPORTED on HotpotQA and NOT SUPPORTED on MuSiQue, C4 SUPPORTED** with a stated
+RSS limitation. The 150-question verdicts in §C1–C4 below are left as published
+and are **not** revised; report.md §10 carries the replication. Post-hoc analyses
+(edge-level C2 evidence, answer-level EM/F1, the 3B check) are labelled as such.
+
+**M11 also found that the original 150 was an easier draw for graph methods than
+fresh questions are** — MuSiQue graph ceiling 0.380 → **0.257**, graph pool
+coverage 0.791 → **0.674**, both intervals clear of zero and not a stratification
+artefact. So absolute AllGold@4 is **not comparable across the two question sets**,
+only the within-set paired contrasts are, and the coverage bottleneck below is
+worse on unseen questions than the first measurement suggested. See §M11.
+
+The connectivity config is **frozen** (D12–D14), validation ceilings were measured
+**once** per split, and all M6 model selection ran on **5-fold CV over the training
+questions** (D17) — no model has ever been selected on validation.
 
 **The central development-set finding (D18): the router learns edge scoring well
 but it does not beat vector retrieval at picking paragraphs.** Graph-only GNN is
@@ -39,9 +62,12 @@ the ceiling problem recorded there.
 | M5c | Validation ceilings, measured once | **PASS** (7/7 checks) | `results/m5_report.json` |
 | M6 A | EdgeRouter training, main model, 3 seeds | **PASS** (6/6 checks) | `results/m6_stageA.json`, `results/checkpoints/` |
 | M6 CV | 5-fold CV: references, grid, ablations, curve, final models | **done** | `results/m6_refs.json`, `m6_grid.json`, `m6_compare.json`, `m6_ablations.json`, `m6_curve.json`, `m6_final.json` |
-| M7–M10 | Eval, reader, analysis | not started | |
+| M7 | Retrieval eval on validation (one-time run) | **PASS** | `results/m7a_report.json`, `results/m7b_full_*.json` |
+| M8 | Reader EM/F1, 3B check, Pareto | **PASS** | `results/read_*.json`, `results/m8_report.json` |
+| M10 | report.md, README, reproducible tables | **PASS** | `report.md`, `scripts/make_report_tables.py` |
+| M11 | Validation extension: 350 NEW questions per dataset (D27) | **PASS** | `results/ext_m7a_report.json`, `results/ext_pooled_report.json`, `report.md` §10 |
 
-115 tests pass (`.venv/bin/python -m pytest tests/ -q`): 25 data, 21 extractor, 13 profiling, 42 graph, 14 routing.
+179 tests pass (`.venv/bin/python -m pytest tests/ -q`).
 
 ## Settings chosen
 
@@ -475,6 +501,10 @@ saved files. The CV edge-AP figures stand as the train-side evidence.
 
 ### C1–C4 verdicts (pre-registered §1.1; C1 has D15's two rows, tested on D4-conditional)
 
+> **These are the 150-question verdicts and are left as published.** M11 replicated
+> them on 350 new questions and **three changed** — C1(a) MuSiQue and C3-quality
+> MuSiQue to NOT SUPPORTED, C2 HotpotQA to SUPPORTED. See §M11 below.
+
 | claim | verdict | evidence |
 | :-- | :-- | :-- |
 | **C1** | **NOT SUPPORTED** | (a) graph-only vs Vector RAG, conditional: MuSiQue **+0.000** [−0.090, +0.090] (a dead tie, n=111); HotpotQA **−0.227** [−0.320, −0.127], significantly worse. (b) matched pair GNN+Vec − PPR+Vec: +0.009 [−0.018, +0.045] and +0.020 [−0.040, +0.080] — no gain whose CI excludes zero. |
@@ -512,12 +542,13 @@ nearly every question it can never alter the top-4.
 Vector RAG scores 0.260 against a graph ceiling of 0.200** — it beats the bound
 that constrains every graph method, because it is not bounded by reachability.
 
-## Methods that will be scored on validation (M7)
+## Methods scored on validation (M7, and again on the M11 extension)
 
 This is the complete list. Every variant that was evaluated appears here,
 including the ones that lost on development data (the rule in §4.1.1 / D19).
-Nothing below has touched validation yet — `results/validation_access.log` is
-empty and the guard refuses the read without `--allow-validation`.
+All of them were scored on the 150-question split in M7 and re-scored on M11's
+350 new questions; `results/validation_access.log` records every read, and the
+guard refuses any read without `--allow-validation REASON`.
 
 | # | method | kind | status |
 | :-- | :-- | :-- | :-- |
@@ -571,6 +602,141 @@ question D19 was built to ask.
 **D20 was therefore skipped**, which is what its gate specified: no CI excluded
 zero and the point estimates were not positive on both datasets.
 
+## M11 validation extension — 350 NEW questions per dataset (D27)
+
+Pre-registered in agent.md §14 as **D27** and committed at `c61e517` before a
+single new validation question was read; the run itself is `4b1692a`. Config
+frozen: nothing retrained, retuned or re-chosen, no hyperparameter, prompt,
+threshold, K, pool size, model tag or connectivity setting touched, and no
+existing `results/` file overwritten — every new artefact carries an `ext_`
+prefix. **The primary, confirmatory column is the new 350 alone**; the pooled 500
+is secondary. Full write-up in [report.md](report.md) §10.
+
+### Sampling
+
+* **MuSiQue** — 350 drawn from 2,267 eligible after excluding the original 150 (2-hop 117, 3-hop 117, 4-hop 116); qid-list sha256 `4fa6b8a7db237ee2…`, seed 20261026.
+* **HotpotQA** — 350 drawn from 7,195 eligible after excluding the original 150 (bridge 279, comparison 71); qid-list sha256 `aba802ed38f67334…`, seed 20261026.
+
+Zero overlap with the original 150 and zero with the training questions, asserted
+at sampling time. Pools built by the frozen gold-blind procedure; every pool full.
+Of MuSiQue's 355 available 4-hop validation questions this draw takes 116, so a
+further extension has little 4-hop headroom left.
+
+### Verdict changes (3 distinct comparisons)
+
+| claim | dataset | 150 | **350** | new-350 interval | clear of threshold by |
+| :-- | :-- | :-- | :-- | :-- | --: |
+| C1a | MuSiQue | INCONCLUSIVE | **NOT SUPPORTED** | −0.1012 [−0.1595, −0.0428] | 0.0428 |
+| C1a_uncond | MuSiQue | INCONCLUSIVE | **NOT SUPPORTED** | −0.0914 [−0.1400, −0.0429] | 0.0429 |
+| C2 | HotpotQA | INCONCLUSIVE | **SUPPORTED** | +0.0943 [+0.0514, +0.1400] | 0.0514 |
+| C2_cond | HotpotQA | INCONCLUSIVE | **SUPPORTED** | +0.0943 [+0.0514, +0.1400] | 0.0514 |
+| C3q | MuSiQue | INCONCLUSIVE | **NOT SUPPORTED** | −0.1000 [−0.1457, −0.0571] | 0.0271 |
+
+`C1a`/`C1a_uncond` and `C2`/`C2_cond` are the conditional and unconditional
+readings of one comparison, so the five rows are three distinct comparisons. Every
+other claim agrees across all three question sets.
+
+### The two question sets are not equally hard
+
+| dataset | quantity | original 150 | new 350 | difference (95% CI, unpaired) |
+| :-- | :-- | --: | --: | :-- |
+| MuSiQue | graph ceiling (AllGold@4) | 0.380 | 0.257 | −0.1229 [−0.2133, −0.0343] **harder** |
+| MuSiQue | graph pool coverage | 0.791 | 0.674 | −0.1171 [−0.1639, −0.0704] **harder** |
+| HotpotQA | graph ceiling (AllGold@4) | 0.993 | 0.980 | −0.0133 [−0.0333, +0.0067] |
+| HotpotQA | graph pool coverage | 0.994 | 0.990 | −0.0040 [−0.0119, +0.0028] |
+
+Not a stratification artefact: both sets are uniform thirds by hop count, pool
+recall is unchanged at 0.897 (so the gold paragraphs are present), and the ceiling
+falls inside *every* bucket — 2-hop 0.720 → 0.590, 3-hop 0.200 → 0.128, 4-hop
+0.220 → 0.052. HotpotQA is unchanged, as expected at a 0.98+ ceiling.
+
+### Retrieval, new 350 (AllGold@4 unconditional)
+
+| method | MuSiQue SP@4 | MuSiQue AllGold@4 | HotpotQA SP@4 | HotpotQA AllGold@4 |
+| :-- | --: | --: | --: | --: |
+| Vector RAG | 0.6483 | 0.303 | 0.8829 | 0.774 |
+| PPR | 0.5279 | 0.220 | 0.6957 | 0.489 |
+| Edge-Sim | 0.5462 | 0.223 | 0.7743 | 0.586 |
+| GNN (graph-only) | 0.5224 | 0.211 | 0.7557 | 0.583 |
+| GNN+Vector (RRF k=60) | 0.6181 | 0.274 | 0.8471 | 0.723 |
+| PPR+Vector (RRF k=60) | 0.6183 | 0.269 | 0.8357 | 0.697 |
+| Stacked (D19) | 0.6517 | 0.303 | 0.8829 | 0.780 |
+| *MuSiQue graph ceiling* | — | 0.257 | — | — |
+| *HotpotQA graph ceiling* | — | — | — | 0.980 |
+
+The ordering replicates exactly: Vector RAG and the stacked combiner lead, the
+hybrids follow, graph-only methods trail, and no graph method beats vector
+retrieval at picking paragraphs. **Absolute values must not be compared to the
+150-question tables above** — see the comparability section.
+
+### Reader EM/F1, new 350
+
+| method | MuSiQue EM | MuSiQue F1 | HotpotQA EM | HotpotQA F1 |
+| :-- | --: | --: | --: | --: |
+| Vector RAG | 0.1571 | 0.2359 | 0.3743 | 0.5111 |
+| PPR | 0.1143 | 0.1813 | 0.3486 | 0.4736 |
+| LLM-Trace | 0.1629 | 0.2319 | 0.2943 | 0.3988 |
+| GNN (graph-only) | 0.1057 | 0.1671 | 0.3343 | 0.4566 |
+| GNN+Vector (RRF) | 0.1457 | 0.2198 | 0.3743 | 0.4995 |
+| Stacked (D19) | 0.1571 | 0.2358 | 0.3800 | 0.5110 |
+| Oracle (gold only) | 0.3657 | 0.4415 | 0.5200 | 0.6661 |
+
+The oracle gap is large on both (MuSiQue 0.4415 F1 against 0.2359 for Vector RAG),
+so **retrieval, not the reader, is the binding constraint** — the same conclusion
+M8 reached. On HotpotQA the GNN router does beat LLM-Trace on F1,
++0.0579 [+0.0139, +0.1019].
+
+### Efficiency and stage validity
+
+| stage group | measured | §7.3-invalid on swap |
+| :-- | --: | --: |
+| retrieval routing | 18 | **0** |
+| extraction chunks | 13 | 12 |
+| LLM-Trace routing | 2 | 2 |
+| reader | 14 | 8 |
+
+Retrieval is fully valid here, which it was not before D30. The 22 invalid stages
+are all Ollama-loaded or extraction stages, the D26 pattern, and they void **only**
+latency, token-rate and RSS figures: every EM/F1 and retrieval metric is unaffected,
+because the reader and the traversal decode greedily at `temperature=0`.
+C4 peak process-tree RSS **1,575 MB (1.54 GB)** < 6 GB.
+
+**78 new uncorrected confidence intervals** (26 claim table, 24 aggregation
+contrasts, 24 reader, 4 comparability). At that count ~4 would exclude zero by
+chance, so no single borderline interval is evidence; the three verdict changes
+above are each well clear of their threshold.
+
+### Three measurement faults found and fixed (D28, D29, D30)
+
+All three produced entirely plausible numbers. Recorded rather than edited away,
+and every affected figure re-measured; superseded runs are kept under
+`results/ext_cold_snapshot/` and `results/ext_pre_d30_snapshot/`.
+
+* **D29** — `to_pyg` zero-filled a missing question embedding, so `q = 0` and the
+  router scored edges **query-blind** on HotpotQA. Now raises.
+* **D30** — the same fault one field over: **10.2% (MuSiQue) / 9.1% (HotpotQA)** of
+  relation lookups missed and were zero-filled, leaving those edges' `edge_attr`
+  signal-free, against 0.0% on the published splits. `_emb` now raises for every
+  kind, with a regression test each. Also removed bge-small from the timed routing
+  region — and measuring *that* showed **Section 7's own GNN latencies carry the
+  same artefact**: published 43.8 / 35.6 ms against a like-for-like **29.0 / 20.9 ms**
+  (new 350: 26.5 / 19.9 ms, so the two question sets agree). Section 7 is left as
+  published and corrected in report.md §10, as D23 handled Edge-Sim's 583.5 → 10.6 ms.
+* **D28** — the extraction chunk accounting was lost to a retry-loop bug and was
+  rebuilt from the triple cache; the triples were never in doubt.
+
+**The common thread: a zero vector is not a neutral default.** Three times now
+(paragraph nodes, the question, relations) a cache miss was silently absorbed into
+a feature and the model went on returning plausible scores, with nothing in the
+pipeline announcing it. D29's fix was too narrow — patching only the field that had
+already caused a failure left the identical trap in the two beside it.
+
+Two pipeline gaps closed in passing: `load_pools`/`load_graphs` gated on
+`split == "validation"` **exactly**, which would have let `validation_ext` be read
+unlogged (both now prefix-match, with a behavioural test); and `m8_reader.py` died
+on an empty latency list when fully resumed, a silent no-op that let a failed
+reader re-run look successful.
+
 ## Open issues
 
 ### 1. C1 on MuSiQue is still not a fair fight on the unconditional metric
@@ -587,6 +753,15 @@ is capped only by all-gold-in-pool at **74.0%**. A perfect router still loses th
 unconditional comparison on MuSiQue by construction. D4 anticipates this by
 testing C1 on the *conditional* metric, which is the right call; see #2 for a
 definition problem in exactly that metric.
+
+**M11 makes this worse, not better, and settles the conditional comparison too.**
+On 350 unseen questions the MuSiQue ceiling is **25.7%**, not 38.0%
+(−0.123 [−0.213, −0.034]), with graph pool coverage 0.674 against 0.791 — so the
+original 150 was an easier draw and this issue was *under*-stated. And the
+conditional C1(a) comparison, a dead tie at n=111, is **NOT SUPPORTED** at n=257
+(−0.101 [−0.160, −0.043]). The unfairness of the unconditional metric is real, but
+it is no longer what the verdict rests on: the router loses the conditional
+comparison as well.
 
 Two specifics worth carrying into M6/M7 rather than rediscovering:
 
@@ -644,7 +819,7 @@ MuSiQue train questions:
 gold paragraphs that pooling had discarded. All three are now reported with
 explicit names and M5 asserts `C ≤ A` as an acceptance check.
 
-### 5. M4 timings### 2. M4 timingsare not a valid efficiency measurement (D11)
+### 5. M4 timings are not a valid efficiency measurement (D11)
 
 t_p ≈ 1.90 s and the 3.30 h wall were measured while system swap grew to
 **+8,239 MB**, far past §7.3's 500 MB invalidation rule. They are a planning
@@ -658,6 +833,12 @@ validation. An earlier n=20 probe suggested 14% at every `max_triples`; on the
 full 150-question split it is not that bad, but 3-hop remains worse than both
 2-hop and 4-hop. Report it with C1 rather than discovering it at M10.
 
+**M11 (n=117 per bucket) shows the weakness is not confined to 3-hop**: the
+ceiling fell in every bucket on fresh questions — 2-hop 0.720 → 0.590, 3-hop
+0.200 → 0.128, **4-hop 0.220 → 0.052**. 4-hop is now the weakest cell, and with
+116 of the 355 available 4-hop questions already drawn there is little headroom
+left to measure it on.
+
 ### 7. Minor
 
 * M3's "bge freed" check passes trivially on a fully cached re-run, because the
@@ -669,26 +850,38 @@ full 150-question split it is not that bad, but 3-hop remains worse than both
 
 ## Exact next step
 
-M6 is complete. Next is **M7** (retrieval eval on validation + LLM-Trace), which is the first phase allowed to score the validation split. Original M6 note follows — `src/gnn_router.py`: `EdgeRouter`, `train_router`, `route`; overfit
-  test on 8 graphs to near-zero loss; 3 seeds (1234/1235/1236) plus the §5
-  ablations; dev AllGold@4 logged per epoch; each run ≤ 5 min.
+**Nothing is pending.** M0–M11 are complete, the write-up is in
+[report.md](report.md) (§10 is the M11 extension), and the working tree is clean
+at `4b1692a`. 179 tests pass.
+
+If the work is picked up again, the three things most worth doing next, in order
+of what the evidence actually asks for:
+
+1. **Attack the coverage bottleneck, not the router.** M11 measured it worse than
+   M7 did (MuSiQue graph ceiling 0.257, graph pool coverage 0.674). Every C1
+   result traces back to the ego-graph failing to reach gold paragraphs, and D18
+   already showed more capacity and more extraction do not help. D13 names the
+   lever — `H=3` is the binding constraint — and the cost: raising `H` widens
+   `onehot(hop_dist 0..H)`, so the §4.3 feature width changes and every
+   checkpoint and ablation must be re-run.
+2. **A stronger LLM-Trace baseline.** §13 flags the 1.5B tracer as handicapped,
+   and C3's MuSiQue quality half is now NOT SUPPORTED against exactly that
+   baseline. The M7b 3B check was staged but the full comparison was never run,
+   so how much of C3 is the tracer rather than the method is still unmeasured.
+3. **Audit the remaining silent-default paths.** D28–D30 were three instances of
+   one failure mode, each found only by accident. `_emb` is strict now, but the
+   same question should be asked of every other place a miss, a truncation or an
+   empty result is absorbed into a default rather than raised.
+
+A further extension would add little: MuSiQue has ~239 unused 4-hop questions
+left, and D27's exclusion list plus the hop strata are already recorded in
+`results/ext_sample_*.json`, so a third draw would mostly re-measure the same
+ceiling with a narrower interval.
 
 ```bash
-ollama stop qwen2.5:1.5b-instruct-q4_K_M    # M6 must not run alongside Ollama (§6.1)
-scripts/run_phase.sh m6
+.venv/bin/python -m pytest tests/ -q                  # 179 tests
+scripts/run_phase.sh <phase> [--resume]               # m0 m1 pilot m3 m4 m5 m6 m7 m7b m8 m10
 ```
 
-Inputs M6 needs are already on disk: `data/cache/graphs/{dataset}_{split}_H3.pt`
-(600 serialized PyG graphs), with `x[N, 778]`, `edge_attr[E, 390]`, `y_edge[E]`,
-`q[1, 384]`, `seed_mask[N]`, `edge_pid`, `edge_kind` and `evidence_mask[E]`.
-
-Two choices M6 must make deliberately rather than by default:
-
-1. **`pos_weight`**: 18.6 over all edges, or **4.47** with the loss masked to
-   `evidence_mask` (both train-only, in `results/m5_report.json`). Masking matches
-   what paragraph scoring consumes, since scaffolding is 71% of edges and
-   all-negative by construction.
-2. **Ablations**: `L ∈ {0,1,2,3}` must reuse these exact tensors — §5 forbids
-   rebuilding features, which is what keeps `L=0` an honest message-passing
-   ablation — plus the four edge-type ablations (`no_para`, `no_same_as`,
-   `no_title`, `triples_only`).
+Re-running any finished phase is a no-op that takes seconds. The M11 runners are
+standalone and documented in [results/RUNBOOK.md](results/RUNBOOK.md).
