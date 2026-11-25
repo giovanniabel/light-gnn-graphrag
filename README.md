@@ -10,7 +10,7 @@ Geometric for the graphs. No cloud APIs.
 
 This repository is the code and data release accompanying a preprint:
 
-> Christian, G. A. (2026). *Light GNN Subgraph Routing for Multi-Hop GraphRAG A
+> Christian, G. A. (2026). *Light GNN Subgraph Routing for Multi-Hop GraphRAG : A
 > Pre-Registered Study*. Zenodo. https://doi.org/10.5281/zenodo.24489118
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24489118.svg)](https://doi.org/10.5281/zenodo.24489118)
@@ -28,7 +28,7 @@ same material; cite the DOI rather than the repository URL.
 ```bibtex
 @misc{christian2026lightgnn,
   author       = {Christian, Giovanni Abel},
-  title        = {Light GNN Subgraph Routing for Multi-Hop GraphRAG A Pre-Registered Study},
+  title        = {Light GNN Subgraph Routing for Multi-Hop {GraphRAG} : A Pre-Registered Study},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.24489118},
