@@ -6,6 +6,42 @@ any LLM call at query time**. Everything runs on one laptop: Ollama for the smal
 language model, `BAAI/bge-small-en-v1.5` for embeddings, NetworkX + PyTorch
 Geometric for the graphs. No cloud APIs.
 
+## Preprint
+
+This repository is the code and data release accompanying a preprint:
+
+> Christian, G. A. (2026). *Light GNN Subgraph Routing for Multi-Hop GraphRAG A
+> Pre-Registered Study*. Zenodo. https://doi.org/10.5281/zenodo.24489118
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24489118.svg)](https://doi.org/10.5281/zenodo.24489118)
+
+* **Record:** <https://zenodo.org/records/24489118> · published 2026-11-24 · CC BY 4.0
+* **Version DOI** (this version): [10.5281/zenodo.24489118](https://doi.org/10.5281/zenodo.24489118)
+* **Concept DOI** (always resolves to the latest version): [10.5281/zenodo.24489117](https://doi.org/10.5281/zenodo.24489117)
+* **ORCID:** [0009-0006-3589-2055](https://orcid.org/0009-0006-3589-2055)
+
+The Zenodo record carries the manuscript, the source code, the per-question
+outputs for every method, the deviation log, the validation-read audit log and the
+scripts that regenerate every table. This repository is the live version of the
+same material; cite the DOI rather than the repository URL.
+
+```bibtex
+@misc{christian2026lightgnn,
+  author       = {Christian, Giovanni Abel},
+  title        = {Light GNN Subgraph Routing for Multi-Hop GraphRAG A Pre-Registered Study},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.24489118},
+  url          = {https://doi.org/10.5281/zenodo.24489118},
+  note         = {Preprint}
+}
+```
+
+The preprint reports the pre-registered study on 150 validation questions per
+dataset **and** the replication on 350 new questions per dataset (M11 / D27).
+Section 10 of [report.md](report.md) is that replication; the headline below is
+the original 150-question result, which the replication revised in three places.
+
 ## Headline result
 
 The router learns edge scoring that is clearly better than a non-learned graph
